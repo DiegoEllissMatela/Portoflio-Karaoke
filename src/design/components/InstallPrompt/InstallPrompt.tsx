@@ -1,10 +1,5 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './InstallPrompt.module.scss';
-
-interface BeforeInstallPromptEvent extends Event {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
-}
 
 type Platform = 'android' | 'desktop' | 'other';
 
@@ -26,7 +21,6 @@ interface InstallPromptProps {
 }
 
 export function InstallPrompt({ onVisibilityChange }: InstallPromptProps = {}) {
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isInstalled, setIsInstalled] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [platform] = useState<Platform>(detectPlatform);
@@ -44,69 +38,13 @@ export function InstallPrompt({ onVisibilityChange }: InstallPromptProps = {}) {
       return;
     }
 
-    // Check if early event was already captured in index.html
-    const existingPrompt = (window as any).__deferredInstallPrompt;
-    if (existingPrompt) {
-      setDeferredPrompt(existingPrompt);
-    }
-
     // Show the FAB after initial load
     const timer = setTimeout(() => setShowFab(true), 1500);
 
-    const handleBeforeInstall = (e: Event) => {
-      e.preventDefault();
-      (window as any).__deferredInstallPrompt = e;
-      setDeferredPrompt(e as BeforeInstallPromptEvent);
-    };
-
-    const handlePwaReady = () => {
-      const prompt = (window as any).__deferredInstallPrompt;
-      if (prompt) setDeferredPrompt(prompt);
-    };
-
-    const handleAppInstalled = () => {
-      setIsInstalled(true);
-      setShowFab(false);
-      setShowModal(false);
-      setDeferredPrompt(null);
-      (window as any).__deferredInstallPrompt = null;
-    };
-
-    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
-    window.addEventListener('pwa-install-ready', handlePwaReady);
-    window.addEventListener('appinstalled', handleAppInstalled);
-
     return () => {
       clearTimeout(timer);
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
-      window.removeEventListener('pwa-install-ready', handlePwaReady);
-      window.removeEventListener('appinstalled', handleAppInstalled);
     };
   }, []);
-
-  const handleInstallClick = useCallback(async () => {
-    const promptEvent = deferredPrompt || (window as any).__deferredInstallPrompt;
-
-    // If native prompt is available, trigger directly on click
-    if (promptEvent && typeof promptEvent.prompt === 'function') {
-      try {
-        await promptEvent.prompt();
-        const choice = await promptEvent.userChoice;
-        if (choice && choice.outcome === 'accepted') {
-          setIsInstalled(true);
-          setShowFab(false);
-        }
-        setDeferredPrompt(null);
-        (window as any).__deferredInstallPrompt = null;
-        return;
-      } catch (err) {
-        console.warn('Install prompt error:', err);
-      }
-    }
-
-    // Fallback: If native prompt wasn't provided by browser, show guidance modal
-    setShowModal(true);
-  }, [deferredPrompt]);
 
   if (isInstalled) return null;
 
