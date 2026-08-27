@@ -1,0 +1,805 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.sidebarContainer {
+  @include glass-card;
+  padding: 16px;
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @include custom-scrollbar;
+}
+
+.header {
+  @include flex-between;
+  background-color: transparent;
+
+  .title {
+    font-family: $font-heading;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $color-text-primary;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.nextTurnInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: $radius-md;
+  border: $glass-border;
+  text-align: center;
+  justify-content: center;
+
+  .label {
+    font-size: 1rem;
+    color: $color-primary;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+
+  .playerName {
+    font-family: $font-heading;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    text-shadow: $glow-primary;
+  }
+
+  .nextSongDetails {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .songTitle {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.35;
+    }
+
+    .songArtist {
+      font-size: 0.9rem;
+      color: $color-text-secondary;
+    }
+  }
+
+  .toggleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    .toggleLabel {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $color-text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .toggleSwitch {
+      width: 48px;
+      height: 26px;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: $radius-full;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.active {
+        background: $color-primary;
+
+        .toggleKnob {
+          transform: translateX(22px);
+        }
+      }
+
+      .toggleKnob {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 22px;
+        height: 22px;
+        background: white;
+        border-radius: 50%;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .inputModeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    .toggleLabel {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $color-text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .inputModeGroup {
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: $radius-md;
+      padding: 4px;
+      gap: 4px;
+
+      .modeBtn {
+        flex: 1;
+        padding: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: $color-text-muted;
+        background: transparent;
+        border: none;
+        border-radius: $radius-sm;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: $color-text-primary;
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.15);
+          color: $color-text-primary;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+}
+
+.scoreboardContainer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-text-muted;
+    font-weight: 700;
+  }
+}
+
+.playerListSidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.bottomActions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.nextTurnBtn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  border: none;
+  border-radius: $radius-md;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  @include flex-center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: $glow-primary;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $glow-secondary;
+  }
+}
+
+.scoreBtn {
+  width: 100%;
+  padding: 16px;
+  background: transparent;
+  border: 2px solid $color-cyan;
+  border-radius: $radius-md;
+  color: $color-cyan;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  @include flex-center;
+  gap: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(6, 182, 212, 0.1);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+  }
+}
+
+.editBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: $glass-border;
+  color: $color-text-secondary;
+  border-radius: $radius-sm;
+  width: 32px;
+  height: 32px;
+  @include flex-center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(139, 92, 246, 0.2);
+    color: $color-primary;
+    transform: scale(1.05);
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  @include flex-center;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modalContent {
+  @include glass-card;
+  width: 90%;
+  max-width: 400px;
+  padding: 24px;
+  border-radius: $radius-lg;
+  border: $glass-border-accent;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+  .modalHeader {
+    @include flex-between;
+    margin-bottom: 24px;
+
+    h3 {
+      font-family: $font-heading;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+    }
+
+    .tabContainer {
+      display: flex;
+      gap: 12px;
+
+      .tabBtn {
+        background: transparent;
+        border: none;
+        color: $color-text-muted;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 4px 8px;
+        transition: all 0.2s ease;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+          color: $color-text-primary;
+        }
+
+        &.activeTab {
+          color: $color-primary;
+          border-bottom-color: $color-primary;
+        }
+      }
+    }
+
+    .closeBtn {
+      background: transparent;
+      border: none;
+      color: $color-text-secondary;
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .songsTabContent {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .songActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      .actionBtn {
+        flex: 1;
+        min-width: calc(50% - 4px);
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: $radius-sm;
+        color: $color-text-primary;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        &.shuffleBtn {
+          min-width: 100%;
+          background: rgba(139, 92, 246, 0.15);
+          border-color: rgba(139, 92, 246, 0.3);
+          color: #a78bfa;
+
+          &:hover {
+            background: rgba(139, 92, 246, 0.25);
+          }
+        }
+      }
+    }
+
+    .songListScrollable {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 250px;
+      overflow-y: auto;
+      padding-right: 4px;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+      }
+
+      .songListItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px 12px;
+        border-radius: $radius-sm;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.2s ease;
+
+        &.disabledSong {
+          opacity: 0.5;
+        }
+
+        .songInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+
+          .songListTitle {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: $color-text-primary;
+          }
+
+          .songListArtist {
+            font-size: 0.75rem;
+            color: $color-text-muted;
+          }
+        }
+
+        .toggleSwitch {
+          width: 44px;
+          height: 24px;
+          border-radius: 12px;
+          background: rgba(255, 255, 255, 0.1);
+          border: none;
+          position: relative;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          flex-shrink: 0;
+
+          .toggleKnob {
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          }
+
+          &.active {
+            background: $color-primary;
+
+            .toggleKnob {
+              transform: translateX(20px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .scoreOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 4px 0;
+    }
+
+    .scoreOptionBtn {
+      width: 100%;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: $radius-md;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &.scorePerfect {
+        color: #49FF00;
+        border-color: rgba(#49FF00, 0.3);
+
+        &:hover {
+          background: rgba(#49FF00, 0.1);
+          border-color: #49FF00;
+          box-shadow: 0 0 15px rgba(#49FF00, 0.4);
+        }
+      }
+
+      &.scoreTwo {
+        color: #FBFF00;
+        border-color: rgba(#FBFF00, 0.3);
+
+        &:hover {
+          background: rgba(#FBFF00, 0.1);
+          border-color: #FBFF00;
+          box-shadow: 0 0 15px rgba(#FBFF00, 0.4);
+        }
+      }
+
+      &.scoreOne {
+        color: #FF9300;
+        border-color: rgba(#FF9300, 0.3);
+
+        &:hover {
+          background: rgba(#FF9300, 0.1);
+          border-color: #FF9300;
+          box-shadow: 0 0 15px rgba(#FF9300, 0.4);
+        }
+      }
+
+      &.scoreZero {
+        color: #FF0000;
+        border-color: rgba(#FF0000, 0.3);
+
+        &:hover {
+          background: rgba(#FF0000, 0.1);
+          border-color: #FF0000;
+          box-shadow: 0 0 15px rgba(#FF0000, 0.4);
+        }
+      }
+
+      &.scoreExtra {
+        color: #00ffff;
+        border-color: rgba(0, 255, 255, 0.3);
+
+        &:hover {
+          background: rgba(0, 255, 255, 0.1);
+          border-color: #00ffff;
+          box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        }
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .dareResult {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    padding: 16px 0;
+
+    .undoBtn {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: $color-text-secondary;
+      border-radius: $radius-sm;
+      width: 36px;
+      height: 36px;
+      @include flex-center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 7, 58, 0.15);
+        color: #ff073a;
+        border-color: rgba(255, 7, 58, 0.3);
+      }
+    }
+
+    .dareResultTitle {
+      font-family: $font-heading;
+      font-size: 2rem;
+      font-weight: 800;
+      color: $color-cyan;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
+      text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+    }
+
+    .dareResultText {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: white;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .dareDoneBtn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, $color-primary, $color-cyan);
+      border: none;
+      border-radius: $radius-md;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+      }
+    }
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: $glass-border;
+    border-radius: $radius-sm;
+    padding: 12px 16px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    }
+  }
+
+  .addBtn {
+    @include flex-center;
+    width: 100%;
+    gap: 6px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, $color-primary, $color-secondary);
+    border: none;
+    border-radius: $radius-sm;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: $glow-primary;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      filter: grayscale(1);
+    }
+  }
+}
+
+.playerList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-height: 80px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: $radius-sm;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-height: 250px;
+  overflow-y: auto;
+  margin-top: 24px;
+}
+
+.emptyState {
+  width: 100%;
+  text-align: center;
+  color: $color-text-muted;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+.playerTag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 14px;
+  border-radius: $radius-full;
+  color: white;
+  font-weight: 500;
+  animation: popIn 0.2s ease-out;
+
+  &.activeSingerTag {
+    border-color: $color-primary;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    background: rgba(139, 92, 246, 0.2);
+  }
+
+  .scoreDots {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin-left: 4px;
+
+    .scoreDot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      box-shadow: 0 0 5px currentColor;
+
+      &.scoreDot_PERFECT {
+        color: #49FF00;
+        background: #49FF00;
+      }
+
+      &.scoreDot_TWO_WORDS {
+        color: #FBFF00;
+        background: #FBFF00;
+      }
+
+      &.scoreDot_ONE_WORD {
+        color: #FF9300;
+        background: #FF9300;
+      }
+
+      &.scoreDot_ZERO {
+        color: #FF0000;
+        background: #FF0000;
+      }
+
+      &.scoreDot_EXTRA {
+        color: #00ffff;
+        background: #00ffff;
+      }
+    }
+  }
+
+  .removeBtn {
+    background: none;
+    border: none;
+    color: $color-text-muted;
+    cursor: pointer;
+    padding: 2px;
+    @include flex-center;
+    transition: color 0.2s;
+    margin-left: 4px;
+
+    &:hover {
+      color: #ef4444;
+    }
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.secondaryBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.dangerBtn {
+  @extend .secondaryBtn;
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.3);
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.3);
+  }
+}
+

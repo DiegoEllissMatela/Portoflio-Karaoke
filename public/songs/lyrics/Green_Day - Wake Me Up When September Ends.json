@@ -1,0 +1,902 @@
+[
+  {
+    "word": "summer",
+    "start_ms": 9480,
+    "end_ms": 10960
+  },
+  {
+    "word": "has",
+    "start_ms": 11000,
+    "end_ms": 11700
+  },
+  {
+    "word": "come",
+    "start_ms": 11800,
+    "end_ms": 12400
+  },
+  {
+    "word": "and",
+    "start_ms": 12460,
+    "end_ms": 12620
+  },
+  {
+    "word": "passed",
+    "start_ms": 12660,
+    "end_ms": 13520
+  },
+  {
+    "word": "the",
+    "start_ms": 13881,
+    "end_ms": 14001
+  },
+  {
+    "word": "innocent",
+    "start_ms": 14221,
+    "end_ms": 15341
+  },
+  {
+    "word": "can",
+    "start_ms": 15481,
+    "end_ms": 15941
+  },
+  {
+    "word": "never",
+    "start_ms": 16121,
+    "end_ms": 16861
+  },
+  {
+    "word": "last",
+    "start_ms": 17261,
+    "end_ms": 18041
+  },
+  {
+    "word": "wake",
+    "start_ms": 18681,
+    "end_ms": 19221
+  },
+  {
+    "word": "me",
+    "start_ms": 19281,
+    "end_ms": 19381
+  },
+  {
+    "word": "up",
+    "start_ms": 19681,
+    "end_ms": 20161
+  },
+  {
+    "word": "when",
+    "start_ms": 20941,
+    "end_ms": 21381
+  },
+  {
+    "word": "september",
+    "start_ms": 21501,
+    "end_ms": 22962
+  },
+  {
+    "word": "ends",
+    "start_ms": 23102,
+    "end_ms": 23802
+  },
+  {
+    "word": "like",
+    "start_ms": 27842,
+    "end_ms": 28382
+  },
+  {
+    "word": "my",
+    "start_ms": 28422,
+    "end_ms": 28602
+  },
+  {
+    "word": "father's",
+    "start_ms": 28682,
+    "end_ms": 30002
+  },
+  {
+    "word": "come",
+    "start_ms": 30122,
+    "end_ms": 30662
+  },
+  {
+    "word": "to",
+    "start_ms": 30722,
+    "end_ms": 30822
+  },
+  {
+    "word": "pass",
+    "start_ms": 30942,
+    "end_ms": 31702
+  },
+  {
+    "word": "seven",
+    "start_ms": 32362,
+    "end_ms": 33203
+  },
+  {
+    "word": "years",
+    "start_ms": 33303,
+    "end_ms": 33823
+  },
+  {
+    "word": "has",
+    "start_ms": 33923,
+    "end_ms": 34283
+  },
+  {
+    "word": "gone",
+    "start_ms": 34443,
+    "end_ms": 34943
+  },
+  {
+    "word": "so",
+    "start_ms": 34983,
+    "end_ms": 35143
+  },
+  {
+    "word": "fast",
+    "start_ms": 35563,
+    "end_ms": 36383
+  },
+  {
+    "word": "wake",
+    "start_ms": 36983,
+    "end_ms": 37543
+  },
+  {
+    "word": "me",
+    "start_ms": 37603,
+    "end_ms": 37703
+  },
+  {
+    "word": "up",
+    "start_ms": 38003,
+    "end_ms": 38483
+  },
+  {
+    "word": "when",
+    "start_ms": 39283,
+    "end_ms": 39723
+  },
+  {
+    "word": "september",
+    "start_ms": 39843,
+    "end_ms": 41303
+  },
+  {
+    "word": "ends",
+    "start_ms": 41424,
+    "end_ms": 42204
+  },
+  {
+    "word": "here",
+    "start_ms": 46124,
+    "end_ms": 46984
+  },
+  {
+    "word": "comes",
+    "start_ms": 46984,
+    "end_ms": 47524
+  },
+  {
+    "word": "the",
+    "start_ms": 47584,
+    "end_ms": 47684
+  },
+  {
+    "word": "rain",
+    "start_ms": 48404,
+    "end_ms": 48984
+  },
+  {
+    "word": "again",
+    "start_ms": 49104,
+    "end_ms": 49764
+  },
+  {
+    "word": "falling",
+    "start_ms": 50684,
+    "end_ms": 51644
+  },
+  {
+    "word": "from",
+    "start_ms": 51764,
+    "end_ms": 52084
+  },
+  {
+    "word": "the",
+    "start_ms": 52164,
+    "end_ms": 52284
+  },
+  {
+    "word": "stars",
+    "start_ms": 52604,
+    "end_ms": 53505
+  },
+  {
+    "word": "drenched",
+    "start_ms": 55205,
+    "end_ms": 56125
+  },
+  {
+    "word": "in",
+    "start_ms": 56205,
+    "end_ms": 56545
+  },
+  {
+    "word": "my",
+    "start_ms": 56705,
+    "end_ms": 57305
+  },
+  {
+    "word": "pain",
+    "start_ms": 57525,
+    "end_ms": 58125
+  },
+  {
+    "word": "again",
+    "start_ms": 58225,
+    "end_ms": 58885
+  },
+  {
+    "word": "becoming",
+    "start_ms": 59525,
+    "end_ms": 60985
+  },
+  {
+    "word": "who",
+    "start_ms": 61025,
+    "end_ms": 61105
+  },
+  {
+    "word": "we",
+    "start_ms": 61285,
+    "end_ms": 61425
+  },
+  {
+    "word": "are",
+    "start_ms": 61965,
+    "end_ms": 62666
+  },
+  {
+    "word": "as",
+    "start_ms": 64526,
+    "end_ms": 65186
+  },
+  {
+    "word": "my",
+    "start_ms": 65306,
+    "end_ms": 65706
+  },
+  {
+    "word": "memory",
+    "start_ms": 65886,
+    "end_ms": 66906
+  },
+  {
+    "word": "rests",
+    "start_ms": 67606,
+    "end_ms": 68226
+  },
+  {
+    "word": "but",
+    "start_ms": 68706,
+    "end_ms": 68866
+  },
+  {
+    "word": "never",
+    "start_ms": 68966,
+    "end_ms": 69666
+  },
+  {
+    "word": "forgets",
+    "start_ms": 69846,
+    "end_ms": 70886
+  },
+  {
+    "word": "what",
+    "start_ms": 71006,
+    "end_ms": 71567
+  },
+  {
+    "word": "i",
+    "start_ms": 71987,
+    "end_ms": 72007
+  },
+  {
+    "word": "lost",
+    "start_ms": 72147,
+    "end_ms": 72987
+  },
+  {
+    "word": "wake",
+    "start_ms": 73547,
+    "end_ms": 74127
+  },
+  {
+    "word": "me",
+    "start_ms": 74187,
+    "end_ms": 74287
+  },
+  {
+    "word": "up",
+    "start_ms": 74587,
+    "end_ms": 75047
+  },
+  {
+    "word": "when",
+    "start_ms": 75827,
+    "end_ms": 76287
+  },
+  {
+    "word": "september",
+    "start_ms": 76407,
+    "end_ms": 77827
+  },
+  {
+    "word": "ends",
+    "start_ms": 77967,
+    "end_ms": 79087
+  },
+  {
+    "word": "summer",
+    "start_ms": 96368,
+    "end_ms": 97808
+  },
+  {
+    "word": "has",
+    "start_ms": 97948,
+    "end_ms": 98528
+  },
+  {
+    "word": "come",
+    "start_ms": 98648,
+    "end_ms": 99308
+  },
+  {
+    "word": "and",
+    "start_ms": 99368,
+    "end_ms": 99468
+  },
+  {
+    "word": "passed",
+    "start_ms": 99528,
+    "end_ms": 100328
+  },
+  {
+    "word": "the",
+    "start_ms": 100688,
+    "end_ms": 100808
+  },
+  {
+    "word": "innocent",
+    "start_ms": 101068,
+    "end_ms": 102248
+  },
+  {
+    "word": "can",
+    "start_ms": 102368,
+    "end_ms": 102848
+  },
+  {
+    "word": "never",
+    "start_ms": 103008,
+    "end_ms": 103768
+  },
+  {
+    "word": "last",
+    "start_ms": 104148,
+    "end_ms": 104829
+  },
+  {
+    "word": "wake",
+    "start_ms": 105529,
+    "end_ms": 106089
+  },
+  {
+    "word": "me",
+    "start_ms": 106129,
+    "end_ms": 106249
+  },
+  {
+    "word": "up",
+    "start_ms": 106569,
+    "end_ms": 107149
+  },
+  {
+    "word": "when",
+    "start_ms": 107829,
+    "end_ms": 108269
+  },
+  {
+    "word": "september",
+    "start_ms": 108389,
+    "end_ms": 109869
+  },
+  {
+    "word": "ends",
+    "start_ms": 110009,
+    "end_ms": 114669
+  },
+  {
+    "word": "ring",
+    "start_ms": 114709,
+    "end_ms": 115589
+  },
+  {
+    "word": "out",
+    "start_ms": 115729,
+    "end_ms": 116030
+  },
+  {
+    "word": "the",
+    "start_ms": 116130,
+    "end_ms": 116270
+  },
+  {
+    "word": "bells",
+    "start_ms": 116950,
+    "end_ms": 117550
+  },
+  {
+    "word": "again",
+    "start_ms": 117650,
+    "end_ms": 118310
+  },
+  {
+    "word": "like",
+    "start_ms": 119250,
+    "end_ms": 119770
+  },
+  {
+    "word": "we",
+    "start_ms": 119850,
+    "end_ms": 119970
+  },
+  {
+    "word": "did",
+    "start_ms": 120090,
+    "end_ms": 120510
+  },
+  {
+    "word": "when",
+    "start_ms": 120710,
+    "end_ms": 121030
+  },
+  {
+    "word": "spring",
+    "start_ms": 121190,
+    "end_ms": 121810
+  },
+  {
+    "word": "began",
+    "start_ms": 121890,
+    "end_ms": 123090
+  },
+  {
+    "word": "wake",
+    "start_ms": 123810,
+    "end_ms": 124391
+  },
+  {
+    "word": "me",
+    "start_ms": 124431,
+    "end_ms": 124531
+  },
+  {
+    "word": "up",
+    "start_ms": 124831,
+    "end_ms": 125351
+  },
+  {
+    "word": "when",
+    "start_ms": 126111,
+    "end_ms": 126551
+  },
+  {
+    "word": "september",
+    "start_ms": 126691,
+    "end_ms": 128131
+  },
+  {
+    "word": "ends",
+    "start_ms": 128251,
+    "end_ms": 129011
+  },
+  {
+    "word": "here",
+    "start_ms": 132951,
+    "end_ms": 133071
+  },
+  {
+    "word": "comes",
+    "start_ms": 133771,
+    "end_ms": 134371
+  },
+  {
+    "word": "the",
+    "start_ms": 134431,
+    "end_ms": 134531
+  },
+  {
+    "word": "rain",
+    "start_ms": 135291,
+    "end_ms": 135832
+  },
+  {
+    "word": "again",
+    "start_ms": 135932,
+    "end_ms": 136632
+  },
+  {
+    "word": "falling",
+    "start_ms": 137532,
+    "end_ms": 138532
+  },
+  {
+    "word": "from",
+    "start_ms": 138652,
+    "end_ms": 138932
+  },
+  {
+    "word": "the",
+    "start_ms": 139012,
+    "end_ms": 139132
+  },
+  {
+    "word": "stars",
+    "start_ms": 139492,
+    "end_ms": 140372
+  },
+  {
+    "word": "drenched",
+    "start_ms": 142072,
+    "end_ms": 143012
+  },
+  {
+    "word": "in",
+    "start_ms": 143092,
+    "end_ms": 143452
+  },
+  {
+    "word": "my",
+    "start_ms": 143572,
+    "end_ms": 144072
+  },
+  {
+    "word": "pain",
+    "start_ms": 144412,
+    "end_ms": 144993
+  },
+  {
+    "word": "again",
+    "start_ms": 145133,
+    "end_ms": 145753
+  },
+  {
+    "word": "becoming",
+    "start_ms": 146393,
+    "end_ms": 147853
+  },
+  {
+    "word": "who",
+    "start_ms": 148153,
+    "end_ms": 148753
+  },
+  {
+    "word": "we",
+    "start_ms": 148753,
+    "end_ms": 148833
+  },
+  {
+    "word": "are",
+    "start_ms": 148833,
+    "end_ms": 151413
+  },
+  {
+    "word": "as",
+    "start_ms": 151413,
+    "end_ms": 152073
+  },
+  {
+    "word": "my",
+    "start_ms": 152173,
+    "end_ms": 152513
+  },
+  {
+    "word": "memory",
+    "start_ms": 152733,
+    "end_ms": 153733
+  },
+  {
+    "word": "rests",
+    "start_ms": 154434,
+    "end_ms": 154934
+  },
+  {
+    "word": "but",
+    "start_ms": 155574,
+    "end_ms": 155734
+  },
+  {
+    "word": "never",
+    "start_ms": 155854,
+    "end_ms": 156494
+  },
+  {
+    "word": "forgets",
+    "start_ms": 156694,
+    "end_ms": 157714
+  },
+  {
+    "word": "what",
+    "start_ms": 157834,
+    "end_ms": 158394
+  },
+  {
+    "word": "i",
+    "start_ms": 158754,
+    "end_ms": 158774
+  },
+  {
+    "word": "lost",
+    "start_ms": 158994,
+    "end_ms": 159854
+  },
+  {
+    "word": "wake",
+    "start_ms": 160414,
+    "end_ms": 160954
+  },
+  {
+    "word": "me",
+    "start_ms": 160994,
+    "end_ms": 161094
+  },
+  {
+    "word": "up",
+    "start_ms": 161414,
+    "end_ms": 161914
+  },
+  {
+    "word": "when",
+    "start_ms": 162695,
+    "end_ms": 163155
+  },
+  {
+    "word": "september",
+    "start_ms": 163275,
+    "end_ms": 164275
+  },
+  {
+    "word": "ends",
+    "start_ms": 164475,
+    "end_ms": 203635
+  },
+  {
+    "word": "summer",
+    "start_ms": 203775,
+    "end_ms": 205315
+  },
+  {
+    "word": "has",
+    "start_ms": 205355,
+    "end_ms": 206015
+  },
+  {
+    "word": "come",
+    "start_ms": 206115,
+    "end_ms": 206715
+  },
+  {
+    "word": "and",
+    "start_ms": 206795,
+    "end_ms": 206935
+  },
+  {
+    "word": "passed",
+    "start_ms": 206995,
+    "end_ms": 207835
+  },
+  {
+    "word": "the",
+    "start_ms": 208175,
+    "end_ms": 208295
+  },
+  {
+    "word": "innocent",
+    "start_ms": 208535,
+    "end_ms": 209676
+  },
+  {
+    "word": "can",
+    "start_ms": 209796,
+    "end_ms": 210256
+  },
+  {
+    "word": "never",
+    "start_ms": 210416,
+    "end_ms": 211196
+  },
+  {
+    "word": "last",
+    "start_ms": 211556,
+    "end_ms": 212376
+  },
+  {
+    "word": "wake",
+    "start_ms": 212976,
+    "end_ms": 213536
+  },
+  {
+    "word": "me",
+    "start_ms": 213576,
+    "end_ms": 213696
+  },
+  {
+    "word": "up",
+    "start_ms": 213996,
+    "end_ms": 214516
+  },
+  {
+    "word": "when",
+    "start_ms": 215236,
+    "end_ms": 215696
+  },
+  {
+    "word": "september",
+    "start_ms": 215836,
+    "end_ms": 217297
+  },
+  {
+    "word": "ends",
+    "start_ms": 217397,
+    "end_ms": 218117
+  },
+  {
+    "word": "like",
+    "start_ms": 222097,
+    "end_ms": 222617
+  },
+  {
+    "word": "my",
+    "start_ms": 222697,
+    "end_ms": 222857
+  },
+  {
+    "word": "father's",
+    "start_ms": 222977,
+    "end_ms": 224257
+  },
+  {
+    "word": "come",
+    "start_ms": 224357,
+    "end_ms": 224857
+  },
+  {
+    "word": "to",
+    "start_ms": 224957,
+    "end_ms": 225077
+  },
+  {
+    "word": "pass",
+    "start_ms": 225237,
+    "end_ms": 225957
+  },
+  {
+    "word": "years",
+    "start_ms": 227557,
+    "end_ms": 228097
+  },
+  {
+    "word": "has",
+    "start_ms": 228097,
+    "end_ms": 228598
+  },
+  {
+    "word": "gone",
+    "start_ms": 228718,
+    "end_ms": 229258
+  },
+  {
+    "word": "so",
+    "start_ms": 229298,
+    "end_ms": 229438
+  },
+  {
+    "word": "fast",
+    "start_ms": 229838,
+    "end_ms": 230498
+  },
+  {
+    "word": "wake",
+    "start_ms": 231238,
+    "end_ms": 231798
+  },
+  {
+    "word": "me",
+    "start_ms": 231858,
+    "end_ms": 231958
+  },
+  {
+    "word": "up",
+    "start_ms": 232258,
+    "end_ms": 232858
+  },
+  {
+    "word": "when",
+    "start_ms": 233558,
+    "end_ms": 233998
+  },
+  {
+    "word": "september",
+    "start_ms": 234118,
+    "end_ms": 235418
+  },
+  {
+    "word": "ends",
+    "start_ms": 235698,
+    "end_ms": 236458
+  },
+  {
+    "word": "wake",
+    "start_ms": 240439,
+    "end_ms": 240999
+  },
+  {
+    "word": "me",
+    "start_ms": 241019,
+    "end_ms": 241119
+  },
+  {
+    "word": "up",
+    "start_ms": 241439,
+    "end_ms": 242039
+  },
+  {
+    "word": "when",
+    "start_ms": 242719,
+    "end_ms": 243159
+  },
+  {
+    "word": "september",
+    "start_ms": 243279,
+    "end_ms": 244699
+  },
+  {
+    "word": "ends",
+    "start_ms": 244859,
+    "end_ms": 245559
+  },
+  {
+    "word": "wake",
+    "start_ms": 249579,
+    "end_ms": 250119
+  },
+  {
+    "word": "me",
+    "start_ms": 250139,
+    "end_ms": 250239
+  },
+  {
+    "word": "up",
+    "start_ms": 250539,
+    "end_ms": 251099
+  },
+  {
+    "word": "when",
+    "start_ms": 251840,
+    "end_ms": 252280
+  },
+  {
+    "word": "september",
+    "start_ms": 252420,
+    "end_ms": 253860
+  },
+  {
+    "word": "ends",
+    "start_ms": 253940,
+    "end_ms": 255140
+  }
+]

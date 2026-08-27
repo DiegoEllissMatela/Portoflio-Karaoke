@@ -1,0 +1,787 @@
+[
+  {
+    "word": "it's",
+    "start_ms": 21960,
+    "end_ms": 22100
+  },
+  {
+    "word": "late",
+    "start_ms": 22220,
+    "end_ms": 22660
+  },
+  {
+    "word": "in",
+    "start_ms": 22720,
+    "end_ms": 22860
+  },
+  {
+    "word": "the",
+    "start_ms": 22880,
+    "end_ms": 23300
+  },
+  {
+    "word": "evening",
+    "start_ms": 23560,
+    "end_ms": 24460
+  },
+  {
+    "word": "she's",
+    "start_ms": 26981,
+    "end_ms": 27201
+  },
+  {
+    "word": "wondering",
+    "start_ms": 27321,
+    "end_ms": 27901
+  },
+  {
+    "word": "what",
+    "start_ms": 27941,
+    "end_ms": 28161
+  },
+  {
+    "word": "clothes",
+    "start_ms": 28261,
+    "end_ms": 29161
+  },
+  {
+    "word": "to",
+    "start_ms": 29241,
+    "end_ms": 29341
+  },
+  {
+    "word": "wear",
+    "start_ms": 29521,
+    "end_ms": 29881
+  },
+  {
+    "word": "she",
+    "start_ms": 32041,
+    "end_ms": 32161
+  },
+  {
+    "word": "puts",
+    "start_ms": 32361,
+    "end_ms": 32681
+  },
+  {
+    "word": "on",
+    "start_ms": 32781,
+    "end_ms": 32882
+  },
+  {
+    "word": "her",
+    "start_ms": 32882,
+    "end_ms": 33062
+  },
+  {
+    "word": "makeup",
+    "start_ms": 33342,
+    "end_ms": 33982
+  },
+  {
+    "word": "and",
+    "start_ms": 34102,
+    "end_ms": 37282
+  },
+  {
+    "word": "brushes",
+    "start_ms": 37402,
+    "end_ms": 38062
+  },
+  {
+    "word": "her",
+    "start_ms": 38102,
+    "end_ms": 38222
+  },
+  {
+    "word": "long",
+    "start_ms": 38362,
+    "end_ms": 38902
+  },
+  {
+    "word": "blonde",
+    "start_ms": 38962,
+    "end_ms": 39462
+  },
+  {
+    "word": "hair",
+    "start_ms": 39642,
+    "end_ms": 40122
+  },
+  {
+    "word": "and",
+    "start_ms": 42563,
+    "end_ms": 42723
+  },
+  {
+    "word": "then",
+    "start_ms": 42783,
+    "end_ms": 43003
+  },
+  {
+    "word": "she",
+    "start_ms": 43103,
+    "end_ms": 43243
+  },
+  {
+    "word": "asks",
+    "start_ms": 43523,
+    "end_ms": 43983
+  },
+  {
+    "word": "me",
+    "start_ms": 44103,
+    "end_ms": 44223
+  },
+  {
+    "word": "do",
+    "start_ms": 46943,
+    "end_ms": 47043
+  },
+  {
+    "word": "i",
+    "start_ms": 47403,
+    "end_ms": 47423
+  },
+  {
+    "word": "look",
+    "start_ms": 47503,
+    "end_ms": 47883
+  },
+  {
+    "word": "all",
+    "start_ms": 47983,
+    "end_ms": 48503
+  },
+  {
+    "word": "right",
+    "start_ms": 48543,
+    "end_ms": 50424
+  },
+  {
+    "word": "and",
+    "start_ms": 50504,
+    "end_ms": 50764
+  },
+  {
+    "word": "i",
+    "start_ms": 50924,
+    "end_ms": 50944
+  },
+  {
+    "word": "say",
+    "start_ms": 51064,
+    "end_ms": 51284
+  },
+  {
+    "word": "yes",
+    "start_ms": 51404,
+    "end_ms": 51964
+  },
+  {
+    "word": "you",
+    "start_ms": 53004,
+    "end_ms": 53124
+  },
+  {
+    "word": "look",
+    "start_ms": 53424,
+    "end_ms": 53744
+  },
+  {
+    "word": "wonderful",
+    "start_ms": 53904,
+    "end_ms": 55625
+  },
+  {
+    "word": "tonight",
+    "start_ms": 55805,
+    "end_ms": 56745
+  },
+  {
+    "word": "we",
+    "start_ms": 56745,
+    "end_ms": 56785
+  },
+  {
+    "word": "go",
+    "start_ms": 67845,
+    "end_ms": 67965
+  },
+  {
+    "word": "to",
+    "start_ms": 68185,
+    "end_ms": 68305
+  },
+  {
+    "word": "a",
+    "start_ms": 68605,
+    "end_ms": 68625
+  },
+  {
+    "word": "party",
+    "start_ms": 68805,
+    "end_ms": 69585
+  },
+  {
+    "word": "and",
+    "start_ms": 72846,
+    "end_ms": 72926
+  },
+  {
+    "word": "every",
+    "start_ms": 73046,
+    "end_ms": 73406
+  },
+  {
+    "word": "one",
+    "start_ms": 73646,
+    "end_ms": 73826
+  },
+  {
+    "word": "turns",
+    "start_ms": 73886,
+    "end_ms": 74506
+  },
+  {
+    "word": "to",
+    "start_ms": 74586,
+    "end_ms": 74686
+  },
+  {
+    "word": "see",
+    "start_ms": 75146,
+    "end_ms": 75426
+  },
+  {
+    "word": "this",
+    "start_ms": 77646,
+    "end_ms": 77846
+  },
+  {
+    "word": "beautiful",
+    "start_ms": 77966,
+    "end_ms": 78746
+  },
+  {
+    "word": "lady",
+    "start_ms": 78926,
+    "end_ms": 79687
+  },
+  {
+    "word": "who's",
+    "start_ms": 79687,
+    "end_ms": 82947
+  },
+  {
+    "word": "walking",
+    "start_ms": 83047,
+    "end_ms": 83707
+  },
+  {
+    "word": "around",
+    "start_ms": 83767,
+    "end_ms": 84587
+  },
+  {
+    "word": "with",
+    "start_ms": 84647,
+    "end_ms": 85107
+  },
+  {
+    "word": "me",
+    "start_ms": 85227,
+    "end_ms": 85367
+  },
+  {
+    "word": "and",
+    "start_ms": 88127,
+    "end_ms": 88287
+  },
+  {
+    "word": "then",
+    "start_ms": 88347,
+    "end_ms": 88547
+  },
+  {
+    "word": "she",
+    "start_ms": 88647,
+    "end_ms": 88787
+  },
+  {
+    "word": "asks",
+    "start_ms": 89108,
+    "end_ms": 89548
+  },
+  {
+    "word": "me",
+    "start_ms": 89648,
+    "end_ms": 89768
+  },
+  {
+    "word": "do",
+    "start_ms": 92508,
+    "end_ms": 92608
+  },
+  {
+    "word": "you",
+    "start_ms": 92768,
+    "end_ms": 93088
+  },
+  {
+    "word": "feel",
+    "start_ms": 93088,
+    "end_ms": 93468
+  },
+  {
+    "word": "all",
+    "start_ms": 93548,
+    "end_ms": 94088
+  },
+  {
+    "word": "right",
+    "start_ms": 94108,
+    "end_ms": 95348
+  },
+  {
+    "word": "and",
+    "start_ms": 96069,
+    "end_ms": 96329
+  },
+  {
+    "word": "i",
+    "start_ms": 96409,
+    "end_ms": 96429
+  },
+  {
+    "word": "say",
+    "start_ms": 96629,
+    "end_ms": 96829
+  },
+  {
+    "word": "yes",
+    "start_ms": 96929,
+    "end_ms": 97609
+  },
+  {
+    "word": "i",
+    "start_ms": 98609,
+    "end_ms": 98629
+  },
+  {
+    "word": "feel",
+    "start_ms": 98949,
+    "end_ms": 99269
+  },
+  {
+    "word": "wonderful",
+    "start_ms": 99469,
+    "end_ms": 101129
+  },
+  {
+    "word": "tonight",
+    "start_ms": 101349,
+    "end_ms": 106170
+  },
+  {
+    "word": "i",
+    "start_ms": 106170,
+    "end_ms": 106190
+  },
+  {
+    "word": "feel",
+    "start_ms": 106410,
+    "end_ms": 107150
+  },
+  {
+    "word": "wonderful",
+    "start_ms": 107150,
+    "end_ms": 108450
+  },
+  {
+    "word": "because",
+    "start_ms": 109310,
+    "end_ms": 110131
+  },
+  {
+    "word": "i",
+    "start_ms": 110271,
+    "end_ms": 110291
+  },
+  {
+    "word": "see",
+    "start_ms": 110531,
+    "end_ms": 111051
+  },
+  {
+    "word": "the",
+    "start_ms": 111551,
+    "end_ms": 111651
+  },
+  {
+    "word": "love",
+    "start_ms": 111851,
+    "end_ms": 112471
+  },
+  {
+    "word": "light",
+    "start_ms": 112771,
+    "end_ms": 113191
+  },
+  {
+    "word": "in",
+    "start_ms": 113271,
+    "end_ms": 113551
+  },
+  {
+    "word": "your",
+    "start_ms": 113791,
+    "end_ms": 114651
+  },
+  {
+    "word": "eyes",
+    "start_ms": 114811,
+    "end_ms": 115232
+  },
+  {
+    "word": "then",
+    "start_ms": 115232,
+    "end_ms": 116912
+  },
+  {
+    "word": "the",
+    "start_ms": 116992,
+    "end_ms": 117092
+  },
+  {
+    "word": "wonder",
+    "start_ms": 117212,
+    "end_ms": 118872
+  },
+  {
+    "word": "of",
+    "start_ms": 118972,
+    "end_ms": 119212
+  },
+  {
+    "word": "it",
+    "start_ms": 119312,
+    "end_ms": 119532
+  },
+  {
+    "word": "all",
+    "start_ms": 119612,
+    "end_ms": 120092
+  },
+  {
+    "word": "is",
+    "start_ms": 121453,
+    "end_ms": 121493
+  },
+  {
+    "word": "that",
+    "start_ms": 121693,
+    "end_ms": 121993
+  },
+  {
+    "word": "you",
+    "start_ms": 122013,
+    "end_ms": 122193
+  },
+  {
+    "word": "just",
+    "start_ms": 122313,
+    "end_ms": 122853
+  },
+  {
+    "word": "don't",
+    "start_ms": 122953,
+    "end_ms": 123533
+  },
+  {
+    "word": "realize",
+    "start_ms": 123633,
+    "end_ms": 125193
+  },
+  {
+    "word": "how",
+    "start_ms": 125453,
+    "end_ms": 125933
+  },
+  {
+    "word": "much",
+    "start_ms": 126093,
+    "end_ms": 126813
+  },
+  {
+    "word": "i",
+    "start_ms": 126913,
+    "end_ms": 126934
+  },
+  {
+    "word": "love",
+    "start_ms": 127154,
+    "end_ms": 127794
+  },
+  {
+    "word": "you",
+    "start_ms": 128254,
+    "end_ms": 128594
+  },
+  {
+    "word": "it's",
+    "start_ms": 148954,
+    "end_ms": 149074
+  },
+  {
+    "word": "time",
+    "start_ms": 149214,
+    "end_ms": 149534
+  },
+  {
+    "word": "to",
+    "start_ms": 149574,
+    "end_ms": 149674
+  },
+  {
+    "word": "go",
+    "start_ms": 149854,
+    "end_ms": 149954
+  },
+  {
+    "word": "home",
+    "start_ms": 150214,
+    "end_ms": 150694
+  },
+  {
+    "word": "now",
+    "start_ms": 150814,
+    "end_ms": 151355
+  },
+  {
+    "word": "and",
+    "start_ms": 153655,
+    "end_ms": 153795
+  },
+  {
+    "word": "i've",
+    "start_ms": 153855,
+    "end_ms": 154035
+  },
+  {
+    "word": "got",
+    "start_ms": 154095,
+    "end_ms": 154415
+  },
+  {
+    "word": "an",
+    "start_ms": 154475,
+    "end_ms": 154575
+  },
+  {
+    "word": "aching",
+    "start_ms": 154655,
+    "end_ms": 155455
+  },
+  {
+    "word": "head",
+    "start_ms": 155555,
+    "end_ms": 155995
+  },
+  {
+    "word": "so",
+    "start_ms": 158635,
+    "end_ms": 158775
+  },
+  {
+    "word": "i",
+    "start_ms": 159175,
+    "end_ms": 159195
+  },
+  {
+    "word": "give",
+    "start_ms": 159315,
+    "end_ms": 159655
+  },
+  {
+    "word": "her",
+    "start_ms": 159675,
+    "end_ms": 159755
+  },
+  {
+    "word": "the",
+    "start_ms": 159935,
+    "end_ms": 160036
+  },
+  {
+    "word": "car",
+    "start_ms": 160236,
+    "end_ms": 160696
+  },
+  {
+    "word": "keys",
+    "start_ms": 160876,
+    "end_ms": 163856
+  },
+  {
+    "word": "and",
+    "start_ms": 163896,
+    "end_ms": 163976
+  },
+  {
+    "word": "she",
+    "start_ms": 164036,
+    "end_ms": 164156
+  },
+  {
+    "word": "helps",
+    "start_ms": 164336,
+    "end_ms": 164736
+  },
+  {
+    "word": "me",
+    "start_ms": 164836,
+    "end_ms": 164936
+  },
+  {
+    "word": "to",
+    "start_ms": 165296,
+    "end_ms": 165416
+  },
+  {
+    "word": "bed",
+    "start_ms": 165576,
+    "end_ms": 169416
+  },
+  {
+    "word": "and",
+    "start_ms": 169476,
+    "end_ms": 169697
+  },
+  {
+    "word": "then",
+    "start_ms": 169697,
+    "end_ms": 170037
+  },
+  {
+    "word": "i",
+    "start_ms": 170117,
+    "end_ms": 170137
+  },
+  {
+    "word": "tell",
+    "start_ms": 170337,
+    "end_ms": 170757
+  },
+  {
+    "word": "her",
+    "start_ms": 170977,
+    "end_ms": 171357
+  },
+  {
+    "word": "as",
+    "start_ms": 173917,
+    "end_ms": 174137
+  },
+  {
+    "word": "i",
+    "start_ms": 174337,
+    "end_ms": 174357
+  },
+  {
+    "word": "turn",
+    "start_ms": 174417,
+    "end_ms": 174797
+  },
+  {
+    "word": "out",
+    "start_ms": 174797,
+    "end_ms": 175097
+  },
+  {
+    "word": "the",
+    "start_ms": 175137,
+    "end_ms": 175197
+  },
+  {
+    "word": "light",
+    "start_ms": 175377,
+    "end_ms": 177438
+  },
+  {
+    "word": "i",
+    "start_ms": 177438,
+    "end_ms": 177458
+  },
+  {
+    "word": "say",
+    "start_ms": 177558,
+    "end_ms": 177818
+  },
+  {
+    "word": "my",
+    "start_ms": 177918,
+    "end_ms": 178118
+  },
+  {
+    "word": "darling",
+    "start_ms": 178238,
+    "end_ms": 178978
+  },
+  {
+    "word": "you",
+    "start_ms": 179878,
+    "end_ms": 179998
+  },
+  {
+    "word": "were",
+    "start_ms": 180298,
+    "end_ms": 180678
+  },
+  {
+    "word": "wonderful",
+    "start_ms": 180758,
+    "end_ms": 182478
+  },
+  {
+    "word": "tonight",
+    "start_ms": 182638,
+    "end_ms": 187399
+  },
+  {
+    "word": "oh",
+    "start_ms": 187499,
+    "end_ms": 187679
+  },
+  {
+    "word": "my",
+    "start_ms": 187859,
+    "end_ms": 188199
+  },
+  {
+    "word": "darling",
+    "start_ms": 188339,
+    "end_ms": 189339
+  },
+  {
+    "word": "you",
+    "start_ms": 189999,
+    "end_ms": 190139
+  },
+  {
+    "word": "were",
+    "start_ms": 190399,
+    "end_ms": 190839
+  },
+  {
+    "word": "wonderful",
+    "start_ms": 190879,
+    "end_ms": 192580
+  },
+  {
+    "word": "tonight",
+    "start_ms": 192780,
+    "end_ms": 194800
+  }
+]

@@ -1,0 +1,45 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: $color-bg-dark;
+  color: $color-text-primary;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: 
+    linear-gradient(rgba(10, 11, 16, 0.75), rgba(10, 11, 16, 0.85)),
+    url('/Images/Karaoke BG General.webp') center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+/* Global Scrollbar */
+body {
+  @include custom-scrollbar;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}

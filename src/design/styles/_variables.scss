@@ -1,0 +1,44 @@
+// Design Tokens & SCSS Variables
+
+// Primary & Accent Colors
+$color-bg-dark: #0a0b10;
+$color-bg-card: rgba(18, 20, 32, 0.75);
+$color-bg-card-hover: rgba(28, 32, 50, 0.85);
+
+$color-primary: #8b5cf6;       // Neon Violet
+$color-primary-glow: rgba(139, 92, 246, 0.4);
+$color-secondary: #ec4899;     // Neon Pink / Magenta
+$color-cyan: #06b6d4;          // Cyber Cyan
+$color-accent-amber: #f59e0b;
+
+// Text Colors
+$color-text-primary: #f8fafc;
+$color-text-secondary: #94a3b8;
+$color-text-muted: #64748b;
+$color-text-active: #f43f5e;
+
+// Borders & Glassmorphism
+$glass-border: 1px solid rgba(255, 255, 255, 0.1);
+$glass-border-accent: 1px solid rgba(139, 92, 246, 0.3);
+$glass-backdrop-filter: blur(16px) saturate(180%);
+
+// Shadows & Glows
+$shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+$shadow-lg: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+$glow-primary: 0 0 25px rgba(139, 92, 246, 0.5);
+$glow-secondary: 0 0 25px rgba(236, 72, 153, 0.5);
+
+// Typography
+$font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-heading: 'Outfit', 'Inter', sans-serif;
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Radius
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-lg: 24px;
+$radius-full: 9999px;

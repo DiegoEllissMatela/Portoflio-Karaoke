@@ -1,0 +1,227 @@
+// Floating Action Button — always visible
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #a66ef5, #7c3ff0);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(124, 63, 240, 0.55), 0 0 0 1px rgba(255,255,255,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+  animation: fabIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.06) translateY(-2px);
+    box-shadow: 0 8px 28px rgba(124, 63, 240, 0.7);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+}
+
+.fabDisabled {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+@keyframes fabIn {
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// Modal overlay
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+// Modal card
+.modal {
+  position: relative;
+  background: linear-gradient(160deg, #1a1030, #0f0820);
+  border: 1px solid rgba(180, 130, 255, 0.25);
+  border-radius: 24px;
+  padding: 32px 28px 28px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  animation: slideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6);
+  border: none;
+  border-radius: 50%;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+  }
+}
+
+.modalIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+
+  img {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  }
+}
+
+.modalTitle {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+}
+
+.modalSubtitle {
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.5;
+
+  strong {
+    color: #c89eff;
+  }
+}
+
+.stepNum {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #a66ef5, #7c3ff0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(124, 63, 240, 0.5);
+}
+
+.httpsNote {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: rgba(255, 200, 80, 0.08);
+  border: 1px solid rgba(255, 200, 80, 0.25);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: rgba(255, 230, 130, 0.85);
+  line-height: 1.5;
+  margin-top: 4px;
+
+  svg {
+    flex-shrink: 0;
+    color: rgba(255, 200, 80, 0.9);
+    margin-top: 1px;
+  }
+
+  strong {
+    color: rgba(255, 220, 100, 1);
+  }
+}
+
+.modalCloseBtn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #a66ef5, #7c3ff0);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(124, 63, 240, 0.4);
+  transition: transform 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 22px rgba(124, 63, 240, 0.6);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

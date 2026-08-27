@@ -1,0 +1,101 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.screenContainer {
+  @include flex-center;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+  gap: 60px;
+  background: radial-gradient(circle at center, rgba(10, 11, 16, 0.85) 0%, rgba(10, 11, 16, 0) 75%), url('/Images/Karaoke BG.webp') center/cover no-repeat;
+}
+
+.heroSection {
+  @include flex-center;
+  flex-direction: column;
+  gap: 16px;
+  animation: float 6s ease-in-out infinite;
+
+  .titleWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .betaTag {
+    font-family: 'Varela Round', 'Outfit', 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: 0.9;
+    margin-bottom: -10px;
+    z-index: 1;
+  }
+
+  .title {
+    font-family: 'Varela Round', 'Outfit', 'Inter', sans-serif;
+    font-size: 5.5rem;
+    font-weight: 800;
+    @include gradient-text($color-primary, $color-secondary);
+    animation: textGlow 3s ease-in-out infinite;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: $color-text-secondary;
+  }
+}
+
+.startBtn {
+  padding: 20px 60px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  font-family: $font-heading;
+  border: none;
+  border-radius: $radius-full;
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  animation: buttonGlow 2.5s ease-in-out infinite;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 0 50px rgba(236, 72, 153, 0.6);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes textGlow {
+  0% { filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.2)); }
+  50% { filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.5)) drop-shadow(0 0 8px rgba(139, 92, 246, 0.4)); }
+  100% { filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.2)); }
+}
+
+@keyframes buttonGlow {
+  0% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(236, 72, 153, 0.6); }
+  100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
+}

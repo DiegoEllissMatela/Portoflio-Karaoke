@@ -1,0 +1,104 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.appLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent {
+  display: flex;
+  gap: 24px;
+  padding: 32px;
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.topControlGroup {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settingsBtn,
+.globalBackBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(236, 72, 153, 0.6);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: $radius-full;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all $transition-fast;
+  backdrop-filter: $glass-backdrop-filter;
+  box-shadow: 0 0 12px rgba(236, 72, 153, 0.5);
+
+  &:hover {
+    background: rgba(236, 72, 153, 0.3);
+    border-color: rgba(236, 72, 153, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.8), inset 0 0 10px rgba(236, 72, 153, 0.4);
+  }
+}
+
+.settingsBtn {
+  padding: 10px;
+  border-radius: 50%;
+
+  &:hover {
+    transform: translateY(-2px) rotate(45deg);
+  }
+}
+
+.volumeControl {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &:hover .sliderContainer {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
+.sliderContainer {
+  position: absolute;
+  right: 100%;
+  margin-right: 16px;
+  background: rgba(10, 11, 16, 0.85);
+  border: 1px solid rgba(236, 72, 153, 0.6);
+  padding: 8px 12px;
+  border-radius: $radius-full;
+  backdrop-filter: $glass-backdrop-filter;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  width: 120px;
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
+}
+
+.volumeSlider {
+  width: 100%;
+  cursor: pointer;
+  accent-color: $color-primary;
+}

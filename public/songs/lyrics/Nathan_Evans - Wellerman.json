@@ -1,0 +1,1897 @@
+[
+  {
+    "word": "there",
+    "start_ms": 3040,
+    "end_ms": 3260
+  },
+  {
+    "word": "once",
+    "start_ms": 3400,
+    "end_ms": 3661
+  },
+  {
+    "word": "was",
+    "start_ms": 3681,
+    "end_ms": 3801
+  },
+  {
+    "word": "a",
+    "start_ms": 3841,
+    "end_ms": 3861
+  },
+  {
+    "word": "ship",
+    "start_ms": 3941,
+    "end_ms": 4121
+  },
+  {
+    "word": "that",
+    "start_ms": 4281,
+    "end_ms": 4401
+  },
+  {
+    "word": "put",
+    "start_ms": 4561,
+    "end_ms": 4741
+  },
+  {
+    "word": "to",
+    "start_ms": 4881,
+    "end_ms": 4961
+  },
+  {
+    "word": "sea",
+    "start_ms": 5161,
+    "end_ms": 5421
+  },
+  {
+    "word": "the",
+    "start_ms": 5501,
+    "end_ms": 5581
+  },
+  {
+    "word": "name",
+    "start_ms": 5661,
+    "end_ms": 6201
+  },
+  {
+    "word": "of",
+    "start_ms": 6201,
+    "end_ms": 6261
+  },
+  {
+    "word": "the",
+    "start_ms": 6281,
+    "end_ms": 6361
+  },
+  {
+    "word": "ship",
+    "start_ms": 6441,
+    "end_ms": 6641
+  },
+  {
+    "word": "was",
+    "start_ms": 6801,
+    "end_ms": 6941
+  },
+  {
+    "word": "the",
+    "start_ms": 6941,
+    "end_ms": 7001
+  },
+  {
+    "word": "billy",
+    "start_ms": 7081,
+    "end_ms": 7321
+  },
+  {
+    "word": "of",
+    "start_ms": 7481,
+    "end_ms": 7581
+  },
+  {
+    "word": "tea",
+    "start_ms": 7721,
+    "end_ms": 7941
+  },
+  {
+    "word": "the",
+    "start_ms": 8181,
+    "end_ms": 8261
+  },
+  {
+    "word": "winds",
+    "start_ms": 8341,
+    "end_ms": 8621
+  },
+  {
+    "word": "blew",
+    "start_ms": 8661,
+    "end_ms": 8901
+  },
+  {
+    "word": "up",
+    "start_ms": 9041,
+    "end_ms": 9301
+  },
+  {
+    "word": "her",
+    "start_ms": 9321,
+    "end_ms": 9501
+  },
+  {
+    "word": "bow",
+    "start_ms": 9581,
+    "end_ms": 9801
+  },
+  {
+    "word": "dipped",
+    "start_ms": 9901,
+    "end_ms": 10241
+  },
+  {
+    "word": "down",
+    "start_ms": 10261,
+    "end_ms": 10541
+  },
+  {
+    "word": "o",
+    "start_ms": 10581,
+    "end_ms": 10601
+  },
+  {
+    "word": "blow",
+    "start_ms": 10682,
+    "end_ms": 10962
+  },
+  {
+    "word": "my",
+    "start_ms": 11142,
+    "end_ms": 11382
+  },
+  {
+    "word": "bully",
+    "start_ms": 11462,
+    "end_ms": 11702
+  },
+  {
+    "word": "boys",
+    "start_ms": 11762,
+    "end_ms": 12042
+  },
+  {
+    "word": "blow",
+    "start_ms": 12102,
+    "end_ms": 12382
+  },
+  {
+    "word": "huh",
+    "start_ms": 12422,
+    "end_ms": 12522
+  },
+  {
+    "word": "soon",
+    "start_ms": 13322,
+    "end_ms": 13602
+  },
+  {
+    "word": "may",
+    "start_ms": 13982,
+    "end_ms": 14102
+  },
+  {
+    "word": "the",
+    "start_ms": 14482,
+    "end_ms": 14562
+  },
+  {
+    "word": "wellerman",
+    "start_ms": 14622,
+    "end_ms": 15102
+  },
+  {
+    "word": "come",
+    "start_ms": 15222,
+    "end_ms": 15522
+  },
+  {
+    "word": "to",
+    "start_ms": 15682,
+    "end_ms": 15762
+  },
+  {
+    "word": "bring",
+    "start_ms": 15842,
+    "end_ms": 16102
+  },
+  {
+    "word": "us",
+    "start_ms": 16202,
+    "end_ms": 16342
+  },
+  {
+    "word": "sugar",
+    "start_ms": 16422,
+    "end_ms": 16762
+  },
+  {
+    "word": "and",
+    "start_ms": 16802,
+    "end_ms": 16962
+  },
+  {
+    "word": "tea",
+    "start_ms": 17042,
+    "end_ms": 17462
+  },
+  {
+    "word": "and",
+    "start_ms": 17522,
+    "end_ms": 17602
+  },
+  {
+    "word": "rum",
+    "start_ms": 17723,
+    "end_ms": 17943
+  },
+  {
+    "word": "one",
+    "start_ms": 18403,
+    "end_ms": 18663
+  },
+  {
+    "word": "day",
+    "start_ms": 18963,
+    "end_ms": 19103
+  },
+  {
+    "word": "when",
+    "start_ms": 19303,
+    "end_ms": 19423
+  },
+  {
+    "word": "the",
+    "start_ms": 19423,
+    "end_ms": 19483
+  },
+  {
+    "word": "tonguin",
+    "start_ms": 19563,
+    "end_ms": 19903
+  },
+  {
+    "word": "is",
+    "start_ms": 19963,
+    "end_ms": 20123
+  },
+  {
+    "word": "done",
+    "start_ms": 20203,
+    "end_ms": 20463
+  },
+  {
+    "word": "well",
+    "start_ms": 20523,
+    "end_ms": 20723
+  },
+  {
+    "word": "take",
+    "start_ms": 20823,
+    "end_ms": 21203
+  },
+  {
+    "word": "our",
+    "start_ms": 21203,
+    "end_ms": 21343
+  },
+  {
+    "word": "leave",
+    "start_ms": 21483,
+    "end_ms": 21823
+  },
+  {
+    "word": "and",
+    "start_ms": 21823,
+    "end_ms": 22003
+  },
+  {
+    "word": "go",
+    "start_ms": 22103,
+    "end_ms": 22183
+  },
+  {
+    "word": "shed",
+    "start_ms": 23323,
+    "end_ms": 23603
+  },
+  {
+    "word": "not",
+    "start_ms": 23663,
+    "end_ms": 23883
+  },
+  {
+    "word": "been",
+    "start_ms": 23943,
+    "end_ms": 24163
+  },
+  {
+    "word": "two",
+    "start_ms": 24263,
+    "end_ms": 24463
+  },
+  {
+    "word": "weeks",
+    "start_ms": 24563,
+    "end_ms": 24804
+  },
+  {
+    "word": "from",
+    "start_ms": 24844,
+    "end_ms": 25004
+  },
+  {
+    "word": "shore",
+    "start_ms": 25144,
+    "end_ms": 25604
+  },
+  {
+    "word": "when",
+    "start_ms": 25644,
+    "end_ms": 25784
+  },
+  {
+    "word": "down",
+    "start_ms": 25844,
+    "end_ms": 26144
+  },
+  {
+    "word": "on",
+    "start_ms": 26184,
+    "end_ms": 26304
+  },
+  {
+    "word": "her",
+    "start_ms": 26444,
+    "end_ms": 26884
+  },
+  {
+    "word": "a",
+    "start_ms": 26964,
+    "end_ms": 26984
+  },
+  {
+    "word": "right",
+    "start_ms": 27064,
+    "end_ms": 27304
+  },
+  {
+    "word": "whale",
+    "start_ms": 27404,
+    "end_ms": 27664
+  },
+  {
+    "word": "bore",
+    "start_ms": 27704,
+    "end_ms": 28004
+  },
+  {
+    "word": "the",
+    "start_ms": 28184,
+    "end_ms": 28264
+  },
+  {
+    "word": "captain",
+    "start_ms": 28324,
+    "end_ms": 28804
+  },
+  {
+    "word": "called",
+    "start_ms": 28964,
+    "end_ms": 29304
+  },
+  {
+    "word": "all",
+    "start_ms": 29404,
+    "end_ms": 29564
+  },
+  {
+    "word": "hands",
+    "start_ms": 29604,
+    "end_ms": 29924
+  },
+  {
+    "word": "and",
+    "start_ms": 29944,
+    "end_ms": 30084
+  },
+  {
+    "word": "swore",
+    "start_ms": 30164,
+    "end_ms": 30624
+  },
+  {
+    "word": "hed",
+    "start_ms": 30644,
+    "end_ms": 30704
+  },
+  {
+    "word": "take",
+    "start_ms": 30804,
+    "end_ms": 31044
+  },
+  {
+    "word": "that",
+    "start_ms": 31144,
+    "end_ms": 31264
+  },
+  {
+    "word": "whale",
+    "start_ms": 31464,
+    "end_ms": 31824
+  },
+  {
+    "word": "in",
+    "start_ms": 31865,
+    "end_ms": 31985
+  },
+  {
+    "word": "tow",
+    "start_ms": 32085,
+    "end_ms": 32445
+  },
+  {
+    "word": "huh",
+    "start_ms": 32625,
+    "end_ms": 33065
+  },
+  {
+    "word": "soon",
+    "start_ms": 33345,
+    "end_ms": 33645
+  },
+  {
+    "word": "may",
+    "start_ms": 33985,
+    "end_ms": 34125
+  },
+  {
+    "word": "the",
+    "start_ms": 34465,
+    "end_ms": 34545
+  },
+  {
+    "word": "wellerman",
+    "start_ms": 34605,
+    "end_ms": 35105
+  },
+  {
+    "word": "come",
+    "start_ms": 35225,
+    "end_ms": 35585
+  },
+  {
+    "word": "to",
+    "start_ms": 35685,
+    "end_ms": 35805
+  },
+  {
+    "word": "bring",
+    "start_ms": 35865,
+    "end_ms": 36125
+  },
+  {
+    "word": "us",
+    "start_ms": 36325,
+    "end_ms": 36365
+  },
+  {
+    "word": "sugar",
+    "start_ms": 36425,
+    "end_ms": 36785
+  },
+  {
+    "word": "and",
+    "start_ms": 36825,
+    "end_ms": 36985
+  },
+  {
+    "word": "tea",
+    "start_ms": 37065,
+    "end_ms": 37485
+  },
+  {
+    "word": "and",
+    "start_ms": 37525,
+    "end_ms": 37605
+  },
+  {
+    "word": "rum",
+    "start_ms": 37745,
+    "end_ms": 37945
+  },
+  {
+    "word": "one",
+    "start_ms": 38425,
+    "end_ms": 38665
+  },
+  {
+    "word": "day",
+    "start_ms": 38966,
+    "end_ms": 39166
+  },
+  {
+    "word": "when",
+    "start_ms": 39286,
+    "end_ms": 39426
+  },
+  {
+    "word": "the",
+    "start_ms": 39426,
+    "end_ms": 39486
+  },
+  {
+    "word": "tonguin",
+    "start_ms": 39566,
+    "end_ms": 39906
+  },
+  {
+    "word": "is",
+    "start_ms": 39966,
+    "end_ms": 40126
+  },
+  {
+    "word": "done",
+    "start_ms": 40206,
+    "end_ms": 40446
+  },
+  {
+    "word": "well",
+    "start_ms": 40506,
+    "end_ms": 40706
+  },
+  {
+    "word": "take",
+    "start_ms": 40826,
+    "end_ms": 41226
+  },
+  {
+    "word": "our",
+    "start_ms": 41226,
+    "end_ms": 41346
+  },
+  {
+    "word": "leave",
+    "start_ms": 41466,
+    "end_ms": 41826
+  },
+  {
+    "word": "and",
+    "start_ms": 41826,
+    "end_ms": 42006
+  },
+  {
+    "word": "go",
+    "start_ms": 42106,
+    "end_ms": 42206
+  },
+  {
+    "word": "dada",
+    "start_ms": 43326,
+    "end_ms": 44026
+  },
+  {
+    "word": "dadadada",
+    "start_ms": 44426,
+    "end_ms": 44906
+  },
+  {
+    "word": "dadadada",
+    "start_ms": 44906,
+    "end_ms": 45786
+  },
+  {
+    "word": "dadadadada",
+    "start_ms": 45866,
+    "end_ms": 47207
+  },
+  {
+    "word": "dada",
+    "start_ms": 47427,
+    "end_ms": 48467
+  },
+  {
+    "word": "dadadada",
+    "start_ms": 48987,
+    "end_ms": 50327
+  },
+  {
+    "word": "dadadadadada",
+    "start_ms": 50687,
+    "end_ms": 52187
+  },
+  {
+    "word": "before",
+    "start_ms": 53168,
+    "end_ms": 53588
+  },
+  {
+    "word": "the",
+    "start_ms": 53628,
+    "end_ms": 53708
+  },
+  {
+    "word": "boat",
+    "start_ms": 53768,
+    "end_ms": 54008
+  },
+  {
+    "word": "had",
+    "start_ms": 54288,
+    "end_ms": 54548
+  },
+  {
+    "word": "hit",
+    "start_ms": 54608,
+    "end_ms": 54768
+  },
+  {
+    "word": "the",
+    "start_ms": 54888,
+    "end_ms": 54968
+  },
+  {
+    "word": "water",
+    "start_ms": 55048,
+    "end_ms": 55588
+  },
+  {
+    "word": "the",
+    "start_ms": 55708,
+    "end_ms": 55788
+  },
+  {
+    "word": "whales",
+    "start_ms": 55848,
+    "end_ms": 56448
+  },
+  {
+    "word": "tail",
+    "start_ms": 56448,
+    "end_ms": 56688
+  },
+  {
+    "word": "came",
+    "start_ms": 56748,
+    "end_ms": 57108
+  },
+  {
+    "word": "up",
+    "start_ms": 57128,
+    "end_ms": 57268
+  },
+  {
+    "word": "and",
+    "start_ms": 57468,
+    "end_ms": 57608
+  },
+  {
+    "word": "caught",
+    "start_ms": 57708,
+    "end_ms": 58048
+  },
+  {
+    "word": "her",
+    "start_ms": 58048,
+    "end_ms": 58168
+  },
+  {
+    "word": "all",
+    "start_ms": 58188,
+    "end_ms": 58268
+  },
+  {
+    "word": "hands",
+    "start_ms": 58348,
+    "end_ms": 58608
+  },
+  {
+    "word": "to",
+    "start_ms": 58648,
+    "end_ms": 58728
+  },
+  {
+    "word": "the",
+    "start_ms": 58768,
+    "end_ms": 58848
+  },
+  {
+    "word": "side",
+    "start_ms": 58948,
+    "end_ms": 59288
+  },
+  {
+    "word": "harpooned",
+    "start_ms": 59308,
+    "end_ms": 59908
+  },
+  {
+    "word": "and",
+    "start_ms": 59948,
+    "end_ms": 60068
+  },
+  {
+    "word": "fought",
+    "start_ms": 60169,
+    "end_ms": 60549
+  },
+  {
+    "word": "her",
+    "start_ms": 60549,
+    "end_ms": 60689
+  },
+  {
+    "word": "when",
+    "start_ms": 60829,
+    "end_ms": 60969
+  },
+  {
+    "word": "she",
+    "start_ms": 61089,
+    "end_ms": 61229
+  },
+  {
+    "word": "dived",
+    "start_ms": 61449,
+    "end_ms": 61809
+  },
+  {
+    "word": "down",
+    "start_ms": 61829,
+    "end_ms": 61989
+  },
+  {
+    "word": "low",
+    "start_ms": 62109,
+    "end_ms": 62389
+  },
+  {
+    "word": "huh",
+    "start_ms": 62389,
+    "end_ms": 62669
+  },
+  {
+    "word": "soon",
+    "start_ms": 63349,
+    "end_ms": 63649
+  },
+  {
+    "word": "may",
+    "start_ms": 63989,
+    "end_ms": 64109
+  },
+  {
+    "word": "the",
+    "start_ms": 64469,
+    "end_ms": 64549
+  },
+  {
+    "word": "wellerman",
+    "start_ms": 64629,
+    "end_ms": 65089
+  },
+  {
+    "word": "come",
+    "start_ms": 65229,
+    "end_ms": 65529
+  },
+  {
+    "word": "to",
+    "start_ms": 65689,
+    "end_ms": 65769
+  },
+  {
+    "word": "bring",
+    "start_ms": 65829,
+    "end_ms": 66089
+  },
+  {
+    "word": "us",
+    "start_ms": 66189,
+    "end_ms": 66329
+  },
+  {
+    "word": "sugar",
+    "start_ms": 66409,
+    "end_ms": 66769
+  },
+  {
+    "word": "and",
+    "start_ms": 66809,
+    "end_ms": 66969
+  },
+  {
+    "word": "tea",
+    "start_ms": 67049,
+    "end_ms": 67450
+  },
+  {
+    "word": "and",
+    "start_ms": 67510,
+    "end_ms": 67590
+  },
+  {
+    "word": "rum",
+    "start_ms": 67730,
+    "end_ms": 67910
+  },
+  {
+    "word": "one",
+    "start_ms": 68430,
+    "end_ms": 68670
+  },
+  {
+    "word": "day",
+    "start_ms": 68970,
+    "end_ms": 69170
+  },
+  {
+    "word": "when",
+    "start_ms": 69290,
+    "end_ms": 69410
+  },
+  {
+    "word": "the",
+    "start_ms": 69410,
+    "end_ms": 69470
+  },
+  {
+    "word": "tonguin",
+    "start_ms": 69550,
+    "end_ms": 69890
+  },
+  {
+    "word": "is",
+    "start_ms": 69950,
+    "end_ms": 70130
+  },
+  {
+    "word": "done",
+    "start_ms": 70190,
+    "end_ms": 70430
+  },
+  {
+    "word": "well",
+    "start_ms": 70510,
+    "end_ms": 70710
+  },
+  {
+    "word": "take",
+    "start_ms": 70810,
+    "end_ms": 71230
+  },
+  {
+    "word": "our",
+    "start_ms": 71230,
+    "end_ms": 71350
+  },
+  {
+    "word": "leave",
+    "start_ms": 71490,
+    "end_ms": 71850
+  },
+  {
+    "word": "and",
+    "start_ms": 71850,
+    "end_ms": 72010
+  },
+  {
+    "word": "go",
+    "start_ms": 72110,
+    "end_ms": 72210
+  },
+  {
+    "word": "no",
+    "start_ms": 73050,
+    "end_ms": 73150
+  },
+  {
+    "word": "line",
+    "start_ms": 73350,
+    "end_ms": 73630
+  },
+  {
+    "word": "was",
+    "start_ms": 73650,
+    "end_ms": 73770
+  },
+  {
+    "word": "cut",
+    "start_ms": 73810,
+    "end_ms": 73990
+  },
+  {
+    "word": "no",
+    "start_ms": 74311,
+    "end_ms": 74391
+  },
+  {
+    "word": "whale",
+    "start_ms": 74611,
+    "end_ms": 74871
+  },
+  {
+    "word": "was",
+    "start_ms": 74911,
+    "end_ms": 75071
+  },
+  {
+    "word": "freed",
+    "start_ms": 75191,
+    "end_ms": 75611
+  },
+  {
+    "word": "the",
+    "start_ms": 75671,
+    "end_ms": 75731
+  },
+  {
+    "word": "captains",
+    "start_ms": 75811,
+    "end_ms": 76391
+  },
+  {
+    "word": "mind",
+    "start_ms": 76451,
+    "end_ms": 76771
+  },
+  {
+    "word": "was",
+    "start_ms": 76791,
+    "end_ms": 76931
+  },
+  {
+    "word": "not",
+    "start_ms": 77091,
+    "end_ms": 77411
+  },
+  {
+    "word": "of",
+    "start_ms": 77471,
+    "end_ms": 77591
+  },
+  {
+    "word": "greed",
+    "start_ms": 77671,
+    "end_ms": 77991
+  },
+  {
+    "word": "but",
+    "start_ms": 78031,
+    "end_ms": 78331
+  },
+  {
+    "word": "he",
+    "start_ms": 78371,
+    "end_ms": 78471
+  },
+  {
+    "word": "belonged",
+    "start_ms": 78651,
+    "end_ms": 79231
+  },
+  {
+    "word": "to",
+    "start_ms": 79271,
+    "end_ms": 79371
+  },
+  {
+    "word": "the",
+    "start_ms": 79411,
+    "end_ms": 79491
+  },
+  {
+    "word": "whalemans",
+    "start_ms": 79591,
+    "end_ms": 80131
+  },
+  {
+    "word": "creed",
+    "start_ms": 80191,
+    "end_ms": 80491
+  },
+  {
+    "word": "she",
+    "start_ms": 80531,
+    "end_ms": 80651
+  },
+  {
+    "word": "took",
+    "start_ms": 80811,
+    "end_ms": 81011
+  },
+  {
+    "word": "that",
+    "start_ms": 81131,
+    "end_ms": 81331
+  },
+  {
+    "word": "ship",
+    "start_ms": 81432,
+    "end_ms": 81692
+  },
+  {
+    "word": "in",
+    "start_ms": 81832,
+    "end_ms": 81952
+  },
+  {
+    "word": "tow",
+    "start_ms": 82072,
+    "end_ms": 82412
+  },
+  {
+    "word": "huh",
+    "start_ms": 82412,
+    "end_ms": 82672
+  },
+  {
+    "word": "soon",
+    "start_ms": 83332,
+    "end_ms": 83632
+  },
+  {
+    "word": "may",
+    "start_ms": 83992,
+    "end_ms": 84112
+  },
+  {
+    "word": "the",
+    "start_ms": 84472,
+    "end_ms": 84552
+  },
+  {
+    "word": "wellerman",
+    "start_ms": 84612,
+    "end_ms": 85112
+  },
+  {
+    "word": "come",
+    "start_ms": 85232,
+    "end_ms": 85552
+  },
+  {
+    "word": "to",
+    "start_ms": 85712,
+    "end_ms": 85792
+  },
+  {
+    "word": "bring",
+    "start_ms": 85852,
+    "end_ms": 86132
+  },
+  {
+    "word": "us",
+    "start_ms": 86212,
+    "end_ms": 86352
+  },
+  {
+    "word": "sugar",
+    "start_ms": 86432,
+    "end_ms": 86772
+  },
+  {
+    "word": "and",
+    "start_ms": 86812,
+    "end_ms": 86972
+  },
+  {
+    "word": "tea",
+    "start_ms": 87052,
+    "end_ms": 87272
+  },
+  {
+    "word": "and",
+    "start_ms": 87452,
+    "end_ms": 87612
+  },
+  {
+    "word": "rum",
+    "start_ms": 87732,
+    "end_ms": 87952
+  },
+  {
+    "word": "one",
+    "start_ms": 88392,
+    "end_ms": 88673
+  },
+  {
+    "word": "day",
+    "start_ms": 88953,
+    "end_ms": 89153
+  },
+  {
+    "word": "when",
+    "start_ms": 89293,
+    "end_ms": 89433
+  },
+  {
+    "word": "the",
+    "start_ms": 89433,
+    "end_ms": 89493
+  },
+  {
+    "word": "tonguin",
+    "start_ms": 89553,
+    "end_ms": 89893
+  },
+  {
+    "word": "is",
+    "start_ms": 89953,
+    "end_ms": 90133
+  },
+  {
+    "word": "done",
+    "start_ms": 90213,
+    "end_ms": 90433
+  },
+  {
+    "word": "well",
+    "start_ms": 90533,
+    "end_ms": 90753
+  },
+  {
+    "word": "take",
+    "start_ms": 90833,
+    "end_ms": 91213
+  },
+  {
+    "word": "our",
+    "start_ms": 91213,
+    "end_ms": 91333
+  },
+  {
+    "word": "leave",
+    "start_ms": 91493,
+    "end_ms": 91833
+  },
+  {
+    "word": "and",
+    "start_ms": 91833,
+    "end_ms": 92013
+  },
+  {
+    "word": "go",
+    "start_ms": 92113,
+    "end_ms": 92213
+  },
+  {
+    "word": "dada",
+    "start_ms": 93333,
+    "end_ms": 94033
+  },
+  {
+    "word": "dadadada",
+    "start_ms": 94433,
+    "end_ms": 94833
+  },
+  {
+    "word": "dadadada",
+    "start_ms": 94853,
+    "end_ms": 95774
+  },
+  {
+    "word": "dadadadada",
+    "start_ms": 95874,
+    "end_ms": 97214
+  },
+  {
+    "word": "dada",
+    "start_ms": 97434,
+    "end_ms": 98454
+  },
+  {
+    "word": "dadadada",
+    "start_ms": 98994,
+    "end_ms": 100334
+  },
+  {
+    "word": "dadadadadada",
+    "start_ms": 100694,
+    "end_ms": 102194
+  },
+  {
+    "word": "for",
+    "start_ms": 103055,
+    "end_ms": 103215
+  },
+  {
+    "word": "forty",
+    "start_ms": 103335,
+    "end_ms": 103735
+  },
+  {
+    "word": "days",
+    "start_ms": 103835,
+    "end_ms": 104275
+  },
+  {
+    "word": "or",
+    "start_ms": 104355,
+    "end_ms": 104575
+  },
+  {
+    "word": "even",
+    "start_ms": 104695,
+    "end_ms": 105035
+  },
+  {
+    "word": "more",
+    "start_ms": 105195,
+    "end_ms": 105615
+  },
+  {
+    "word": "the",
+    "start_ms": 105675,
+    "end_ms": 105755
+  },
+  {
+    "word": "line",
+    "start_ms": 105835,
+    "end_ms": 106135
+  },
+  {
+    "word": "went",
+    "start_ms": 106155,
+    "end_ms": 106315
+  },
+  {
+    "word": "slack",
+    "start_ms": 106375,
+    "end_ms": 106655
+  },
+  {
+    "word": "then",
+    "start_ms": 106895,
+    "end_ms": 107015
+  },
+  {
+    "word": "tight",
+    "start_ms": 107075,
+    "end_ms": 107275
+  },
+  {
+    "word": "once",
+    "start_ms": 107455,
+    "end_ms": 107675
+  },
+  {
+    "word": "more",
+    "start_ms": 107715,
+    "end_ms": 107995
+  },
+  {
+    "word": "all",
+    "start_ms": 108215,
+    "end_ms": 108295
+  },
+  {
+    "word": "boats",
+    "start_ms": 108355,
+    "end_ms": 108595
+  },
+  {
+    "word": "were",
+    "start_ms": 108655,
+    "end_ms": 108855
+  },
+  {
+    "word": "lost",
+    "start_ms": 108935,
+    "end_ms": 109235
+  },
+  {
+    "word": "there",
+    "start_ms": 109295,
+    "end_ms": 109435
+  },
+  {
+    "word": "were",
+    "start_ms": 109455,
+    "end_ms": 109635
+  },
+  {
+    "word": "only",
+    "start_ms": 109695,
+    "end_ms": 110016
+  },
+  {
+    "word": "four",
+    "start_ms": 110196,
+    "end_ms": 110476
+  },
+  {
+    "word": "but",
+    "start_ms": 110536,
+    "end_ms": 110656
+  },
+  {
+    "word": "still",
+    "start_ms": 110756,
+    "end_ms": 111156
+  },
+  {
+    "word": "that",
+    "start_ms": 111196,
+    "end_ms": 111376
+  },
+  {
+    "word": "whale",
+    "start_ms": 111476,
+    "end_ms": 111776
+  },
+  {
+    "word": "did",
+    "start_ms": 111816,
+    "end_ms": 111996
+  },
+  {
+    "word": "go",
+    "start_ms": 112096,
+    "end_ms": 112216
+  },
+  {
+    "word": "huh",
+    "start_ms": 112416,
+    "end_ms": 112656
+  },
+  {
+    "word": "soon",
+    "start_ms": 113336,
+    "end_ms": 113636
+  },
+  {
+    "word": "may",
+    "start_ms": 113996,
+    "end_ms": 114116
+  },
+  {
+    "word": "the",
+    "start_ms": 114456,
+    "end_ms": 114556
+  },
+  {
+    "word": "wellerman",
+    "start_ms": 114616,
+    "end_ms": 115096
+  },
+  {
+    "word": "come",
+    "start_ms": 115216,
+    "end_ms": 115536
+  },
+  {
+    "word": "to",
+    "start_ms": 115676,
+    "end_ms": 115756
+  },
+  {
+    "word": "bring",
+    "start_ms": 115836,
+    "end_ms": 116116
+  },
+  {
+    "word": "us",
+    "start_ms": 116196,
+    "end_ms": 116336
+  },
+  {
+    "word": "sugar",
+    "start_ms": 116416,
+    "end_ms": 116777
+  },
+  {
+    "word": "and",
+    "start_ms": 116817,
+    "end_ms": 116977
+  },
+  {
+    "word": "tea",
+    "start_ms": 117057,
+    "end_ms": 117197
+  },
+  {
+    "word": "and",
+    "start_ms": 117457,
+    "end_ms": 117617
+  },
+  {
+    "word": "rum",
+    "start_ms": 117717,
+    "end_ms": 117937
+  },
+  {
+    "word": "one",
+    "start_ms": 118417,
+    "end_ms": 118677
+  },
+  {
+    "word": "day",
+    "start_ms": 118977,
+    "end_ms": 119157
+  },
+  {
+    "word": "when",
+    "start_ms": 119297,
+    "end_ms": 119437
+  },
+  {
+    "word": "the",
+    "start_ms": 119437,
+    "end_ms": 119497
+  },
+  {
+    "word": "tonguin",
+    "start_ms": 119557,
+    "end_ms": 119917
+  },
+  {
+    "word": "is",
+    "start_ms": 119957,
+    "end_ms": 120157
+  },
+  {
+    "word": "done",
+    "start_ms": 120217,
+    "end_ms": 120457
+  },
+  {
+    "word": "well",
+    "start_ms": 120537,
+    "end_ms": 120757
+  },
+  {
+    "word": "take",
+    "start_ms": 120837,
+    "end_ms": 121217
+  },
+  {
+    "word": "our",
+    "start_ms": 121217,
+    "end_ms": 121357
+  },
+  {
+    "word": "leave",
+    "start_ms": 121497,
+    "end_ms": 121837
+  },
+  {
+    "word": "and",
+    "start_ms": 121837,
+    "end_ms": 121997
+  },
+  {
+    "word": "go",
+    "start_ms": 122117,
+    "end_ms": 122217
+  },
+  {
+    "word": "as",
+    "start_ms": 123117,
+    "end_ms": 123257
+  },
+  {
+    "word": "far",
+    "start_ms": 123357,
+    "end_ms": 123577
+  },
+  {
+    "word": "as",
+    "start_ms": 123637,
+    "end_ms": 123717
+  },
+  {
+    "word": "ive",
+    "start_ms": 123757,
+    "end_ms": 123878
+  },
+  {
+    "word": "heard",
+    "start_ms": 123878,
+    "end_ms": 124338
+  },
+  {
+    "word": "the",
+    "start_ms": 124418,
+    "end_ms": 124498
+  },
+  {
+    "word": "fights",
+    "start_ms": 124558,
+    "end_ms": 124798
+  },
+  {
+    "word": "still",
+    "start_ms": 124838,
+    "end_ms": 125178
+  },
+  {
+    "word": "on",
+    "start_ms": 125298,
+    "end_ms": 125518
+  },
+  {
+    "word": "the",
+    "start_ms": 125678,
+    "end_ms": 125738
+  },
+  {
+    "word": "lines",
+    "start_ms": 125838,
+    "end_ms": 126118
+  },
+  {
+    "word": "not",
+    "start_ms": 126178,
+    "end_ms": 126358
+  },
+  {
+    "word": "cut",
+    "start_ms": 126478,
+    "end_ms": 126698
+  },
+  {
+    "word": "and",
+    "start_ms": 126838,
+    "end_ms": 126918
+  },
+  {
+    "word": "the",
+    "start_ms": 126958,
+    "end_ms": 127018
+  },
+  {
+    "word": "whales",
+    "start_ms": 127118,
+    "end_ms": 127398
+  },
+  {
+    "word": "not",
+    "start_ms": 127458,
+    "end_ms": 127638
+  },
+  {
+    "word": "gone",
+    "start_ms": 127738,
+    "end_ms": 128018
+  },
+  {
+    "word": "the",
+    "start_ms": 128218,
+    "end_ms": 128278
+  },
+  {
+    "word": "wellerman",
+    "start_ms": 128358,
+    "end_ms": 128858
+  },
+  {
+    "word": "makes",
+    "start_ms": 128958,
+    "end_ms": 129278
+  },
+  {
+    "word": "his",
+    "start_ms": 129318,
+    "end_ms": 129538
+  },
+  {
+    "word": "regular",
+    "start_ms": 129598,
+    "end_ms": 130058
+  },
+  {
+    "word": "call",
+    "start_ms": 130178,
+    "end_ms": 130438
+  },
+  {
+    "word": "to",
+    "start_ms": 130518,
+    "end_ms": 130618
+  },
+  {
+    "word": "encourage",
+    "start_ms": 130718,
+    "end_ms": 131159
+  },
+  {
+    "word": "the",
+    "start_ms": 131179,
+    "end_ms": 131259
+  },
+  {
+    "word": "captain",
+    "start_ms": 131439,
+    "end_ms": 131939
+  },
+  {
+    "word": "crew",
+    "start_ms": 132059,
+    "end_ms": 132379
+  },
+  {
+    "word": "and",
+    "start_ms": 132499,
+    "end_ms": 132759
+  },
+  {
+    "word": "all",
+    "start_ms": 132819,
+    "end_ms": 132899
+  },
+  {
+    "word": "huh",
+    "start_ms": 132899,
+    "end_ms": 132959
+  },
+  {
+    "word": "soon",
+    "start_ms": 133339,
+    "end_ms": 133639
+  },
+  {
+    "word": "may",
+    "start_ms": 133999,
+    "end_ms": 134119
+  },
+  {
+    "word": "the",
+    "start_ms": 134459,
+    "end_ms": 134539
+  },
+  {
+    "word": "wellerman",
+    "start_ms": 134619,
+    "end_ms": 135099
+  },
+  {
+    "word": "come",
+    "start_ms": 135239,
+    "end_ms": 135559
+  },
+  {
+    "word": "to",
+    "start_ms": 135699,
+    "end_ms": 135779
+  },
+  {
+    "word": "bring",
+    "start_ms": 135839,
+    "end_ms": 136119
+  },
+  {
+    "word": "us",
+    "start_ms": 136219,
+    "end_ms": 136339
+  },
+  {
+    "word": "sugar",
+    "start_ms": 136439,
+    "end_ms": 136779
+  },
+  {
+    "word": "and",
+    "start_ms": 136819,
+    "end_ms": 136979
+  },
+  {
+    "word": "tea",
+    "start_ms": 137059,
+    "end_ms": 137199
+  },
+  {
+    "word": "and",
+    "start_ms": 137439,
+    "end_ms": 137599
+  },
+  {
+    "word": "rum",
+    "start_ms": 137739,
+    "end_ms": 137919
+  },
+  {
+    "word": "one",
+    "start_ms": 138420,
+    "end_ms": 138680
+  },
+  {
+    "word": "day",
+    "start_ms": 139000,
+    "end_ms": 139180
+  },
+  {
+    "word": "when",
+    "start_ms": 139300,
+    "end_ms": 139420
+  },
+  {
+    "word": "the",
+    "start_ms": 139420,
+    "end_ms": 139480
+  },
+  {
+    "word": "tonguin",
+    "start_ms": 139580,
+    "end_ms": 139900
+  },
+  {
+    "word": "is",
+    "start_ms": 139960,
+    "end_ms": 140140
+  },
+  {
+    "word": "done",
+    "start_ms": 140200,
+    "end_ms": 140440
+  },
+  {
+    "word": "well",
+    "start_ms": 140520,
+    "end_ms": 140720
+  },
+  {
+    "word": "take",
+    "start_ms": 140840,
+    "end_ms": 141220
+  },
+  {
+    "word": "our",
+    "start_ms": 141220,
+    "end_ms": 141340
+  },
+  {
+    "word": "leave",
+    "start_ms": 141500,
+    "end_ms": 141860
+  },
+  {
+    "word": "and",
+    "start_ms": 141860,
+    "end_ms": 142020
+  },
+  {
+    "word": "go",
+    "start_ms": 142120,
+    "end_ms": 142200
+  },
+  {
+    "word": "soon",
+    "start_ms": 143340,
+    "end_ms": 143620
+  },
+  {
+    "word": "may",
+    "start_ms": 144000,
+    "end_ms": 144120
+  },
+  {
+    "word": "the",
+    "start_ms": 144460,
+    "end_ms": 144540
+  },
+  {
+    "word": "wellerman",
+    "start_ms": 144620,
+    "end_ms": 145101
+  },
+  {
+    "word": "come",
+    "start_ms": 145241,
+    "end_ms": 145561
+  },
+  {
+    "word": "to",
+    "start_ms": 145701,
+    "end_ms": 145781
+  },
+  {
+    "word": "bring",
+    "start_ms": 145841,
+    "end_ms": 146121
+  },
+  {
+    "word": "us",
+    "start_ms": 146221,
+    "end_ms": 146341
+  },
+  {
+    "word": "sugar",
+    "start_ms": 146441,
+    "end_ms": 146781
+  },
+  {
+    "word": "and",
+    "start_ms": 146821,
+    "end_ms": 146981
+  },
+  {
+    "word": "tea",
+    "start_ms": 147061,
+    "end_ms": 147201
+  },
+  {
+    "word": "and",
+    "start_ms": 147441,
+    "end_ms": 147601
+  },
+  {
+    "word": "rum",
+    "start_ms": 147741,
+    "end_ms": 147921
+  },
+  {
+    "word": "one",
+    "start_ms": 148441,
+    "end_ms": 148681
+  },
+  {
+    "word": "day",
+    "start_ms": 149001,
+    "end_ms": 149181
+  },
+  {
+    "word": "when",
+    "start_ms": 149301,
+    "end_ms": 149421
+  },
+  {
+    "word": "the",
+    "start_ms": 149421,
+    "end_ms": 149481
+  },
+  {
+    "word": "tonguin",
+    "start_ms": 149581,
+    "end_ms": 149901
+  },
+  {
+    "word": "is",
+    "start_ms": 149961,
+    "end_ms": 150141
+  },
+  {
+    "word": "done",
+    "start_ms": 150201,
+    "end_ms": 150441
+  },
+  {
+    "word": "well",
+    "start_ms": 150521,
+    "end_ms": 150721
+  },
+  {
+    "word": "take",
+    "start_ms": 150841,
+    "end_ms": 151221
+  },
+  {
+    "word": "our",
+    "start_ms": 151221,
+    "end_ms": 151341
+  },
+  {
+    "word": "leave",
+    "start_ms": 151501,
+    "end_ms": 151861
+  },
+  {
+    "word": "and",
+    "start_ms": 151861,
+    "end_ms": 152001
+  },
+  {
+    "word": "go",
+    "start_ms": 152101,
+    "end_ms": 152202
+  }
+]

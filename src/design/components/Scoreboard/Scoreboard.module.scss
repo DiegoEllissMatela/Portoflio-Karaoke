@@ -1,0 +1,465 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.sidebarContainer {
+  @include glass-card;
+  width: 220px;
+  flex-shrink: 0;
+  border-radius: $radius-lg;
+  border: $glass-border;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(17, 24, 39, 0.6);
+  box-shadow: $shadow-lg;
+}
+
+.header {
+  @include flex-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: $font-heading;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+
+    @include gradient-text($color-secondary, $color-cyan);
+  }
+
+  .resetBtn {
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: $radius-sm;
+    color: $color-text-muted;
+    transition: $transition-fast;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:hover {
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+      border-color: rgba(239, 68, 68, 0.3);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.playerListSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  padding-top: 20px;
+  max-height: 100%;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.emptyState {
+  width: 100%;
+  text-align: center;
+  color: $color-text-muted;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+.playerTag {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 16px;
+  border-radius: $radius-md;
+  color: white;
+  font-weight: 600;
+  animation: popIn 0.2s ease-out;
+
+  &.activeSingerTag {
+    border-color: $color-primary;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    background: rgba(139, 92, 246, 0.15);
+  }
+
+  .rankBadge {
+    position: absolute;
+    top: -13px;
+    left: 15%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-family: $font-heading;
+    background: rgba(17, 24, 39, 0.9);
+    border: 1px solid currentColor;
+    z-index: 2;
+
+    &.rankGold {
+      color: #FFD700;
+      animation: goldGlow 2s infinite alternate;
+    }
+
+    &.rankSilver {
+      color: #C0C0C0;
+      animation: silverGlow 2s infinite alternate;
+    }
+
+    &.rankBronze {
+      color: #CD7F32;
+      animation: bronzeGlow 2s infinite alternate;
+    }
+
+    &.rankOther {
+      color: white;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .playerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .playerName {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 8px;
+  }
+
+  .scoreDots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    flex: 1;
+
+    .scoreDot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 5px currentColor;
+
+      &.scoreDot_PERFECT {
+        color: #49FF00;
+        background: #49FF00;
+      }
+
+      &.scoreDot_TWO_WORDS {
+        color: #FBFF00;
+        background: #FBFF00;
+      }
+
+      &.scoreDot_ONE_WORD {
+        color: #FF9300;
+        background: #FF9300;
+      }
+
+      &.scoreDot_ZERO {
+        color: #FF0000;
+        background: #FF0000;
+      }
+
+      &.scoreDot_EXTRA {
+        color: #00ffff;
+        background: #00ffff;
+      }
+    }
+  }
+
+  .scoreNumbers {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    font-family: monospace;
+
+    .normalPoints {
+      color: white;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+
+    .extraPoints {
+      color: #00ffff;
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+    }
+
+    .separator {
+      color: rgba(255, 255, 255, 0.2);
+      font-weight: 400;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes goldGlow {
+  from {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+  }
+
+  to {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+  }
+}
+
+@keyframes silverGlow {
+  from {
+    box-shadow: 0 0 5px rgba(192, 192, 192, 0.2);
+  }
+
+  to {
+    box-shadow: 0 0 15px rgba(192, 192, 192, 0.8);
+  }
+}
+
+@keyframes bronzeGlow {
+  from {
+    box-shadow: 0 0 5px rgba(205, 127, 50, 0.2);
+  }
+
+  to {
+    box-shadow: 0 0 15px rgba(205, 127, 50, 0.8);
+  }
+}
+
+.editableTag {
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.8);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  @include glass-card;
+  width: 400px;
+  max-width: 90vw;
+  padding: 24px;
+  border-radius: $radius-lg;
+  border: $glass-border;
+  background: rgba(17, 24, 39, 0.85);
+  box-shadow: $shadow-lg;
+}
+
+.modalHeader {
+  @include flex-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+
+  h3 {
+    margin: 0;
+    font-family: $font-heading;
+    color: white;
+    font-size: 1.25rem;
+  }
+
+  .closeBtn {
+    background: transparent;
+    border: none;
+    color: $color-text-muted;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: $radius-sm;
+    transition: all 0.2s;
+
+    &:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.editSection {
+  margin-bottom: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin: 0 0 12px 0;
+    font-size: 0.9rem;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.editScoreList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.emptyText {
+  color: $color-text-muted;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.editScoreBadge {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+
+    .removeIcon {
+      opacity: 1;
+    }
+  }
+
+  &.scoreDot_PERFECT {
+    background: #49FF00;
+    box-shadow: 0 0 8px #49FF00;
+  }
+
+  &.scoreDot_TWO_WORDS {
+    background: #FBFF00;
+    box-shadow: 0 0 8px #FBFF00;
+  }
+
+  &.scoreDot_ONE_WORD {
+    background: #FF9300;
+    box-shadow: 0 0 8px #FF9300;
+  }
+
+  &.scoreDot_ZERO {
+    background: #FF0000;
+    box-shadow: 0 0 8px #FF0000;
+  }
+
+  &.scoreDot_EXTRA {
+    background: #00ffff;
+    box-shadow: 0 0 8px #00ffff;
+  }
+
+  .removeIcon {
+    position: absolute;
+    color: black;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+}
+
+.addScoreButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.addScoreBtn {
+  flex: 1 1 calc(50% - 8px);
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &.scorePerfect {
+    border-left: 4px solid #49FF00;
+
+    &:hover {
+      background: rgba(73, 255, 0, 0.1);
+    }
+  }
+
+  &.scoreTwo {
+    border-left: 4px solid #FBFF00;
+
+    &:hover {
+      background: rgba(251, 255, 0, 0.1);
+    }
+  }
+
+  &.scoreOne {
+    border-left: 4px solid #FF9300;
+
+    &:hover {
+      background: rgba(255, 147, 0, 0.1);
+    }
+  }
+
+  &.scoreZero {
+    border-left: 4px solid #FF0000;
+
+    &:hover {
+      background: rgba(255, 0, 0, 0.1);
+    }
+  }
+
+  &.scoreExtra {
+    border-left: 4px solid #00ffff;
+
+    &:hover {
+      background: rgba(0, 255, 255, 0.1);
+    }
+  }
+}

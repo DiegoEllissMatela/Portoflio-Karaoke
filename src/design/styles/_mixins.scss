@@ -1,0 +1,70 @@
+@use 'variables' as *;
+
+@mixin glass-card {
+  background: $color-bg-card;
+  backdrop-filter: $glass-backdrop-filter;
+  -webkit-backdrop-filter: $glass-backdrop-filter;
+  border: $glass-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  transition: all $transition-normal;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin gradient-text($start-color: $color-primary, $end-color: $color-secondary) {
+  background: linear-gradient(135deg, $start-color, $end-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin cyber-button {
+  @include flex-center;
+  gap: 8px;
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: $radius-sm;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  transition: all $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    &:hover {
+      background: $color-primary;
+    }
+  }
+}

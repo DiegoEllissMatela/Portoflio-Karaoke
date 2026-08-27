@@ -1,0 +1,1182 @@
+[
+  {
+    "word": "alam",
+    "start_ms": 22040,
+    "end_ms": 22580
+  },
+  {
+    "word": "mo",
+    "start_ms": 22600,
+    "end_ms": 22700
+  },
+  {
+    "word": "bang",
+    "start_ms": 22980,
+    "end_ms": 23460
+  },
+  {
+    "word": "may",
+    "start_ms": 23560,
+    "end_ms": 23760
+  },
+  {
+    "word": "gusto",
+    "start_ms": 23900,
+    "end_ms": 24320
+  },
+  {
+    "word": "akong",
+    "start_ms": 24840,
+    "end_ms": 25080
+  },
+  {
+    "word": "sabihin",
+    "start_ms": 25200,
+    "end_ms": 26040
+  },
+  {
+    "word": "sa",
+    "start_ms": 26160,
+    "end_ms": 26300
+  },
+  {
+    "word": "'yo",
+    "start_ms": 26380,
+    "end_ms": 26640
+  },
+  {
+    "word": "magmula",
+    "start_ms": 27501,
+    "end_ms": 28201
+  },
+  {
+    "word": "nang",
+    "start_ms": 28741,
+    "end_ms": 28961
+  },
+  {
+    "word": "nakita",
+    "start_ms": 29041,
+    "end_ms": 29841
+  },
+  {
+    "word": "ka'y",
+    "start_ms": 30041,
+    "end_ms": 30261
+  },
+  {
+    "word": "naakit",
+    "start_ms": 30361,
+    "end_ms": 31361
+  },
+  {
+    "word": "ako",
+    "start_ms": 31441,
+    "end_ms": 31761
+  },
+  {
+    "word": "simple",
+    "start_ms": 32661,
+    "end_ms": 33081
+  },
+  {
+    "word": "lang",
+    "start_ms": 33261,
+    "end_ms": 33521
+  },
+  {
+    "word": "na",
+    "start_ms": 33601,
+    "end_ms": 33701
+  },
+  {
+    "word": "tulad",
+    "start_ms": 33921,
+    "end_ms": 34401
+  },
+  {
+    "word": "mo",
+    "start_ms": 34521,
+    "end_ms": 34641
+  },
+  {
+    "word": "ang",
+    "start_ms": 34941,
+    "end_ms": 35061
+  },
+  {
+    "word": "pinapangarap",
+    "start_ms": 35181,
+    "end_ms": 36681
+  },
+  {
+    "word": "ko",
+    "start_ms": 36801,
+    "end_ms": 36921
+  },
+  {
+    "word": "ang",
+    "start_ms": 38122,
+    "end_ms": 38242
+  },
+  {
+    "word": "pangarap",
+    "start_ms": 38402,
+    "end_ms": 39322
+  },
+  {
+    "word": "ko",
+    "start_ms": 39422,
+    "end_ms": 39542
+  },
+  {
+    "word": "kaya't",
+    "start_ms": 42562,
+    "end_ms": 43542
+  },
+  {
+    "word": "sana'y",
+    "start_ms": 43582,
+    "end_ms": 44142
+  },
+  {
+    "word": "maibigan",
+    "start_ms": 44242,
+    "end_ms": 45362
+  },
+  {
+    "word": "mo",
+    "start_ms": 45482,
+    "end_ms": 45582
+  },
+  {
+    "word": "ang",
+    "start_ms": 46502,
+    "end_ms": 46682
+  },
+  {
+    "word": "awit",
+    "start_ms": 46882,
+    "end_ms": 47302
+  },
+  {
+    "word": "kong",
+    "start_ms": 47402,
+    "end_ms": 47782
+  },
+  {
+    "word": "ito",
+    "start_ms": 47862,
+    "end_ms": 48182
+  },
+  {
+    "word": "para",
+    "start_ms": 48702,
+    "end_ms": 49162
+  },
+  {
+    "word": "sa",
+    "start_ms": 49362,
+    "end_ms": 49502
+  },
+  {
+    "word": "'yo",
+    "start_ms": 49542,
+    "end_ms": 49782
+  },
+  {
+    "word": "dahil",
+    "start_ms": 50983,
+    "end_ms": 51903
+  },
+  {
+    "word": "dahil",
+    "start_ms": 51923,
+    "end_ms": 52203
+  },
+  {
+    "word": "simple",
+    "start_ms": 52283,
+    "end_ms": 53063
+  },
+  {
+    "word": "lang",
+    "start_ms": 53243,
+    "end_ms": 53583
+  },
+  {
+    "word": "ang",
+    "start_ms": 53643,
+    "end_ms": 53783
+  },
+  {
+    "word": "pangarap",
+    "start_ms": 53903,
+    "end_ms": 54723
+  },
+  {
+    "word": "ko",
+    "start_ms": 54843,
+    "end_ms": 54963
+  },
+  {
+    "word": "mahalin",
+    "start_ms": 55543,
+    "end_ms": 56143
+  },
+  {
+    "word": "ang",
+    "start_ms": 56203,
+    "end_ms": 56343
+  },
+  {
+    "word": "katulad",
+    "start_ms": 56463,
+    "end_ms": 57263
+  },
+  {
+    "word": "mo",
+    "start_ms": 57423,
+    "end_ms": 57523
+  },
+  {
+    "word": "sana",
+    "start_ms": 58123,
+    "end_ms": 58563
+  },
+  {
+    "word": "ay",
+    "start_ms": 58823,
+    "end_ms": 58903
+  },
+  {
+    "word": "mapansin",
+    "start_ms": 59063,
+    "end_ms": 59923
+  },
+  {
+    "word": "mo",
+    "start_ms": 60023,
+    "end_ms": 60143
+  },
+  {
+    "word": "dahil",
+    "start_ms": 61324,
+    "end_ms": 62184
+  },
+  {
+    "word": "simple",
+    "start_ms": 62624,
+    "end_ms": 63404
+  },
+  {
+    "word": "lang",
+    "start_ms": 63584,
+    "end_ms": 63904
+  },
+  {
+    "word": "ang",
+    "start_ms": 63944,
+    "end_ms": 64084
+  },
+  {
+    "word": "pangarap",
+    "start_ms": 64204,
+    "end_ms": 65044
+  },
+  {
+    "word": "ko",
+    "start_ms": 65184,
+    "end_ms": 65284
+  },
+  {
+    "word": "maging",
+    "start_ms": 65844,
+    "end_ms": 66524
+  },
+  {
+    "word": "ikaw",
+    "start_ms": 66604,
+    "end_ms": 67184
+  },
+  {
+    "word": "at",
+    "start_ms": 67244,
+    "end_ms": 67364
+  },
+  {
+    "word": "ako",
+    "start_ms": 67544,
+    "end_ms": 67844
+  },
+  {
+    "word": "ang",
+    "start_ms": 68464,
+    "end_ms": 68604
+  },
+  {
+    "word": "tanging",
+    "start_ms": 68744,
+    "end_ms": 69304
+  },
+  {
+    "word": "ligaya",
+    "start_ms": 69384,
+    "end_ms": 70144
+  },
+  {
+    "word": "ko",
+    "start_ms": 70364,
+    "end_ms": 70484
+  },
+  {
+    "word": "simpleng",
+    "start_ms": 71324,
+    "end_ms": 71885
+  },
+  {
+    "word": "tulad",
+    "start_ms": 71965,
+    "end_ms": 72765
+  },
+  {
+    "word": "mo",
+    "start_ms": 72925,
+    "end_ms": 73045
+  },
+  {
+    "word": "lalalalala",
+    "start_ms": 73865,
+    "end_ms": 76625
+  },
+  {
+    "word": "lalalalala",
+    "start_ms": 77185,
+    "end_ms": 79185
+  },
+  {
+    "word": "lalalalala",
+    "start_ms": 79725,
+    "end_ms": 80805
+  },
+  {
+    "word": "alam",
+    "start_ms": 83965,
+    "end_ms": 84426
+  },
+  {
+    "word": "mo",
+    "start_ms": 84486,
+    "end_ms": 84626
+  },
+  {
+    "word": "ba",
+    "start_ms": 84866,
+    "end_ms": 84986
+  },
+  {
+    "word": "na",
+    "start_ms": 85186,
+    "end_ms": 85306
+  },
+  {
+    "word": "lalo",
+    "start_ms": 85506,
+    "end_ms": 85966
+  },
+  {
+    "word": "kang",
+    "start_ms": 86186,
+    "end_ms": 86426
+  },
+  {
+    "word": "gumaganda",
+    "start_ms": 86506,
+    "end_ms": 87586
+  },
+  {
+    "word": "sinta",
+    "start_ms": 87746,
+    "end_ms": 88206
+  },
+  {
+    "word": "sa",
+    "start_ms": 89066,
+    "end_ms": 89186
+  },
+  {
+    "word": "simple",
+    "start_ms": 89366,
+    "end_ms": 89826
+  },
+  {
+    "word": "na",
+    "start_ms": 90066,
+    "end_ms": 90186
+  },
+  {
+    "word": "katulad",
+    "start_ms": 90386,
+    "end_ms": 91186
+  },
+  {
+    "word": "mo",
+    "start_ms": 91326,
+    "end_ms": 91426
+  },
+  {
+    "word": "ako'y",
+    "start_ms": 91746,
+    "end_ms": 92186
+  },
+  {
+    "word": "nahulog",
+    "start_ms": 92306,
+    "end_ms": 93166
+  },
+  {
+    "word": "na",
+    "start_ms": 93286,
+    "end_ms": 93386
+  },
+  {
+    "word": "nga",
+    "start_ms": 93526,
+    "end_ms": 93746
+  },
+  {
+    "word": "lahat",
+    "start_ms": 94246,
+    "end_ms": 94866
+  },
+  {
+    "word": "ay",
+    "start_ms": 94947,
+    "end_ms": 95067
+  },
+  {
+    "word": "gagawin",
+    "start_ms": 95207,
+    "end_ms": 96027
+  },
+  {
+    "word": "ko",
+    "start_ms": 96147,
+    "end_ms": 96247
+  },
+  {
+    "word": "para",
+    "start_ms": 96487,
+    "end_ms": 96967
+  },
+  {
+    "word": "mapaibig",
+    "start_ms": 97127,
+    "end_ms": 98447
+  },
+  {
+    "word": "ka",
+    "start_ms": 98727,
+    "end_ms": 98867
+  },
+  {
+    "word": "sinta",
+    "start_ms": 100987,
+    "end_ms": 101447
+  },
+  {
+    "word": "kaya't",
+    "start_ms": 104547,
+    "end_ms": 105487
+  },
+  {
+    "word": "sana'y",
+    "start_ms": 105527,
+    "end_ms": 106027
+  },
+  {
+    "word": "maibigan",
+    "start_ms": 106127,
+    "end_ms": 107288
+  },
+  {
+    "word": "mo",
+    "start_ms": 107408,
+    "end_ms": 107548
+  },
+  {
+    "word": "ang",
+    "start_ms": 108528,
+    "end_ms": 108828
+  },
+  {
+    "word": "awit",
+    "start_ms": 108908,
+    "end_ms": 109288
+  },
+  {
+    "word": "kong",
+    "start_ms": 109408,
+    "end_ms": 109808
+  },
+  {
+    "word": "ito",
+    "start_ms": 109848,
+    "end_ms": 110128
+  },
+  {
+    "word": "para",
+    "start_ms": 110688,
+    "end_ms": 111088
+  },
+  {
+    "word": "sa",
+    "start_ms": 111288,
+    "end_ms": 111408
+  },
+  {
+    "word": "'yo",
+    "start_ms": 111408,
+    "end_ms": 111768
+  },
+  {
+    "word": "dahil",
+    "start_ms": 112948,
+    "end_ms": 113948
+  },
+  {
+    "word": "simple",
+    "start_ms": 114248,
+    "end_ms": 115008
+  },
+  {
+    "word": "lang",
+    "start_ms": 115208,
+    "end_ms": 115528
+  },
+  {
+    "word": "ang",
+    "start_ms": 115568,
+    "end_ms": 115708
+  },
+  {
+    "word": "pangarap",
+    "start_ms": 115848,
+    "end_ms": 116708
+  },
+  {
+    "word": "ko",
+    "start_ms": 116808,
+    "end_ms": 116908
+  },
+  {
+    "word": "mahalin",
+    "start_ms": 117469,
+    "end_ms": 118089
+  },
+  {
+    "word": "ang",
+    "start_ms": 118149,
+    "end_ms": 118289
+  },
+  {
+    "word": "katulad",
+    "start_ms": 118429,
+    "end_ms": 119249
+  },
+  {
+    "word": "mo",
+    "start_ms": 119369,
+    "end_ms": 119469
+  },
+  {
+    "word": "sana",
+    "start_ms": 120049,
+    "end_ms": 120489
+  },
+  {
+    "word": "ay",
+    "start_ms": 120769,
+    "end_ms": 120869
+  },
+  {
+    "word": "mapansin",
+    "start_ms": 120989,
+    "end_ms": 121869
+  },
+  {
+    "word": "mo",
+    "start_ms": 121949,
+    "end_ms": 122069
+  },
+  {
+    "word": "dahil",
+    "start_ms": 123269,
+    "end_ms": 124169
+  },
+  {
+    "word": "simple",
+    "start_ms": 124589,
+    "end_ms": 125369
+  },
+  {
+    "word": "lang",
+    "start_ms": 125529,
+    "end_ms": 125869
+  },
+  {
+    "word": "ang",
+    "start_ms": 125929,
+    "end_ms": 126069
+  },
+  {
+    "word": "pangarap",
+    "start_ms": 126169,
+    "end_ms": 127029
+  },
+  {
+    "word": "ko",
+    "start_ms": 127169,
+    "end_ms": 127249
+  },
+  {
+    "word": "maging",
+    "start_ms": 127809,
+    "end_ms": 128450
+  },
+  {
+    "word": "ikaw",
+    "start_ms": 128510,
+    "end_ms": 129110
+  },
+  {
+    "word": "at",
+    "start_ms": 129170,
+    "end_ms": 129370
+  },
+  {
+    "word": "ako",
+    "start_ms": 129450,
+    "end_ms": 129790
+  },
+  {
+    "word": "ang",
+    "start_ms": 130430,
+    "end_ms": 130570
+  },
+  {
+    "word": "tanging",
+    "start_ms": 130670,
+    "end_ms": 131210
+  },
+  {
+    "word": "ligaya",
+    "start_ms": 131310,
+    "end_ms": 132070
+  },
+  {
+    "word": "ko",
+    "start_ms": 132270,
+    "end_ms": 132390
+  },
+  {
+    "word": "simpleng",
+    "start_ms": 133250,
+    "end_ms": 133830
+  },
+  {
+    "word": "tulad",
+    "start_ms": 133910,
+    "end_ms": 134670
+  },
+  {
+    "word": "mo",
+    "start_ms": 134830,
+    "end_ms": 134950
+  },
+  {
+    "word": "wala",
+    "start_ms": 135550,
+    "end_ms": 135950
+  },
+  {
+    "word": "na",
+    "start_ms": 136190,
+    "end_ms": 136310
+  },
+  {
+    "word": "nga",
+    "start_ms": 136450,
+    "end_ms": 136610
+  },
+  {
+    "word": "'kong",
+    "start_ms": 136650,
+    "end_ms": 137050
+  },
+  {
+    "word": "mahihiling",
+    "start_ms": 137130,
+    "end_ms": 138630
+  },
+  {
+    "word": "pa",
+    "start_ms": 138730,
+    "end_ms": 138850
+  },
+  {
+    "word": "kundi",
+    "start_ms": 139431,
+    "end_ms": 139891
+  },
+  {
+    "word": "ikaw",
+    "start_ms": 140051,
+    "end_ms": 141071
+  },
+  {
+    "word": "ikaw",
+    "start_ms": 142791,
+    "end_ms": 143311
+  },
+  {
+    "word": "ang",
+    "start_ms": 143351,
+    "end_ms": 143491
+  },
+  {
+    "word": "kailangan",
+    "start_ms": 143571,
+    "end_ms": 144411
+  },
+  {
+    "word": "ko",
+    "start_ms": 144551,
+    "end_ms": 144651
+  },
+  {
+    "word": "sa",
+    "start_ms": 145851,
+    "end_ms": 145971
+  },
+  {
+    "word": "simple",
+    "start_ms": 146171,
+    "end_ms": 146611
+  },
+  {
+    "word": "na",
+    "start_ms": 146791,
+    "end_ms": 146911
+  },
+  {
+    "word": "katulad",
+    "start_ms": 147131,
+    "end_ms": 147991
+  },
+  {
+    "word": "mo",
+    "start_ms": 148131,
+    "end_ms": 148231
+  },
+  {
+    "word": "ang",
+    "start_ms": 148531,
+    "end_ms": 148711
+  },
+  {
+    "word": "buhay",
+    "start_ms": 148791,
+    "end_ms": 149291
+  },
+  {
+    "word": "ko'y",
+    "start_ms": 149371,
+    "end_ms": 149591
+  },
+  {
+    "word": "kumpleto",
+    "start_ms": 149692,
+    "end_ms": 150372
+  },
+  {
+    "word": "na",
+    "start_ms": 150552,
+    "end_ms": 150692
+  },
+  {
+    "word": "ikaw",
+    "start_ms": 153152,
+    "end_ms": 153572
+  },
+  {
+    "word": "lang",
+    "start_ms": 153572,
+    "end_ms": 153772
+  },
+  {
+    "word": "sinta",
+    "start_ms": 153892,
+    "end_ms": 154352
+  },
+  {
+    "word": "simple",
+    "start_ms": 155472,
+    "end_ms": 155692
+  },
+  {
+    "word": "lang",
+    "start_ms": 156872,
+    "end_ms": 159392
+  },
+  {
+    "word": "ang",
+    "start_ms": 159452,
+    "end_ms": 159592
+  },
+  {
+    "word": "pangarap",
+    "start_ms": 159692,
+    "end_ms": 160572
+  },
+  {
+    "word": "ko",
+    "start_ms": 160712,
+    "end_ms": 160812
+  },
+  {
+    "word": "mahalin",
+    "start_ms": 161332,
+    "end_ms": 161952
+  },
+  {
+    "word": "ang",
+    "start_ms": 162012,
+    "end_ms": 162152
+  },
+  {
+    "word": "katulad",
+    "start_ms": 162272,
+    "end_ms": 163113
+  },
+  {
+    "word": "mo",
+    "start_ms": 163253,
+    "end_ms": 163353
+  },
+  {
+    "word": "sana",
+    "start_ms": 163933,
+    "end_ms": 164373
+  },
+  {
+    "word": "ay",
+    "start_ms": 164613,
+    "end_ms": 164733
+  },
+  {
+    "word": "mapansin",
+    "start_ms": 164873,
+    "end_ms": 165733
+  },
+  {
+    "word": "mo",
+    "start_ms": 165833,
+    "end_ms": 165953
+  },
+  {
+    "word": "dahil",
+    "start_ms": 167153,
+    "end_ms": 168073
+  },
+  {
+    "word": "simple",
+    "start_ms": 168433,
+    "end_ms": 169193
+  },
+  {
+    "word": "lang",
+    "start_ms": 169373,
+    "end_ms": 169753
+  },
+  {
+    "word": "ang",
+    "start_ms": 169793,
+    "end_ms": 169933
+  },
+  {
+    "word": "pangarap",
+    "start_ms": 170033,
+    "end_ms": 170873
+  },
+  {
+    "word": "ko",
+    "start_ms": 170993,
+    "end_ms": 171113
+  },
+  {
+    "word": "maging",
+    "start_ms": 171653,
+    "end_ms": 172313
+  },
+  {
+    "word": "ikaw",
+    "start_ms": 172373,
+    "end_ms": 172993
+  },
+  {
+    "word": "at",
+    "start_ms": 173053,
+    "end_ms": 173253
+  },
+  {
+    "word": "ako",
+    "start_ms": 173333,
+    "end_ms": 173654
+  },
+  {
+    "word": "ang",
+    "start_ms": 174274,
+    "end_ms": 174414
+  },
+  {
+    "word": "tanging",
+    "start_ms": 174554,
+    "end_ms": 175114
+  },
+  {
+    "word": "ligaya",
+    "start_ms": 175114,
+    "end_ms": 175234
+  },
+  {
+    "word": "ko",
+    "start_ms": 175234,
+    "end_ms": 175274
+  },
+  {
+    "word": "simpleng",
+    "start_ms": 175294,
+    "end_ms": 175554
+  },
+  {
+    "word": "tulad",
+    "start_ms": 175554,
+    "end_ms": 175874
+  },
+  {
+    "word": "mo",
+    "start_ms": 176054,
+    "end_ms": 176254
+  },
+  {
+    "word": "simple",
+    "start_ms": 178734,
+    "end_ms": 179514
+  },
+  {
+    "word": "lang",
+    "start_ms": 179694,
+    "end_ms": 180034
+  },
+  {
+    "word": "ang",
+    "start_ms": 180094,
+    "end_ms": 180234
+  },
+  {
+    "word": "pangarap",
+    "start_ms": 180354,
+    "end_ms": 181194
+  },
+  {
+    "word": "ko",
+    "start_ms": 181334,
+    "end_ms": 181434
+  },
+  {
+    "word": "mahalin",
+    "start_ms": 181974,
+    "end_ms": 182594
+  },
+  {
+    "word": "ang",
+    "start_ms": 182654,
+    "end_ms": 182794
+  },
+  {
+    "word": "katulad",
+    "start_ms": 182914,
+    "end_ms": 183754
+  },
+  {
+    "word": "mo",
+    "start_ms": 183894,
+    "end_ms": 183994
+  },
+  {
+    "word": "sana",
+    "start_ms": 184595,
+    "end_ms": 185015
+  },
+  {
+    "word": "ay",
+    "start_ms": 185275,
+    "end_ms": 185395
+  },
+  {
+    "word": "mapansin",
+    "start_ms": 185515,
+    "end_ms": 186375
+  },
+  {
+    "word": "mo",
+    "start_ms": 186475,
+    "end_ms": 186595
+  },
+  {
+    "word": "dahil",
+    "start_ms": 187815,
+    "end_ms": 188715
+  },
+  {
+    "word": "simple",
+    "start_ms": 189075,
+    "end_ms": 189835
+  },
+  {
+    "word": "lang",
+    "start_ms": 189995,
+    "end_ms": 190395
+  },
+  {
+    "word": "ang",
+    "start_ms": 190435,
+    "end_ms": 190575
+  },
+  {
+    "word": "pangarap",
+    "start_ms": 190675,
+    "end_ms": 191515
+  },
+  {
+    "word": "ko",
+    "start_ms": 191655,
+    "end_ms": 191755
+  },
+  {
+    "word": "maging",
+    "start_ms": 192295,
+    "end_ms": 192955
+  },
+  {
+    "word": "ikaw",
+    "start_ms": 193015,
+    "end_ms": 193635
+  },
+  {
+    "word": "at",
+    "start_ms": 193695,
+    "end_ms": 193895
+  },
+  {
+    "word": "ako",
+    "start_ms": 193975,
+    "end_ms": 194315
+  },
+  {
+    "word": "ang",
+    "start_ms": 194915,
+    "end_ms": 195056
+  },
+  {
+    "word": "tanging",
+    "start_ms": 195196,
+    "end_ms": 195776
+  },
+  {
+    "word": "ligaya",
+    "start_ms": 195856,
+    "end_ms": 196616
+  },
+  {
+    "word": "ko",
+    "start_ms": 196796,
+    "end_ms": 196896
+  },
+  {
+    "word": "simpleng",
+    "start_ms": 197756,
+    "end_ms": 198336
+  },
+  {
+    "word": "tulad",
+    "start_ms": 198416,
+    "end_ms": 199236
+  },
+  {
+    "word": "mo",
+    "start_ms": 199356,
+    "end_ms": 199476
+  },
+  {
+    "word": "lalalalala",
+    "start_ms": 206497,
+    "end_ms": 209217
+  },
+  {
+    "word": "lalalalala",
+    "start_ms": 209257,
+    "end_ms": 213417
+  },
+  {
+    "word": "lalalalala",
+    "start_ms": 213957,
+    "end_ms": 217598
+  },
+  {
+    "word": "simpleng",
+    "start_ms": 218458,
+    "end_ms": 218998
+  },
+  {
+    "word": "tulad",
+    "start_ms": 219078,
+    "end_ms": 219918
+  },
+  {
+    "word": "mo",
+    "start_ms": 220118,
+    "end_ms": 220298
+  },
+  {
+    "word": "lalalalala",
+    "start_ms": 225538,
+    "end_ms": 229218
+  },
+  {
+    "word": "lalalalala",
+    "start_ms": 229399,
+    "end_ms": 231759
+  },
+  {
+    "word": "lalalalala",
+    "start_ms": 231819,
+    "end_ms": 234019
+  },
+  {
+    "word": "simpleng",
+    "start_ms": 234239,
+    "end_ms": 241040
+  },
+  {
+    "word": "tulad",
+    "start_ms": 241940,
+    "end_ms": 244560
+  },
+  {
+    "word": "mo",
+    "start_ms": 244860,
+    "end_ms": 244940
+  }
+]

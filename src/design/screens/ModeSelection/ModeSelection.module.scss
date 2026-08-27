@@ -1,0 +1,96 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.screenContainer {
+  @include flex-center;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+  gap: 50px;
+}
+
+.title {
+  font-family: $font-heading;
+  font-size: 3.5rem;
+  font-weight: 800;
+  @include gradient-text($color-text-primary, $color-text-secondary);
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 32px;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.modeCard {
+  @include glass-card;
+  flex: 1;
+  padding: 40px 24px;
+  @include flex-center;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  .iconWrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(24, 23, 23, 0.05);
+    @include flex-center;
+    color: $color-text-secondary;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $color-text-primary;
+    text-align: center;
+  }
+
+  p {
+    color: $color-text-muted;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.highlighted {
+  border-color: $color-primary;
+
+
+
+  .badge {
+    position: absolute;
+    top: 32px;
+    right: -36px;
+    width: 170px;
+    background: $color-secondary;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 6px 0;
+    text-align: center;
+    transform: rotate(45deg);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
+  }
+
+  &:hover {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+    border-color: $color-secondary;
+  }
+}
