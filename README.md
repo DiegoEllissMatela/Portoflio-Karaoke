@@ -1,32 +1,34 @@
-# React + TypeScript + Vite
+# DNM Karaoke — Interactive Web Karaoke & Audio Intelligence Pipeline
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A full-stack interactive karaoke web application featuring real-time lyric synchronization, gamified voice scoring, and an automated Python audio-processing pipeline for vocal removal and lyric alignment.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+DNM Karaoke provides a browser-based karaoke singing experience with synchronized word-by-word lyric tracking and real-time pitch/voice evaluation. The web application runs in React 19 and Vite, backed by an offline Python audio pipeline that isolates instrumentals and aligns lyric timestamps using AI speech recognition models.
 
-## React Compiler
+## Architecture and Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Browser-Based Voice Scoring (Web Speech API)
+- Leverages the browser's native `SpeechRecognition` interface to capture singing vocals in real time.
+- Implements Levenshtein fuzzy string distance matching to score player accuracy against expected lyric tokens, forgiving minor transcription discrepancies.
 
-## Expanding the Oxlint configuration
+### 2. Automated Python Audio Pipeline
+- **Vocal Retraction:** Separates music from vocals using specialized PyTorch and Torchaudio models.
+- **Lyric Alignment:** Processes vocal tracks with OpenAI Whisper to transcribe and generate time-synchronized LRC lyric datasets with sub-second accuracy.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### 3. Front-End Engineering
+- Built with React 19, TypeScript, and Vite for fast development and rendering performance.
+- Styled using SCSS Modules with strict token separation.
+- Progressive Web App (PWA) configuration with service workers for offline caching and audio asset preloading.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+## Live Demo
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+- **Hosted on Vercel:** [https://portfolio-karaoke.vercel.app/](https://portfolio-karaoke.vercel.app/)
+
+## Tech Stack
+
+- **Frontend:** React 19, TypeScript, Vite, SCSS Modules
+- **Browser APIs:** Web Speech API, Web Audio API, PWA Service Workers
+- **Audio Pipeline:** Python 3, PyTorch, Torchaudio, OpenAI Whisper
+- **Algorithms:** Levenshtein Distance Matching, LRC Timestamp Parser
+- **Deployment:** Vercel
