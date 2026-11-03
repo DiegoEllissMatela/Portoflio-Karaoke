@@ -35,16 +35,24 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <title>Automate Karaoke</title>
+    <title>DNM Karaoke</title>
 
-    <!-- Ensure full-screen layout in standalone (installed) mode -->
+    <!-- Ensure responsive layout and vertical scrolling on mobile -->
     <style>
-      html, body, #root {
-        height: 100%;
+      html, body {
         width: 100%;
+        min-height: 100%;
         margin: 0;
         padding: 0;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      #root {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
       }
       @media (display-mode: standalone) {
         body {

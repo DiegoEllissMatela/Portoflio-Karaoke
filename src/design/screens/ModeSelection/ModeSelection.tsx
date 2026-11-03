@@ -10,18 +10,12 @@ interface ModeSelectionProps {
 
 export const ModeSelection: React.FC<ModeSelectionProps> = ({ onSelectMode }) => {
   const [cheersAnimation, setCheersAnimation] = useState<any>(null);
-  const [dareAnimation, setDareAnimation] = useState<any>(null);
   const [normalAnimation, setNormalAnimation] = useState<any>(null);
 
   useEffect(() => {
     fetch('/AnimatedIcons/Cheers.json')
       .then((res) => res.json())
       .then((data) => setCheersAnimation(data))
-      .catch((err) => console.error('Failed to load animation', err));
-
-    fetch('/AnimatedIcons/DareIcon.json')
-      .then((res) => res.json())
-      .then((data) => setDareAnimation(data))
       .catch((err) => console.error('Failed to load animation', err));
 
     fetch('/AnimatedIcons/Normal.json')
@@ -53,17 +47,13 @@ export const ModeSelection: React.FC<ModeSelectionProps> = ({ onSelectMode }) =>
 
         <div
           className={styles.modeCard}
-          onClick={() => onSelectMode('DARE')}
+          onClick={() => onSelectMode('JUST_DRINK')}
         >
           <div className={styles.iconWrapper}>
-            {dareAnimation ? (
-              <Lottie animationData={dareAnimation} loop={true} style={{ width: 80, height: 80 }} />
-            ) : (
-              <div style={{ width: 80, height: 80 }} />
-            )}
+            <img src="/Beer.gif" alt="Just Drink" className={styles.modeGifIcon} />
           </div>
-          <h3>Truth or Dare</h3>
-          <p>Nail the lyrics or bottoms up and take the dare.</p>
+          <h3>Just Drink</h3>
+          <p>Nail the lyrics or bottoms up and take a drink!</p>
         </div>
 
         <div
@@ -77,8 +67,8 @@ export const ModeSelection: React.FC<ModeSelectionProps> = ({ onSelectMode }) =>
               <div style={{ width: 80, height: 80 }} />
             )}
           </div>
-          <h3>Normal Mode</h3>
-          <p>Know the lines, fill the rhymes, take the crown.</p>
+          <h3>Karaoke Mode</h3>
+          <p>Sing Your Lungs Out.</p>
         </div>
 
       </div>

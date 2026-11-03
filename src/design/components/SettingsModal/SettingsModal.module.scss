@@ -401,6 +401,33 @@
   padding-top: 24px;
 }
 
+.exportBtn {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.28);
+    color: #ffffff;
+    border-color: rgba(56, 189, 248, 0.6);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+  }
+}
+
+.importBtn {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(16, 185, 129, 0.28);
+    color: #ffffff;
+    border-color: rgba(16, 185, 129, 0.6);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  }
+}
+
 .exitBtn {
   background: rgba(239, 68, 68, 0.12);
   color: #f87171;

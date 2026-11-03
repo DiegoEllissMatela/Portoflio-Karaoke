@@ -1,30 +1,101 @@
 {
-  "name": "automate-karaoke",
+  "name": "dnm-karaoke",
+  "productName": "DNM Karaoke",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "DNM Karaoke - High-Fidelity Desktop Karaoke Player with Remote Queue",
+  "author": "DNM Karaoke",
   "type": "module",
+  "main": "electron-dist/main.cjs",
   "scripts": {
+    "catalog": "node scripts/generateSongCatalog.cjs",
+    "predev": "node scripts/generateSongCatalog.cjs",
+    "prebuild": "node scripts/generateSongCatalog.cjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "desktop:bundle": "node scripts/buildDesktop.cjs",
+    "desktop:packsongs": "node scripts/packSongs.cjs",
+    "desktop:start": "npm run build && npm run desktop:bundle && electron .",
+    "desktop:dist": "npm run build && npm run desktop:bundle && electron-builder --win --x64"
   },
-  "dependencies": {
-    "lottie-react": "^2.4.1",
-    "lucide-react": "^1.31.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@electron/asar": "^4.3.1",
     "@types/node": "^24.13.3",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-basic-ssl": "^2.3.0",
     "@vitejs/plugin-react": "^6.0.4",
+    "electron": "^45.1.0",
+    "electron-builder": "^26.18.0",
+    "esbuild": "^0.28.2",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^1.31.0",
     "oxlint": "^1.75.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "sass": "^1.102.0",
     "sass-embedded": "^1.100.0",
+    "spessasynth_core": "^4.4.1",
+    "spessasynth_lib": "^4.4.0",
     "typescript": "~6.0.2",
     "vite": "^8.2.0"
+  },
+  "build": {
+    "appId": "com.dnm.karaoke",
+    "productName": "DNM Karaoke",
+    "executableName": "DNM Karaoke",
+    "copyright": "DNM Karaoke",
+    "asar": true,
+    "compression": "normal",
+    "directories": {
+      "output": "../DNM Karaoke App",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron-dist/**/*",
+      "package.json",
+      "!dist/save/**",
+      "!dist/settings/**",
+      "!dist/save.json",
+      "!dist/save.txt",
+      "!dist/sw.js"
+    ],
+    "extraResources": [
+      {
+        "from": "public/songs",
+        "to": "songs"
+      },
+      {
+        "from": "public/soundfont",
+        "to": "soundfont"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "DNM Karaoke",
+      "deleteAppDataOnUninstall": false,
+      "differentialPackage": false
+    }
   }
 }

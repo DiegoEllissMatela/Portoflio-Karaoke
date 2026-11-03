@@ -4,7 +4,16 @@
  */
 export function registerServiceWorker(): void {
   if (!('serviceWorker' in navigator)) {
-    console.warn('[SW] Service workers not supported in this browser.');
+    return;
+  }
+
+  // In development mode or inside Electron desktop app, unregister any active service worker
+  if (import.meta.env.DEV || (typeof window !== 'undefined' && Boolean((window as any).desktop?.isElectron)) || navigator.userAgent.includes('Electron')) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (const registration of registrations) {
+        registration.unregister();
+      }
+    });
     return;
   }
 

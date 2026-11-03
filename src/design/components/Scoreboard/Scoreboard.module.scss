@@ -83,10 +83,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 3px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 12px 16px;
+  padding: 10px 14px 12px;
   border-radius: $radius-md;
   color: white;
   font-weight: 600;
@@ -135,29 +135,65 @@
 
   .playerHeader {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
+    line-height: 1.2;
   }
 
   .playerName {
     flex: 1;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-right: 8px;
+  }
+
+  .scoreNumbers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: monospace;
+    line-height: 1;
+
+    .pointsGroup {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .normalPoints {
+      color: white;
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+    }
+
+    .extraPoints {
+      color: #00ffff;
+      text-shadow: 0 0 6px rgba(0, 255, 255, 0.5);
+    }
+
+    .separator {
+      color: rgba(255, 255, 255, 0.2);
+      font-weight: 400;
+      font-size: 0.72rem;
+    }
   }
 
   .scoreDots {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 5px;
     align-items: center;
     flex: 1;
+    margin-top: 4px;
 
     .scoreDot {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       box-shadow: 0 0 5px currentColor;
 
@@ -185,31 +221,6 @@
         color: #00ffff;
         background: #00ffff;
       }
-    }
-  }
-
-  .scoreNumbers {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.9rem;
-    font-weight: 800;
-    font-family: monospace;
-
-    .normalPoints {
-      color: white;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-    }
-
-    .extraPoints {
-      color: #00ffff;
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
-    }
-
-    .separator {
-      color: rgba(255, 255, 255, 0.2);
-      font-weight: 400;
-      font-size: 0.8rem;
     }
   }
 }
@@ -347,6 +358,72 @@
   color: $color-text-muted;
   font-style: italic;
   font-size: 0.9rem;
+}
+
+.drinkBadge {
+  margin-left: 0;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  white-space: nowrap;
+}
+
+.immuneBadge {
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 9999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(52, 211, 153, 0.5);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.35);
+  white-space: nowrap;
+  animation: popIn 0.2s ease-out;
+}
+
+.drinkStepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.drinkStepBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: rgba(245, 158, 11, 0.5);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+.drinkStepValue {
+  min-width: 80px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fbbf24;
 }
 
 .editScoreBadge {

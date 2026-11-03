@@ -1,0 +1,40 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#062419" />
+      <stop offset="50%" stop-color="#03120c" />
+      <stop offset="100%" stop-color="#010604" />
+    </linearGradient>
+    <linearGradient id="tealCyan" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <radialGradient id="centerTealGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+    <filter id="glow4" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad4)" />
+  <circle cx="200" cy="200" r="160" fill="url(#centerTealGlow)" />
+
+  <circle cx="200" cy="200" r="135" stroke="url(#tealCyan)" stroke-width="3" stroke-opacity="0.65" filter="url(#glow4)" />
+  <circle cx="200" cy="200" r="110" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1.5" />
+  <circle cx="200" cy="200" r="85" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" stroke-dasharray="4 4" />
+
+  <!-- Center Card -->
+  <rect x="145" y="145" width="110" height="110" rx="28" fill="url(#tealCyan)" fill-opacity="0.18" stroke="url(#tealCyan)" stroke-width="2" />
+
+  <!-- Audio Waves Icon -->
+  <g transform="translate(174, 174) scale(2)" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow4)">
+    <line x1="12" y1="2" x2="12" y2="22" />
+    <line x1="8" y1="6" x2="8" y2="18" />
+    <line x1="16" y1="6" x2="16" y2="18" />
+    <line x1="4" y1="10" x2="4" y2="14" />
+    <line x1="20" y1="10" x2="20" y2="14" />
+  </g>
+</svg>

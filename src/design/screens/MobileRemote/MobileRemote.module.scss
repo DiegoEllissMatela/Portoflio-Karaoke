@@ -1,0 +1,2214 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.mobileContainer {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: $color-bg-dark;
+  color: $color-text-primary;
+  font-family: $font-family;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+  overflow-x: hidden;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: max(40px, env(safe-area-inset-bottom, 40px));
+}
+
+.topBar {
+  @include flex-between;
+  padding: 14px 16px;
+  background: rgba(18, 20, 32, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: $glass-border;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  .brandTitle {
+    font-family: $font-heading;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      background: linear-gradient(135deg, $color-cyan, $color-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .singerBadge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: $radius-full;
+    padding: 4px 10px;
+
+    .singerName {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #c084fc;
+    }
+
+    .switchBtn {
+      background: transparent;
+      border: none;
+      color: $color-text-muted;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #f87171;
+      }
+    }
+  }
+}
+
+.singerControlCard {
+  margin: 12px 16px 0;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: $glass-border;
+  border-radius: $radius-md;
+  backdrop-filter: blur(8px);
+}
+
+.singerStatusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.turnIndicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+
+  strong {
+    display: block;
+    font-size: 0.88rem;
+    line-height: 1.2;
+  }
+
+  span {
+    display: block;
+    font-size: 0.75rem;
+    color: $color-text-muted;
+  }
+
+  &.singingNow {
+    color: #34d399;
+    strong { color: #34d399; }
+    svg { color: #34d399; }
+  }
+
+  &.upNext {
+    color: #38bdf8;
+    strong { color: #38bdf8; }
+    svg { color: #38bdf8; }
+  }
+
+  &.waiting {
+    color: $color-text-secondary;
+    strong { color: $color-text-primary; }
+    svg { color: #a855f7; }
+  }
+}
+
+.remoteSkipBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: $radius-md;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.35);
+  cursor: not-allowed;
+  transition: all 0.2s ease;
+
+  &.skipActive {
+    cursor: pointer;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(249, 115, 22, 0.25));
+    border-color: rgba(249, 115, 22, 0.5);
+    color: #f97316;
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.25);
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.35), rgba(249, 115, 22, 0.4));
+      border-color: #f97316;
+      color: #fed7aa;
+      transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &:disabled:not(.skipActive) {
+    opacity: 0.5;
+  }
+}
+
+.skipFeedbackNotice {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #f97316;
+  text-align: right;
+  font-weight: 600;
+}
+
+.turnBanner {
+  padding: 12px 16px;
+  margin: 12px 16px 0;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  animation: pulse 2s infinite ease-in-out;
+
+  &.singingNow {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+  }
+
+  &.upNext {
+    background: rgba(6, 182, 212, 0.15);
+    border: 1px solid rgba(6, 182, 212, 0.4);
+    color: #38bdf8;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.95; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.99); }
+}
+
+.tabNav {
+  display: flex;
+  margin: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: $radius-md;
+  padding: 4px;
+  border: $glass-border;
+
+  .navBtn {
+    flex: 1;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    color: $color-text-secondary;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    &.active {
+      background: rgba(139, 92, 246, 0.25);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: white;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    }
+  }
+}
+
+.contentArea {
+  flex: 1;
+  padding: 0 16px max(40px, env(safe-area-inset-bottom, 40px));
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+// Step 1: Select Name Screen
+.selectNameSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0 max(40px, env(safe-area-inset-bottom, 40px));
+
+  .sectionHeader {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    h2 {
+      font-family: $font-heading;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: white;
+      margin: 0;
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: $color-text-secondary;
+      margin: 0;
+    }
+  }
+
+  .playerGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .playerCard {
+    @include flex-between;
+    padding: 14px 16px;
+    background: rgba(18, 20, 32, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      border-color: $color-primary;
+      background: rgba(139, 92, 246, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(139, 92, 246, 0.25);
+    }
+
+    &.takenCard {
+      opacity: 0.45;
+      cursor: not-allowed;
+      filter: grayscale(0.8);
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(255, 255, 255, 0.05);
+
+      &:hover {
+        transform: none;
+        border-color: rgba(255, 255, 255, 0.05);
+      }
+    }
+
+    .cardMeta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .playerName {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: white;
+      }
+    }
+
+    .cardBadge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: $radius-full;
+
+      &.availBadge {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+
+      &.takenBadge {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+  }
+}
+
+// Search Tab
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .searchIcon {
+    position: absolute;
+    left: 14px;
+    color: $color-text-muted;
+    pointer-events: none;
+  }
+
+  .searchInput {
+    width: 100%;
+    padding: 12px 38px 12px 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: $radius-md;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
+
+    &:focus {
+      border-color: $color-primary;
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
+    }
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+
+  .clearBtn {
+    position: absolute;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: $color-text-secondary;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.songList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dareModeNoticeBanner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: $radius-md;
+  padding: 12px 14px;
+  margin-bottom: 4px;
+
+  .noticeIcon {
+    font-size: 1.35rem;
+    flex-shrink: 0;
+  }
+
+  .noticeText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    strong {
+      color: #c084fc;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    span {
+      color: $color-text-secondary;
+      font-size: 0.74rem;
+      line-height: 1.35;
+    }
+  }
+}
+
+.songCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(18, 20, 32, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-sm;
+  transition: all 0.2s ease;
+
+  &:hover:not(.disabledCard) {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  &.disabledCard {
+    opacity: 0.55;
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+    cursor: not-allowed;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(255, 255, 255, 0.05);
+      transform: none;
+    }
+  }
+
+  .albumArt {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .songMeta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+    min-width: 0;
+
+    .songTitle {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .songArtist {
+      font-size: 0.78rem;
+      color: $color-text-secondary;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .addBtn {
+    padding: 6px 12px;
+    border-radius: $radius-sm;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #c084fc;
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background: $color-primary;
+      color: white;
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+    }
+
+    &.addedBtn {
+      background: rgba(16, 185, 129, 0.25);
+      border-color: #10b981;
+      color: #10b981;
+    }
+
+    &.disabledAddBtn {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.08);
+      color: #64748b;
+      cursor: not-allowed;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// My Queue Tab
+.queueContainer,
+.myQueueSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.queueHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 0 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  .queueTitleGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+    }
+
+    .queueCountBadge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #c084fc;
+      background: rgba(139, 92, 246, 0.18);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      padding: 2px 8px;
+      border-radius: $radius-full;
+    }
+  }
+
+  .clearQueueBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: $radius-full;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(239, 68, 68, 0.25);
+      border-color: rgba(239, 68, 68, 0.5);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.35);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+      background: rgba(239, 68, 68, 0.35);
+    }
+  }
+}
+
+.queueCard {
+  @include flex-between;
+  padding: 10px 12px;
+  background: rgba(18, 20, 32, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-sm;
+  position: relative;
+
+  &.firstInQueue {
+    border-color: rgba(6, 182, 212, 0.4);
+    background: rgba(6, 182, 212, 0.06);
+
+    .queueOrderIndex {
+      color: $color-cyan;
+      border-color: rgba(6, 182, 212, 0.4);
+      background: rgba(6, 182, 212, 0.15);
+    }
+  }
+
+  .queueLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    padding-right: 8px;
+
+    .queueOrderIndex {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: $color-text-secondary;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  }
+
+  .queueMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+
+    .queueTitle {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .queueArtist {
+      font-size: 0.75rem;
+      color: $color-text-secondary;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nextPlayBadge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: $color-cyan;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+  }
+
+  .queueControls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+
+    .controlBtn {
+      width: 28px;
+      height: 28px;
+      border-radius: $radius-xs;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: $color-text-secondary;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+
+      &:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+      }
+
+      &:disabled {
+        opacity: 0.25;
+        cursor: not-allowed;
+      }
+
+      &.removeBtn:hover {
+        background: rgba(239, 68, 68, 0.2);
+        color: #ef4444;
+        border-color: rgba(239, 68, 68, 0.4);
+      }
+    }
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: $color-text-muted;
+
+  span {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: $color-text-secondary;
+  }
+
+  small {
+    font-size: 0.78rem;
+  }
+}
+
+.disabledBanner {
+  margin: 30px 16px;
+  padding: 24px 18px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: $radius-md;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f87171;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: $color-text-secondary;
+    margin: 0;
+    line-height: 1.4;
+  }
+}
+
+// Admin & Host Controls Styles
+.adminCrownBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(234, 179, 8, 0.2);
+  border: 1px solid rgba(234, 179, 8, 0.5);
+  color: #facc15;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: $radius-full;
+  box-shadow: 0 0 8px rgba(234, 179, 8, 0.25);
+}
+
+.adminQuickBar {
+  margin: 10px 16px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+
+  &.hasChallenge {
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: 400px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .quickActionBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 8px;
+    border-radius: $radius-sm;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &.pauseBtn {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+
+      &:hover {
+        background: rgba(239, 68, 68, 0.25);
+      }
+    }
+
+    &.playBtn {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
+
+      &:hover {
+        background: rgba(16, 185, 129, 0.25);
+      }
+    }
+
+    &.passMicBtn {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+      border-color: rgba(139, 92, 246, 0.4);
+      color: #e9d5ff;
+
+      &:hover {
+        border-color: $color-primary;
+        color: white;
+      }
+    }
+
+    &.challengeBtn {
+      background: rgba(6, 182, 212, 0.14);
+      border-color: rgba(6, 182, 212, 0.4);
+      color: #22d3ee;
+
+      &:hover {
+        background: rgba(6, 182, 212, 0.25);
+        color: white;
+      }
+
+      &.challengeActive {
+        background: rgba(236, 72, 153, 0.25);
+        border-color: #ec4899;
+        color: #f472b6;
+        box-shadow: 0 0 14px rgba(236, 72, 153, 0.4);
+      }
+    }
+
+    &.autoOnBtn {
+      background: rgba(6, 182, 212, 0.15);
+      border-color: rgba(6, 182, 212, 0.4);
+      color: #38bdf8;
+    }
+
+    &.autoOffBtn {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: $color-text-muted;
+    }
+
+    .spinIcon {
+      animation: spin 3s linear infinite;
+    }
+  }
+}
+
+// Universal Remote Score Buttons & Dare Action Controls
+.remoteScoreBtn {
+  padding: 12px 10px;
+  border-radius: $radius-sm;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+
+  &:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.25);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &.scoreBtn_PERFECT {
+    background: rgba(73, 255, 0, 0.15);
+    border: 1px solid rgba(73, 255, 0, 0.45);
+    color: #49ff00;
+    box-shadow: 0 0 12px rgba(73, 255, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 0 18px rgba(73, 255, 0, 0.35);
+    }
+  }
+
+  &.scoreBtn_TWO_WORDS {
+    background: rgba(251, 255, 0, 0.15);
+    border: 1px solid rgba(251, 255, 0, 0.45);
+    color: #fbff00;
+    box-shadow: 0 0 12px rgba(251, 255, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 0 18px rgba(251, 255, 0, 0.35);
+    }
+  }
+
+  &.scoreBtn_ONE_WORD {
+    background: rgba(255, 145, 0, 0.15);
+    border: 1px solid rgba(255, 145, 0, 0.45);
+    color: #ff9100;
+    box-shadow: 0 0 12px rgba(255, 145, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 0 18px rgba(255, 145, 0, 0.35);
+    }
+  }
+
+  &.scoreBtn_ZERO {
+    background: rgba(255, 77, 77, 0.15);
+    border: 1px solid rgba(255, 77, 77, 0.45);
+    color: #ff4d4d;
+    box-shadow: 0 0 12px rgba(255, 77, 77, 0.2);
+
+    &:hover {
+      box-shadow: 0 0 18px rgba(255, 77, 77, 0.35);
+    }
+  }
+
+  &.scoreBtn_EXTRA {
+    grid-column: span 2;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.55);
+    color: #c084fc;
+    box-shadow: 0 0 14px rgba(139, 92, 246, 0.25);
+
+    &:hover {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.45);
+    }
+  }
+}
+
+.dareActionRow {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 10px;
+  margin-top: 8px;
+  width: 100%;
+
+  .undoScoreBtn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 11px 16px;
+    border-radius: $radius-sm;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  .doneDareBtn {
+    background: linear-gradient(135deg, $color-primary, $color-secondary);
+    border: none;
+    color: white;
+    padding: 11px 16px;
+    border-radius: $radius-sm;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.5);
+    transition: all 0.2s ease;
+
+    &:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+.globalChallengeBanner {
+  margin: 10px 16px 0;
+  background: rgba(24, 14, 41, 0.96);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  border-radius: $radius-md;
+  padding: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 18px rgba(139, 92, 246, 0.25);
+  animation: fadeIn 0.2s ease-out;
+
+  .bannerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    .bannerTitleGroup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .targetIconPulse {
+        color: #ec4899;
+        flex-shrink: 0;
+        animation: pulse 1.5s infinite;
+      }
+
+      strong {
+        display: block;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: white;
+      }
+
+      span {
+        display: block;
+        font-size: 0.72rem;
+        color: #c084fc;
+      }
+    }
+
+    .bannerCloseBtn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: $color-text-secondary;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba(239, 68, 68, 0.2);
+        color: #fca5a5;
+      }
+    }
+  }
+
+  .bannerScoreGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .bannerDarePreview {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .previewText {
+      margin: 0;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: $radius-sm;
+      padding: 12px;
+      font-size: 0.88rem;
+      color: #f1f5f9;
+      line-height: 1.4;
+      font-weight: 600;
+    }
+  }
+}
+
+.singerDareCard {
+  margin: 10px 16px 0;
+  background: rgba(236, 72, 153, 0.12);
+  border: 1px solid rgba(236, 72, 153, 0.35);
+  border-radius: $radius-md;
+  padding: 12px 14px;
+
+  .dareHeader {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+
+    strong {
+      color: #f472b6;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  p {
+    margin: 0;
+    color: white;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.adminTabBtn {
+  position: relative;
+  color: #facc15 !important;
+
+  .activeDot {
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ef4444;
+    box-shadow: 0 0 8px #ef4444;
+    animation: pulse 1.5s infinite;
+  }
+}
+
+.adminTabContent {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.adminPanelCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: $glass-border;
+  border-radius: $radius-md;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 14px;
+
+  .cardHeaderRow {
+    @include flex-between;
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .resetAllBtn {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border-radius: $radius-xs;
+      padding: 4px 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(239, 68, 68, 0.25);
+        color: white;
+      }
+    }
+  }
+
+  .triggerChallengeBtn {
+    width: 100%;
+    padding: 14px;
+    background: rgba(6, 182, 212, 0.15);
+    border: 2px solid $color-cyan;
+    border-radius: $radius-md;
+    color: $color-cyan;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+
+    &:hover {
+      background: rgba(6, 182, 212, 0.25);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .dareModalActiveNotice {
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: $radius-sm;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .noticeTitle {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #c084fc;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .remoteScoreGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .cancelModalBtn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: $color-text-muted;
+    border-radius: $radius-sm;
+    padding: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+    }
+  }
+
+  .activeDarePreview {
+    background: rgba(236, 72, 153, 0.1);
+    border: 1px solid rgba(236, 72, 153, 0.4);
+    border-radius: $radius-sm;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .previewTitle {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #f472b6;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .previewText {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.4;
+      margin: 0;
+    }
+  }
+}
+
+// Remote Scoreboard Styles
+.remoteScoreboardList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.remoteScorePlayerRow {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: $radius-sm;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  &.editingRow {
+    border-color: rgba(139, 92, 246, 0.5);
+    background: rgba(139, 92, 246, 0.08);
+  }
+
+  .playerRowTop {
+    @include flex-between;
+
+    .rowLeft {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .rankPill {
+        font-size: 0.72rem;
+        font-weight: 800;
+        padding: 1px 6px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        color: $color-text-secondary;
+
+        &.gold { background: rgba(234, 179, 8, 0.25); color: #facc15; }
+        &.silver { background: rgba(148, 163, 184, 0.25); color: #cbd5e1; }
+        &.bronze { background: rgba(180, 83, 9, 0.25); color: #fdba74; }
+      }
+
+      .pName {
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: white;
+      }
+    }
+
+    .pointsBlock {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: $color-cyan;
+
+      .extraNum {
+        color: #f472b6;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .scoreDotsRow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+
+    .scoreDotSmall {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+
+      &.dot_PERFECT { background: #49ff00; box-shadow: 0 0 4px #49ff00; }
+      &.dot_TWO_WORDS { background: #fbff00; box-shadow: 0 0 4px #fbff00; }
+      &.dot_ONE_WORD { background: #ff9100; box-shadow: 0 0 4px #ff9100; }
+      &.dot_ZERO { background: #ff0000; box-shadow: 0 0 4px #ff0000; }
+      &.dot_EXTRA { background: #c084fc; box-shadow: 0 0 4px #c084fc; }
+    }
+  }
+}
+
+.scoreEditDrawer {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .drawerSubtitle {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .scoreChipList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    .scoreChip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+      }
+
+      &.chip_PERFECT { background: rgba(73, 255, 0, 0.15); border-color: rgba(73, 255, 0, 0.4); color: #49ff00; }
+      &.chip_TWO_WORDS { background: rgba(251, 255, 0, 0.15); border-color: rgba(251, 255, 0, 0.4); color: #fbff00; }
+      &.chip_ONE_WORD { background: rgba(255, 145, 0, 0.15); border-color: rgba(255, 145, 0, 0.4); color: #ff9100; }
+      &.chip_ZERO { background: rgba(255, 0, 0, 0.15); border-color: rgba(255, 0, 0, 0.4); color: #ff4d4d; }
+      &.chip_EXTRA { background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.4); color: #c084fc; }
+    }
+  }
+
+  .addScorePillGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+
+    .addScorePill {
+      padding: 6px;
+      border-radius: $radius-xs;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      text-align: center;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+    }
+  }
+}
+
+/* ===== Just Drink mode: remote additions (top-level so they apply everywhere) ===== */
+.spinningNotice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 14px;
+  border-radius: 12px;
+  border: 1px dashed rgba(251, 191, 36, 0.45);
+  background: rgba(245, 158, 11, 0.08);
+  color: #fbbf24;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+
+  svg {
+    flex-shrink: 0;
+    animation: spin 1.2s linear infinite;
+  }
+}
+
+.drinkNum {
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  white-space: nowrap;
+}
+
+.drinkAdjustRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 6px 0 4px;
+}
+
+.drinkAdjustBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:active:not(:disabled) {
+    transform: scale(0.92);
+    background: rgba(245, 158, 11, 0.25);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+.drinkAdjustValue {
+  min-width: 72px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+/* ===== Phase 4 Additions: Drink Alert, Target Picker, & Party Dashboard ===== */
+.drinkAlertBanner {
+  margin: 12px 16px 0;
+  padding: 14px 16px;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(245, 158, 11, 0.3));
+  border: 2px solid #f59e0b;
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.4), 0 0 12px rgba(239, 68, 68, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: pulse 1.6s infinite ease-in-out;
+
+  .drinkAlertIcon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .drinkAlertBody {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    strong {
+      color: #fef08a;
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+
+    span {
+      color: #ffffff;
+      font-size: 0.88rem;
+
+      b {
+        color: #fbbf24;
+        font-weight: 800;
+      }
+    }
+
+    small {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.78rem;
+      font-style: italic;
+      margin-top: 2px;
+    }
+  }
+}
+
+.randomModeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: $radius-full;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #c084fc;
+  background: rgba(139, 92, 246, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  white-space: nowrap;
+}
+
+.drinkPickerCard {
+  background: rgba(24, 14, 41, 0.96);
+  border: 1px solid rgba(251, 191, 36, 0.5);
+  border-radius: $radius-md;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(245, 158, 11, 0.2);
+
+  .drinkPickerHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .pickerTitleRow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      strong {
+        color: #fbbf24;
+        font-size: 0.96rem;
+        font-weight: 800;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.8);
+
+      b {
+        color: #facc15;
+      }
+    }
+  }
+
+  .drinkCandidateGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .drinkCandidateBtn {
+    @include flex-between;
+    padding: 11px 14px;
+    border-radius: $radius-sm;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &.drinkCandidateSelected {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: #fbbf24;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+    }
+
+    .candidateLeft {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .beerIcon {
+        font-size: 1.1rem;
+      }
+
+      .candidateName {
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: white;
+      }
+    }
+
+    .candidateRight {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .candidateDrinks {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        font-weight: 600;
+      }
+
+      .checkIcon {
+        color: #fbbf24;
+        font-weight: 900;
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  .drinkConfirmBtn {
+    width: 100%;
+    padding: 12px;
+    border-radius: $radius-sm;
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    color: white;
+    box-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
+}
+
+.partyDashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.partyCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: $glass-border;
+  border-radius: $radius-md;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .partyCardHeader {
+    @include flex-between;
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cardTag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 2px 7px;
+      border-radius: $radius-full;
+    }
+  }
+}
+
+.turnOrderRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  .turnOrderPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: $radius-full;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.75);
+
+    &.currentPill {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: rgba(16, 185, 129, 0.45);
+      color: #34d399;
+      font-weight: 700;
+    }
+
+    &.nextPill {
+      background: rgba(6, 182, 212, 0.18);
+      border-color: rgba(6, 182, 212, 0.45);
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    &.myPill {
+      border-color: #c084fc;
+      color: #f3e8ff;
+    }
+
+    .pillIndex {
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    .pillBadge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+  }
+}
+
+.liveFeedBox {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-sm;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .liveFeedTitle {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #c084fc;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .liveFeedContent {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .liveFeedHint {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+}
+
+.immuneBadge {
+  margin-left: 5px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.25);
+  white-space: nowrap;
+}
+
+.remoteInteractiveDareBox {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  border-radius: $radius-md;
+  padding: 14px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.interactiveTypeTag {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  color: #22d3ee;
+}
+
+.remoteDarePrompt {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.remoteCandidateGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.remoteCandidateBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: $radius-sm;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 7px 11px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &.candidateSelected {
+    background: rgba(6, 182, 212, 0.25);
+    border-color: #06b6d4;
+    color: #67e8f9;
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.35);
+  }
+}
+
+.remoteRuleInput {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: $radius-sm;
+  padding: 8px 10px;
+  color: white;
+  font-size: 0.88rem;
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: #f59e0b;
+  }
+}
+
+.remotePassOrDrinkRow {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+
+  .remotePassBtn {
+    flex: 1;
+    padding: 10px;
+    background: rgba(16, 185, 129, 0.18);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: $radius-sm;
+    color: #34d399;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .remoteFailBtn {
+    flex: 1;
+    padding: 10px;
+    background: rgba(245, 158, 11, 0.18);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    border-radius: $radius-sm;
+    color: #fbbf24;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.remoteCountStepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  .stepperBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .stepperVal {
+    font-family: monospace;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #38bdf8;
+    min-width: 36px;
+    text-align: center;
+  }
+}
+
+.remoteConfirmActionBtn {
+  width: 100%;
+  padding: 11px;
+  background: linear-gradient(135deg, $color-primary, $color-cyan);
+  border: none;
+  border-radius: $radius-sm;
+  color: white;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.remoteRuleAddBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-sm;
+  padding: 10px;
+}
+
+.remoteRuleControlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+
+  .penaltySelectRow {
+    display: flex;
+    gap: 4px;
+
+    .remotePenaltyBtn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.7);
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      cursor: pointer;
+
+      &.penaltyActive {
+        background: rgba(245, 158, 11, 0.25);
+        border-color: #f59e0b;
+        color: #fbbf24;
+      }
+    }
+  }
+
+  .addRuleBtn {
+    background: #f59e0b;
+    border: none;
+    color: #111827;
+    font-weight: 800;
+    font-size: 0.78rem;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.remoteRulesList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.remoteRuleCard {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-sm;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .remoteRuleCardTop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+
+    .ruleCardText {
+      font-size: 0.88rem;
+      color: white;
+      line-height: 1.3;
+    }
+
+    .ruleCardSub {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 2px;
+    }
+
+    .deleteRuleBtn {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+      padding: 3px;
+
+      &:hover {
+        color: #ef4444;
+      }
+    }
+  }
+
+  .ruleBreakPrompt {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+  }
+
+  .punishPlayerGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    .punishBtn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 7px;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(245, 158, 11, 0.2);
+        border-color: #f59e0b;
+        color: #fbbf24;
+      }
+
+      &.punishImmuneBtn {
+        opacity: 0.45;
+        cursor: not-allowed;
+        border-color: rgba(6, 182, 212, 0.4);
+        color: #67e8f9;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.06);
+          border-color: rgba(6, 182, 212, 0.4);
+          color: #67e8f9;
+        }
+      }
+    }
+  }
+}
+
+.activeRulesFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .ruleFeedItem {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: $radius-sm;
+    padding: 9px 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    .ruleFeedText {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+
+      strong {
+        font-size: 0.85rem;
+        color: white;
+      }
+
+      .ruleFeedPenalty {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: #fbbf24;
+        background: rgba(245, 158, 11, 0.16);
+        padding: 1px 6px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+    }
+
+    .ruleFeedAuthor {
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.45);
+    }
+  }
+}

@@ -24,7 +24,8 @@ export const Header: React.FC<HeaderProps> = ({ gameMode }) => {
     switch (gameMode) {
       case 'NORMAL': return 'Classic';
       case 'DARE_DRINK': return 'Dare x Drink';
-      case 'DARE': return 'Truth Or Dare';
+      case 'JUST_DRINK':
+      case 'DARE': return 'Just Drink';
       default: return '';
     }
   };

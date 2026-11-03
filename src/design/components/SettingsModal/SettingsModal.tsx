@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Settings, RefreshCw, Trash2, X, Check, Maximize2, Save, Power } from 'lucide-react';
+import { Settings, RefreshCw, Trash2, X, Check, Maximize2, Save, Power, RotateCcw } from 'lucide-react';
 import type { AppState } from '../../../logic/types/logicTypes';
 import styles from './SettingsModal.module.scss';
 
@@ -9,6 +9,7 @@ interface SettingsModalProps {
   onClose: () => void;
   onRefreshLyrics: () => Promise<void>;
   onResetSession: () => void;
+  onResetSongsToDefault?: () => void;
   appState: AppState;
   onToggleAutoResume?: () => void;
   onToggleCountdown?: () => void;
@@ -17,6 +18,8 @@ interface SettingsModalProps {
   onUpdateDareBlanks?: (blanks: number) => void;
   onUpdateDareMinWordLength?: (min: number) => void;
   onUpdateDareMaxWordLength?: (max: number) => void;
+  onToggleBlankWordIndicators?: () => void;
+  onToggleBlankRangeMovable?: () => void;
 }
 
 export const SettingsModal: React.FC<SettingsModalProps> = ({
@@ -24,6 +27,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   onClose,
   onRefreshLyrics,
   onResetSession,
+  onResetSongsToDefault,
   appState,
   onToggleAutoResume,
   onToggleCountdown,
@@ -32,6 +36,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   onUpdateDareBlanks,
   onUpdateDareMinWordLength,
   onUpdateDareMaxWordLength,
+  onToggleBlankWordIndicators,
+  onToggleBlankRangeMovable,
 }) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [showSuccessToast, setShowSuccessToast] = useState(false);
@@ -254,6 +260,29 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               {isRefreshing ? 'Refreshing...' : 'Refresh Lyrics'}
             </button>
           </div>
+
+          <div className={styles.settingRow}>
+            <div className={styles.settingInfo}>
+              <span className={styles.settingLabel}>Default Mode Songs (Songs.txt)</span>
+              <span className={styles.settingSubtext}>
+                Restore default curated songs for active mode ({appState.gameMode === 'NORMAL' ? 'Normal Karaoke' : (appState.gameMode === 'DARE_DRINK' ? 'Dare x Drinking' : 'Just Drink')}) to default {appState.gameMode === 'NORMAL' ? 'all catalog tracks' : '300 Philippine staples & hits'}.
+              </span>
+            </div>
+            {onResetSongsToDefault && (
+              <button
+                className={styles.actionBtn}
+                onClick={() => {
+                  onResetSongsToDefault();
+                  setShowSuccessToast(true);
+                  setTimeout(() => setShowSuccessToast(false), 2500);
+                }}
+                title="Reset active mode songs to default"
+              >
+                <RotateCcw size={16} />
+                Default Songs
+              </button>
+            )}
+          </div>
         </div>
 
         <div className={styles.settingsSection}>
@@ -288,9 +317,43 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               </div>
             )}
           </div>
+
+          <div className={styles.settingRow}>
+            <div className={styles.settingInfo}>
+              <span className={styles.settingLabel}>Movable Blank Range Slider</span>
+              <span className={styles.settingSubtext}>
+                Allow dragging the timeline range slider to compress and reposition lyric blanks.
+              </span>
+            </div>
+            {onToggleBlankRangeMovable && (
+              <div
+                className={`${styles.toggleSwitch} ${appState.isBlankRangeMovable !== false ? styles.active : ''}`}
+                onClick={onToggleBlankRangeMovable}
+              >
+                <div className={styles.toggleKnob} />
+              </div>
+            )}
+          </div>
+
+          <div className={styles.settingRow}>
+            <div className={styles.settingInfo}>
+              <span className={styles.settingLabel}>Show Blank Word Indicators</span>
+              <span className={styles.settingSubtext}>
+                Show glowing dots on the music progress bar indicating the exact positions of blanked words (Disabled by default).
+              </span>
+            </div>
+            {onToggleBlankWordIndicators && (
+              <div
+                className={`${styles.toggleSwitch} ${appState.showBlankWordIndicators ? styles.active : ''}`}
+                onClick={onToggleBlankWordIndicators}
+              >
+                <div className={styles.toggleKnob} />
+              </div>
+            )}
+          </div>
         </div>
 
-        {(appState.gameMode === 'DARE' || appState.gameMode === 'DARE_DRINK') && (
+        {(appState.gameMode === 'DARE' || appState.gameMode === 'DARE_DRINK' || appState.gameMode === 'JUST_DRINK') && (
           <div className={styles.settingsSection}>
             <h4 className={styles.sectionTitle}>Dare Mode Difficulty</h4>
 

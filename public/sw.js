@@ -1,7 +1,7 @@
 // Service Worker for Automate Karaoke PWA
 // Caches all assets on install for full offline support
 
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const STATIC_CACHE = `automate-karaoke-static-${CACHE_VERSION}`;
 const AUDIO_CACHE = `automate-karaoke-audio-${CACHE_VERSION}`;
 
@@ -23,68 +23,23 @@ const STATIC_ASSETS = [
   '/AnimatedIcons/People.json',
   '/sfx/5 sec timer.mp3',
   '/songs/Background/PartyLoopAudio.m4a',
-  // Lyrics JSON files
-  '/songs/lyrics/1_43 - Sa Isang Sulyap Mo-u.json',
-  '/songs/lyrics/Adelle All I ask.json',
-  '/songs/lyrics/Coldplay - The Scientist.json',
-  '/songs/lyrics/Cueshé - Ulan.json',
-  '/songs/lyrics/Daniel_Padilla - Simpleng Tulad Mo-u.json',
-  '/songs/lyrics/Gloc9 - Magda.json',
-  '/songs/lyrics/Green_Day - Twenty One Guns.json',
-  '/songs/lyrics/Hozier - Take Me To Church.json',
-  '/songs/lyrics/Itchyworms - Beer-u.json',
-  '/songs/lyrics/Jimmy_Bondoc - Let Me Be The One-u.json',
-  '/songs/lyrics/Kitchie_Nadal - Same Ground-u.json',
-  '/songs/lyrics/Kolohe kai - Ehu girl.json',
-  '/songs/lyrics/Lola_Amour - Raining In Manila-u.json',
-  '/songs/lyrics/MYMP - Especially for you.json',
-  '/songs/lyrics/Maldita - Porque.json',
-  '/songs/lyrics/Maroon_5 - She Will Be Loved-u .json',
-  '/songs/lyrics/Nathan_Evans - Wellerman.json',
-  '/songs/lyrics/Noel Cabangon - Kanlungan-u.json',
-  '/songs/lyrics/Orange_and_Lemons - Hanggang Kailan.json',
-  '/songs/lyrics/Parokya_Ni_Edgar - Alumni Homecoming-u.json',
-  '/songs/lyrics/Rivermaya - Kisapmata -u.json',
-  '/songs/lyrics/Shamrock - Alipin.json',
-  '/songs/lyrics/SixCycleMind - Sandalan.json',
-  '/songs/lyrics/TJ_Montero - Ikaw at ako.json',
-  '/songs/lyrics/Taylor_Swift - Teardrops On My Guitar.json',
-  '/songs/lyrics/Taylor_Swift - You Belong with Me-u.json',
-  '/songs/lyrics/The_Cranberries - Zombie.json',
-  '/songs/lyrics/The_Juans - Hindi Tayo Pwede.json',
+  // Lyrics LRC files
+  '/songs/New_Lyrics/PAROKYA_NI_EDGAR - Sorry Na.lrc',
+  '/songs/New_Lyrics/PAROKYA_NI_EDGAR - Tatlong Araw.lrc',
+  '/songs/New_Lyrics/PAROKYA_NI_EDGAR - The Crush.lrc',
+  '/songs/New_Lyrics/PAROKYA_NI_EDGAR - The Ordertaker.lrc',
+  '/songs/New_Lyrics/PAROKYA_NI_EDGAR - Your Song.lrc',
+  '/songs/New_Lyrics/Parokya_Ni_Edgar - Swimming Beach.lrc',
 ];
 
 // All audio files to pre-cache on install
 const AUDIO_ASSETS = [
-  '/songs/audio/1_43 - Sa Isang Sulyap Mo-u.mp3',
-  '/songs/audio/Adelle All I ask.mp3',
-  '/songs/audio/Coldplay - The Scientist.mp3',
-  '/songs/audio/Cueshé - Ulan.mp3',
-  '/songs/audio/Daniel_Padilla - Simpleng Tulad Mo-u.mp3',
-  '/songs/audio/Gloc9 - Magda.mp3',
-  '/songs/audio/Green_Day - Twenty One Guns.mp3',
-  '/songs/audio/Hozier - Take Me To Church.mp3',
-  '/songs/audio/Itchyworms - Beer-u.mp3',
-  '/songs/audio/Jimmy_Bondoc - Let Me Be The One-u.mp3',
-  '/songs/audio/Kitchie_Nadal - Same Ground-u.mp3',
-  '/songs/audio/Kolohe-kai - Ehu girl-u.mp3',
-  '/songs/audio/Lola_Amour - Raining In Manila-u.mp3',
-  '/songs/audio/MYMP - Especially for you.mp3',
-  '/songs/audio/Maldita - Porque.mp3',
-  '/songs/audio/Maroon_5 - She Will Be Loved-u.mp3',
-  '/songs/audio/Nathan_Evans - Wellerman.mp3',
-  '/songs/audio/Noel-Cabangon - Kanlungan-u.mp3',
-  '/songs/audio/Orange_and_Lemons - Hanggang Kailan.mp3',
-  '/songs/audio/Parokya_Ni_Edgar - Alumni Homecoming-u.mp3',
-  '/songs/audio/Rivermaya - Kisapmata -u.mp3',
-  '/songs/audio/Shamrock - Alipin.mp3',
-  '/songs/audio/SixCycleMind - Sandalan.mp3',
-  '/songs/audio/TJ-montero - Dating Tayo-u.mp3',
-  '/songs/audio/TJ_Montero - Ikaw at ako.mp3',
-  '/songs/audio/Taylor_Swift - Teardrops On My Guitar.mp3',
-  '/songs/audio/Taylor_Swift - You Belong with Me-u.mp3',
-  '/songs/audio/The_Cranberries - Zombie.mp3',
-  '/songs/audio/The_Juans - Hindi Tayo Pwede.mp3',
+  '/songs/New_Instrumental/PAROKYA_NI_EDGAR - Sorry Na.mp3',
+  '/songs/New_Instrumental/PAROKYA_NI_EDGAR - Tatlong Araw.mp3',
+  '/songs/New_Instrumental/PAROKYA_NI_EDGAR - The Crush.mp3',
+  '/songs/New_Instrumental/PAROKYA_NI_EDGAR - The Ordertaker.mp3',
+  '/songs/New_Instrumental/PAROKYA_NI_EDGAR - Your Song.mp3',
+  '/songs/New_Instrumental/Parokya_Ni_Edgar - Swimming Beach.mp3',
 ];
 
 async function broadcastProgress(data) {
@@ -208,7 +163,7 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== self.location.origin) return;
 
   // For audio files — cache-first, network fallback with caching
-  if (url.pathname.startsWith('/songs/audio/')) {
+  if (url.pathname.startsWith('/songs/New_Instrumental/') || url.pathname.startsWith('/songs/audio/')) {
     event.respondWith(
       (async () => {
         const audioCache = await caches.open(AUDIO_CACHE);

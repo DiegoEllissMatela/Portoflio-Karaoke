@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "types": ["node"],
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true
+  },
+  "include": [
+    "src/logic/desktop/**/*",
+    "src/logic/services/settingsApiServer.ts",
+    "src/logic/services/remoteQueueServer.ts"
+  ]
+}
+

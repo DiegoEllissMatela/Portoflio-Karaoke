@@ -45,6 +45,22 @@
     color: $color-text-secondary;
     margin-bottom: 12px;
     transition: all 0.3s ease;
+
+    .modeGifIcon {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      border-radius: 14px;
+      user-select: none;
+      -webkit-user-drag: none;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover {
+    .iconWrapper .modeGifIcon {
+      transform: scale(1.1) rotate(-3deg);
+    }
   }
 
   h3 {

@@ -10,8 +10,8 @@ export interface DownloadProgressState {
   isSupported: boolean;
 }
 
-const TOTAL_AUDIO_ESTIMATE = 29; // Matches default AUDIO_ASSETS length in sw.js
-const AUDIO_CACHE_NAME = 'automate-karaoke-audio-v1';
+const TOTAL_AUDIO_ESTIMATE = 6; // Matches default AUDIO_ASSETS length in sw.js
+const AUDIO_CACHE_NAME = 'automate-karaoke-audio-v3';
 
 export function useDownloadProgress(): DownloadProgressState {
   const [state, setState] = useState<DownloadProgressState>({

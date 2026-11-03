@@ -3,12 +3,14 @@ import { Header } from '../../components/Header/Header';
 import { KaraokePlayer } from '../../components/KaraokePlayer/KaraokePlayer';
 import { SongList } from '../../components/SongList/SongList';
 import { Scoreboard } from '../../components/Scoreboard/Scoreboard';
+import { QueuePanel } from '../../components/QueuePanel/QueuePanel';
 import { useKaraokeLogic } from '../../../logic/hooks/useKaraokeLogic';
 import styles from '../../App.module.scss';
-import type { AppState } from '../../../logic/types/logicTypes';
+import type { AppState, DareEntry, DareCategoryId } from '../../../logic/types/logicTypes';
 
 interface GameAreaProps {
   appState: AppState;
+  setAppState?: React.Dispatch<React.SetStateAction<AppState>>;
   onNextPlayer?: () => void;
   onUpdatePlayers?: (players: string[]) => void;
   onAddScore?: (playerName: string, score: any) => void;
@@ -16,23 +18,36 @@ interface GameAreaProps {
   onSetInputMode?: (mode: 'MANUAL' | 'TYPE' | 'MIC') => void;
   onToggleSongStatus?: (songId: string) => void;
   onSetDisabledSongs?: (songIds: string[]) => void;
+  onResetSongsToDefault?: () => void;
   onToggleDare?: (dareText: string) => void;
   onSetDisabledDares?: (dares: string[]) => void;
-  onAddCustomDare?: (categoryId: string, dareText: string) => void;
-  onRemoveCustomDare?: (categoryId: string, dareText: string) => void;
+  onAddCustomDare?: (categoryId: DareCategoryId, dare: DareEntry) => void;
+  onRemoveCustomDare?: (categoryId: DareCategoryId, dareText: string) => void;
   onResetScores?: () => void;
   onRemoveSpecificScore?: (playerName: string, indexToRemove: number) => void;
   onToggleRepeatableDare?: (dareText: string) => void;
   onSetUsedDares?: (categoryId: string, used: string[]) => void;
   onSetLastDare?: (dareText: string) => void;
+  onToggleQrQueue?: (enabled: boolean) => void;
+  onUpdateRemoteState?: (claimed: any, queues: any) => void;
+  onToggleAutoPassMic?: (enabled: boolean) => void;
+  onAddDrinks?: (recipients: Record<string, number>) => void;
+  onUndoDrinks?: () => void;
+  onAdjustDrinks?: (playerName: string, delta: number) => void;
+  onGrantImmunity?: (playerName: string) => void;
+  onRevokeImmunity?: (playerName: string) => void;
+  onAddActiveRule?: (rule: { text: string; createdBy: string; penaltyDrinks: number }) => void;
+  onRemoveActiveRule?: (ruleId: string) => void;
 }
 
 export const GameArea: React.FC<GameAreaProps> = ({
-  appState, onNextPlayer, onUpdatePlayers, onAddScore, onUndoScore, onSetInputMode, onToggleSongStatus, onSetDisabledSongs,
+  appState, setAppState, onNextPlayer, onUpdatePlayers, onAddScore, onUndoScore, onSetInputMode, onToggleSongStatus, onSetDisabledSongs, onResetSongsToDefault,
   onToggleDare, onSetDisabledDares, onAddCustomDare, onRemoveCustomDare, onResetScores, onRemoveSpecificScore,
-  onToggleRepeatableDare, onSetUsedDares, onSetLastDare
+  onToggleRepeatableDare, onSetUsedDares, onSetLastDare, onToggleQrQueue, onUpdateRemoteState, onToggleAutoPassMic,
+  onAddDrinks, onUndoDrinks, onAdjustDrinks,
+  onGrantImmunity, onRevokeImmunity, onAddActiveRule, onRemoveActiveRule
 }) => {
-  const { state, controls } = useKaraokeLogic(appState);
+  const { state, controls } = useKaraokeLogic(appState, setAppState);
   const hasAutoScoredRef = React.useRef(false);
 
   React.useEffect(() => {
@@ -73,12 +88,17 @@ export const GameArea: React.FC<GameAreaProps> = ({
           maxHeight: appState.mainContentMaxHeight === 0 ? 'none' : `${appState.mainContentMaxHeight || 800}px`
         }}
       >
-        <Scoreboard
-          appState={appState}
-          onResetScores={onResetScores}
-          onAddScore={onAddScore}
-          onRemoveSpecificScore={onRemoveSpecificScore}
-        />
+        {appState.gameMode === 'NORMAL' ? (
+          <QueuePanel state={state} controls={controls} appState={appState} />
+        ) : (
+          <Scoreboard
+            appState={appState}
+            onResetScores={onResetScores}
+            onAddScore={onAddScore}
+            onRemoveSpecificScore={onRemoveSpecificScore}
+            onAdjustDrinks={onAdjustDrinks}
+          />
+        )}
         <KaraokePlayer state={state} controls={controls} appState={appState} />
         <SongList
           state={state}
@@ -91,6 +111,7 @@ export const GameArea: React.FC<GameAreaProps> = ({
           onSetInputMode={onSetInputMode}
           onToggleSongStatus={onToggleSongStatus}
           onSetDisabledSongs={onSetDisabledSongs}
+          onResetSongsToDefault={onResetSongsToDefault}
           onToggleDare={onToggleDare}
           onSetDisabledDares={onSetDisabledDares}
           onAddCustomDare={onAddCustomDare}
@@ -98,6 +119,18 @@ export const GameArea: React.FC<GameAreaProps> = ({
           onToggleRepeatableDare={onToggleRepeatableDare}
           onSetUsedDares={onSetUsedDares}
           onSetLastDare={onSetLastDare}
+          onToggleQrQueue={onToggleQrQueue}
+          onUpdateRemoteState={onUpdateRemoteState}
+          onToggleAutoPassMic={onToggleAutoPassMic}
+          onResetScores={onResetScores}
+          onRemoveSpecificScore={onRemoveSpecificScore}
+          onAddDrinks={onAddDrinks}
+          onUndoDrinks={onUndoDrinks}
+          onAdjustDrinks={onAdjustDrinks}
+          onGrantImmunity={onGrantImmunity}
+          onRevokeImmunity={onRevokeImmunity}
+          onAddActiveRule={onAddActiveRule}
+          onRemoveActiveRule={onRemoveActiveRule}
         />
       </main>
     </>

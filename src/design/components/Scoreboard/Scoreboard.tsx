@@ -10,9 +10,10 @@ interface ScoreboardProps {
   onResetScores?: () => void;
   onAddScore?: (playerName: string, score: ScoreType) => void;
   onRemoveSpecificScore?: (playerName: string, indexToRemove: number) => void;
+  onAdjustDrinks?: (playerName: string, delta: number) => void;
 }
 
-export const Scoreboard: React.FC<ScoreboardProps> = ({ appState, onResetScores, onAddScore, onRemoveSpecificScore }) => {
+export const Scoreboard: React.FC<ScoreboardProps> = ({ appState, onResetScores, onAddScore, onRemoveSpecificScore, onAdjustDrinks }) => {
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [playerToConfirmEdit, setPlayerToConfirmEdit] = useState<string | null>(null);
   const [selectedPlayerToEdit, setSelectedPlayerToEdit] = useState<string | null>(null);
@@ -28,7 +29,9 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ appState, onResetScores,
     setIsConfirmOpen(false);
   };
 
-  if (appState.gameMode !== 'DARE_DRINK' && appState.gameMode !== 'NORMAL') return null;
+  const showDrinks = appState.gameMode === 'JUST_DRINK' || appState.gameMode === 'DARE_DRINK';
+
+  if (appState.gameMode !== 'DARE_DRINK' && appState.gameMode !== 'JUST_DRINK') return null;
 
   return (
     <>
@@ -82,12 +85,22 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ appState, onResetScores,
                     {rankText}
                   </div>
                   <div className={styles.playerHeader}>
-                    <span className={styles.playerName}>{player}</span>
-                    <div className={styles.scoreNumbers}>
+                    <span className={styles.playerName} title={player}>{player}</span>
+                    {(appState.immunePlayers || []).includes(player) && (
+                      <span className={styles.immuneBadge} title="Immune until next turn">🛡️ IMMUNE</span>
+                    )}
+                  </div>
+                  <div className={styles.scoreNumbers}>
+                    <div className={styles.pointsGroup}>
                       <span className={styles.normalPoints}>{normalPoints}</span>
                       {appState.gameMode !== 'NORMAL' && <span className={styles.separator}>|</span>}
                       {appState.gameMode !== 'NORMAL' && <span className={styles.extraPoints}>{extraPoints}</span>}
                     </div>
+                    {showDrinks && (
+                      <span className={styles.drinkBadge} title="Drinks taken">
+                        🍺 {appState.playerDrinks?.[player] || 0}
+                      </span>
+                    )}
                   </div>
                   {scores.length > 0 && (
                     <div className={styles.scoreDots}>
@@ -156,6 +169,30 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ appState, onResetScores,
               </div>
             </div>
 
+            {showDrinks && (
+              <div className={styles.editSection}>
+                <h4>Drinks Taken</h4>
+                <div className={styles.drinkStepper}>
+                  <button
+                    className={styles.drinkStepBtn}
+                    onClick={() => onAdjustDrinks?.(selectedPlayerToEdit, -1)}
+                    disabled={(appState?.playerDrinks?.[selectedPlayerToEdit] || 0) <= 0}
+                    title="Remove one drink"
+                  >
+                    −
+                  </button>
+                  <span className={styles.drinkStepValue}>🍺 {appState?.playerDrinks?.[selectedPlayerToEdit] || 0}</span>
+                  <button
+                    className={styles.drinkStepBtn}
+                    onClick={() => onAdjustDrinks?.(selectedPlayerToEdit, 1)}
+                    title="Add one drink"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            )}
+
             <div className={styles.editSection}>
               <h4>Add New Score</h4>
               <div className={styles.addScoreButtons}>
@@ -163,7 +200,7 @@ export const Scoreboard: React.FC<ScoreboardProps> = ({ appState, onResetScores,
                 <button className={`${styles.addScoreBtn} ${styles.scoreTwo}`} onClick={() => onAddScore?.(selectedPlayerToEdit, 'TWO_WORDS')}>2 Words</button>
                 <button className={`${styles.addScoreBtn} ${styles.scoreOne}`} onClick={() => onAddScore?.(selectedPlayerToEdit, 'ONE_WORD')}>1 Word</button>
                 <button className={`${styles.addScoreBtn} ${styles.scoreZero}`} onClick={() => onAddScore?.(selectedPlayerToEdit, 'ZERO')}>No Correct</button>
-                {appState.gameMode !== 'NORMAL' && <button className={`${styles.addScoreBtn} ${styles.scoreExtra}`} onClick={() => onAddScore?.(selectedPlayerToEdit, 'EXTRA')}>Extra Challenge</button>}
+                <button className={`${styles.addScoreBtn} ${styles.scoreExtra}`} onClick={() => onAddScore?.(selectedPlayerToEdit, 'EXTRA')}>Extra Challenge</button>
               </div>
             </div>
           </div>

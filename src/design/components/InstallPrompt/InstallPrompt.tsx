@@ -21,6 +21,11 @@ interface InstallPromptProps {
 }
 
 export function InstallPrompt({ onVisibilityChange }: InstallPromptProps = {}) {
+  // Never show PWA install prompt when running inside native Electron desktop app
+  if (typeof window !== 'undefined' && (Boolean((window as any).desktop?.isElectron) || navigator.userAgent.includes('Electron'))) {
+    return null;
+  }
+
   const [isInstalled, setIsInstalled] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [platform] = useState<Platform>(detectPlatform);

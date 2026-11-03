@@ -1,0 +1,209 @@
+@use '../../styles/variables' as *;
+
+.carouselContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 8px 4px 4px;
+}
+
+.heading {
+  font-family: $font-heading;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $color-text-primary;
+  text-align: center;
+  margin: 0;
+}
+
+.undoBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: $color-text-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $color-text-primary;
+    background: rgba(255, 255, 255, 0.14);
+  }
+}
+
+.reelSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reelTitle {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+}
+
+.reelViewport {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  overflow: hidden;
+  border-radius: $radius-md;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: rgba(10, 11, 16, 0.7);
+  mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+}
+
+.pointer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, $color-secondary, $color-primary);
+  box-shadow: 0 0 12px $color-primary-glow;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.reelTrack {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  will-change: transform;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.1, 0.75, 0.2, 1);
+}
+
+.reelItem {
+  flex: 0 0 auto;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 10px;
+  border-radius: $radius-md;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.reelItemWinner {
+  border-color: $color-secondary;
+  background: rgba(236, 72, 153, 0.16);
+  transform: scale(1.06);
+}
+
+.reelIcon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.reelLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: $color-text-primary;
+  line-height: 1.2;
+}
+
+.reelSublabel {
+  font-size: 0.72rem;
+  color: $color-text-secondary;
+}
+
+.chosenRow,
+.recipientRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.chosenChip {
+  padding: 4px 12px;
+  border-radius: $radius-full;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $color-text-primary;
+  background: rgba(139, 92, 246, 0.25);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+}
+
+.resultCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 0 0;
+}
+
+.resultGif {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  border-radius: $radius-md;
+  user-select: none;
+}
+
+.resultText {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  color: $color-text-primary;
+}
+
+.recipientChip {
+  padding: 6px 14px;
+  border-radius: $radius-full;
+  font-size: 0.85rem;
+  color: $color-text-secondary;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  strong {
+    color: $color-accent-amber;
+    margin-left: 4px;
+  }
+}
+
+.doneBtn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: $radius-md;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  box-shadow: $glow-primary;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $glow-secondary;
+  }
+}

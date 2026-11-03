@@ -1,0 +1,339 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.wheelContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  padding: 4px;
+}
+
+.heading {
+  font-family: $font-heading;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: $color-text-primary;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 0 16px rgba(236, 72, 153, 0.4);
+}
+
+.undoBtn {
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: $color-text-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-fast;
+  z-index: 10;
+
+  &:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+}
+
+.wheelSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.wheelTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.wheelStage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(58vh, 58vw, 600px);
+  height: min(58vh, 58vw, 600px);
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+  overflow: visible;
+}
+
+.arrowPointer {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: 38px;
+  height: 44px;
+  filter: drop-shadow(0 4px 10px rgba(244, 63, 94, 0.8));
+  pointer-events: none;
+}
+
+.arrowSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wheelDisc {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.12, 0.82, 0.18, 1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.wheelSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  user-select: none;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.sliceText {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
+  letter-spacing: 0.3px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.winningSlice {
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.9));
+  animation: pulseSlice 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseSlice {
+  from {
+    opacity: 0.85;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.chosenRow,
+.recipientRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.chosenChip {
+  padding: 6px 16px;
+  border-radius: $radius-full;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(139, 92, 246, 0.35);
+  border: 1px solid rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+}
+
+.resultCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 0 6px;
+}
+
+.resultGif {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  border-radius: $radius-md;
+  user-select: none;
+}
+
+.resultText {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+  color: $color-text-primary;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.recipientChip {
+  padding: 8px 18px;
+  border-radius: $radius-full;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: $color-text-primary;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  strong {
+    color: #fbbf24;
+    margin-left: 6px;
+  }
+}
+
+.doneBtn {
+  width: min(340px, 90%);
+  padding: 16px;
+  border: none;
+  border-radius: $radius-md;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  box-shadow: 0 0 25px rgba(236, 72, 153, 0.5);
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 35px rgba(236, 72, 153, 0.7);
+  }
+}
+
+.manualSelectionContainer {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.manualHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.manualInstruction {
+  font-size: 1.15rem;
+  color: $color-text-secondary;
+  margin: 0;
+
+  strong {
+    color: #38bdf8;
+  }
+}
+
+.playerPickerGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-height: 48vh;
+  overflow-y: auto;
+  padding: 6px;
+  @include custom-scrollbar;
+}
+
+.playerPickBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: $radius-md;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all $transition-fast;
+  user-select: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(56, 189, 248, 0.5);
+    transform: translateY(-2px);
+  }
+
+  &.playerPickSelected {
+    background: rgba(236, 72, 153, 0.25);
+    border-color: #ec4899;
+    box-shadow: 0 0 16px rgba(236, 72, 153, 0.5);
+    transform: scale(1.04);
+  }
+}
+
+.pickAvatar {
+  font-size: 1.2rem;
+}
+
+.pickName {
+  font-family: $font-heading;
+  letter-spacing: 0.5px;
+}
+
+.pickCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ec4899;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 900;
+  margin-left: 4px;
+}
+
+.confirmPickBtn {
+  width: min(360px, 92%);
+  padding: 14px 24px;
+  border: none;
+  border-radius: $radius-md;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  cursor: pointer;
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+  transition: all $transition-fast;
+  margin-top: 6px;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.65);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
