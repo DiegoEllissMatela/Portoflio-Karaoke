@@ -1,3 +1,4 @@
+import { isLocalEnvironment } from '../utils/environmentUtils';
 import type {
   Song,
   ScoreType,
@@ -31,12 +32,27 @@ export function getDeviceId(): string {
   return id;
 }
 
+let isRemoteBackendAvailable: boolean | null = null;
+let lastCheckTime = 0;
+
+export function isRemoteServerAvailable(): boolean {
+  if (!isLocalEnvironment()) return false;
+  return isRemoteBackendAvailable ?? false;
+}
+
 export async function fetchRemoteInfo(): Promise<RemoteInfoResponse> {
+  if (!isLocalEnvironment()) {
+    throw new Error('Remote QR queue is only available when running on a local network host.');
+  }
   const res = await fetch('/api/remote/info', {
     headers: { 'Cache-Control': 'no-cache' },
   });
   if (!res.ok) {
     throw new Error(`Failed to fetch remote info (${res.status})`);
+  }
+  const contentType = res.headers.get('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    throw new Error('Received non-JSON response from /api/remote/info');
   }
   return res.json();
 }
@@ -57,15 +73,38 @@ export async function syncHostToRemote(data: {
   dareModalState?: RemoteDareModalState;
   lastProcessedCommandId?: number;
 }): Promise<{ success: boolean; state: RemoteSessionState }> {
-  const res = await fetch('/api/remote/sync-host', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  });
-  if (!res.ok) {
-    throw new Error(`Failed to sync host state (${res.status})`);
+  if (!isLocalEnvironment()) {
+    return { success: false, state: {} as RemoteSessionState };
   }
-  return res.json();
+  const now = Date.now();
+  if (isRemoteBackendAvailable === false && now - lastCheckTime < 10000) {
+    return { success: false, state: {} as RemoteSessionState };
+  }
+
+  try {
+    const res = await fetch('/api/remote/sync-host', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) {
+      isRemoteBackendAvailable = false;
+      lastCheckTime = now;
+      throw new Error(`Failed to sync host state (${res.status})`);
+    }
+    const contentType = res.headers.get('content-type') || '';
+    if (!contentType.includes('application/json')) {
+      isRemoteBackendAvailable = false;
+      lastCheckTime = now;
+      throw new Error('Received non-JSON response from /api/remote/sync-host');
+    }
+    isRemoteBackendAvailable = true;
+    return res.json();
+  } catch (err) {
+    isRemoteBackendAvailable = false;
+    lastCheckTime = now;
+    throw err;
+  }
 }
 
 export async function claimPlayerName(

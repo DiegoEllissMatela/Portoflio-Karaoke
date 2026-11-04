@@ -2,6 +2,7 @@ import type { AppState, PortableSettingsData, DareCategoryId, DareEntry } from '
 import { normalizeDareEntry } from '../utils/dareEngine.ts';
 import { parseFromTxt, serializeToTxt, type CatalogSongRef } from './txtSettingsParser.ts';
 import { DEFAULT_DARE_DRINK_SONG_IDS, DEFAULT_JUST_DRINK_SONG_IDS } from '../constants/defaultSongs.ts';
+import { isLocalEnvironment } from '../utils/environmentUtils.ts';
 
 export type { PortableSettingsData };
 
@@ -16,6 +17,7 @@ const STATIC_FALLBACK_URLS = [
 ];
 
 let saveTimeoutId: ReturnType<typeof setTimeout> | null = null;
+let hasSettingsApi: boolean | null = null;
 
 function sanitizePortableSettings(data: PortableSettingsData): PortableSettingsData {
   if (data?.appState) {
@@ -117,53 +119,66 @@ function sanitizePortableSettings(data: PortableSettingsData): PortableSettingsD
  * Falls back to localStorage if running statically without a backend.
  */
 export async function loadAppSettings(): Promise<PortableSettingsData | null> {
-  // 1. Try local Vite server API endpoint
-  try {
-    const res = await fetch(`${API_SETTINGS_URL}?t=${Date.now()}`, {
-      method: 'GET',
-      headers: { 'Cache-Control': 'no-cache, no-store' },
-    });
-    if (res.ok) {
-      const data: any = await res.json();
-      if (data && data.exists !== false && (data.appState || data.players || data.disabledSongs)) {
-        // If data is directly appState or wrapped in PortableSettingsData
-        const portable: PortableSettingsData = {
-          version: data.version || '1.0.0',
-          savedAt: data.savedAt || new Date().toISOString(),
-          appState: data.appState || data,
-          toneGuide: data.toneGuide,
-        };
-        return sanitizePortableSettings(portable);
-      }
-    }
-  } catch (err) {
-    // API not reachable or static host, proceed to fallback
+  const isLocal = isLocalEnvironment();
+  if (!isLocal) {
+    hasSettingsApi = false;
   }
 
-  // 2. Try static public file fallback
-  for (const staticUrl of STATIC_FALLBACK_URLS) {
+  // 1. Try local Vite server API endpoint only if running in local environment
+  if (hasSettingsApi !== false) {
     try {
-      const res = await fetch(`${staticUrl}?t=${Date.now()}`);
-      if (res.ok) {
-        if (staticUrl.endsWith('.txt')) {
-          const txt = await res.text();
-          if (txt && txt.includes('[')) {
-            return sanitizePortableSettings(parseFromTxt(txt));
-          }
-        } else {
-          const data: any = await res.json();
-          if (data && (data.appState || data.players || data.disabledSongs)) {
-            return sanitizePortableSettings({
-              version: data.version || '1.0.0',
-              savedAt: data.savedAt || new Date().toISOString(),
-              appState: data.appState || data,
-              toneGuide: data.toneGuide,
-            });
-          }
+      const res = await fetch(`${API_SETTINGS_URL}?t=${Date.now()}`, {
+        method: 'GET',
+        headers: { 'Cache-Control': 'no-cache, no-store' },
+      });
+      const contentType = res.headers.get('content-type') || '';
+      if (res.ok && contentType.includes('application/json')) {
+        const data: any = await res.json();
+        hasSettingsApi = true;
+        if (data && data.exists !== false && (data.appState || data.players || data.disabledSongs)) {
+          const portable: PortableSettingsData = {
+            version: data.version || '1.0.0',
+            savedAt: data.savedAt || new Date().toISOString(),
+            appState: data.appState || data,
+            toneGuide: data.toneGuide,
+          };
+          return sanitizePortableSettings(portable);
         }
+      } else {
+        hasSettingsApi = false;
       }
     } catch {
-      // Continue to next fallback
+      hasSettingsApi = false;
+    }
+  }
+
+  // 2. Try static public file fallback only if local
+  if (isLocal) {
+    for (const staticUrl of STATIC_FALLBACK_URLS) {
+      try {
+        const res = await fetch(`${staticUrl}?t=${Date.now()}`);
+        if (res.ok) {
+          const contentType = res.headers.get('content-type') || '';
+          if (staticUrl.endsWith('.txt')) {
+            const txt = await res.text();
+            if (txt && txt.includes('[') && !txt.includes('<!DOCTYPE')) {
+              return sanitizePortableSettings(parseFromTxt(txt));
+            }
+          } else if (contentType.includes('application/json')) {
+            const data: any = await res.json();
+            if (data && (data.appState || data.players || data.disabledSongs)) {
+              return sanitizePortableSettings({
+                version: data.version || '1.0.0',
+                savedAt: data.savedAt || new Date().toISOString(),
+                appState: data.appState || data,
+                toneGuide: data.toneGuide,
+              });
+            }
+          }
+        }
+      } catch {
+        // Continue to next fallback
+      }
     }
   }
 
@@ -195,10 +210,6 @@ export async function loadAppSettings(): Promise<PortableSettingsData | null> {
   return null;
 }
 
-/**
- * Saves application settings directly to the app's internal folder (`settings/karaoke_settings.json`).
- * Automatically debounced to prevent excessive disk writes during slider adjustments.
- */
 export function saveAppSettings(
   appState: AppState,
   extra?: { toneGuide?: { enabled: boolean; volume: number } },
@@ -228,6 +239,7 @@ export function saveAppSettings(
   }
 
   const performSave = async (): Promise<boolean> => {
+    if (hasSettingsApi === false) return true;
     try {
       const res = await fetch(API_SETTINGS_URL, {
         method: 'POST',

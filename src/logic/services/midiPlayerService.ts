@@ -220,6 +220,19 @@ export class MidiPlayerService {
           buffer = source;
         }
 
+        // Validate Standard MIDI Header ('MThd')
+        const header = new Uint8Array(buffer, 0, Math.min(4, buffer.byteLength));
+        const isMidi =
+          header.length >= 4 &&
+          header[0] === 0x4d && // 'M'
+          header[1] === 0x54 && // 'T'
+          header[2] === 0x68 && // 'h'
+          header[3] === 0x64;   // 'd'
+
+        if (!isMidi) {
+          throw new Error(`Invalid MIDI file header for "${source}". Received non-MIDI data (likely HTML rewrite).`);
+        }
+
         const parser = new MidiParser(buffer);
         const data = parser.parse();
         if (options?.title) data.title = options.title;

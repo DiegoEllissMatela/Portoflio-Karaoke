@@ -36,6 +36,307 @@ save.json
 save.txt
 
 # Large local media libraries & release archives
-public/songs/songs/
+# Large local media libraries: ignore all 48k files except curated 300 web tracks
+public/songs/songs/*
+!public/songs/songs/000474 - Kundiman - Silent Sanctuary.mid
+!public/songs/songs/000636 - Top of the World - Carpenters.mid
+!public/songs/songs/001037 - Wind of Change - Scorpions.mid
+!public/songs/songs/001227 - Sana Maulit Muli - Gary Valenciano.mid
+!public/songs/songs/001688 - Wonderful Tonight - Eric Clapton.mid
+!public/songs/songs/001870 - Always Somewhere - Scorpions.mid
+!public/songs/songs/002604 - Always - Bon Jovi.mid
+!public/songs/songs/002755 - My Way - Frank Sinatra.mid
+!public/songs/songs/003021 - She's Gone - Steel Heart.mid
+!public/songs/songs/003405 - Hotel California - Eagles.mid
+!public/songs/songs/003806 - Greatest Love of All - Whitney Houston.mid
+!public/songs/songs/003988 - I Will Always Love You - Whitney Houston.mid
+!public/songs/songs/004255 - Endless Love - Lionel Richie & D. Ross.mid
+!public/songs/songs/004384 - Right Here Waiting - Richard Marx.mid
+!public/songs/songs/004558 - Pumapatak Na Naman Ang Ulan - APO HIKING SOCIETY.mid
+!public/songs/songs/004599 - Stars - Callalily.mid
+!public/songs/songs/005060 - Bohemian Rhapsody - Queen.mid
+!public/songs/songs/005564 - Bagsakan - PAROKYA NI EDGAR ft Francis M. & Gloc 9.mid
+!public/songs/songs/005631 - Bed of Roses - Bon Jovi.mid
+!public/songs/songs/006078 - Open Arms - Journey.mid
+!public/songs/songs/006591 - Bakit Part 2 - Mayonnaise.mid
+!public/songs/songs/007107 - Pasensya Ka Na - Silent Sanctuary.mid
+!public/songs/songs/008060 - Akin Ka Na Lang - Morissette.mid
+!public/songs/songs/008593 - Making Love out of Nothing at All - Air Supply.mid
+!public/songs/songs/008827 - Buko - Jireh Lim.mid
+!public/songs/songs/009403 - Livin' on a Prayer - Bon Jovi.mid
+!public/songs/songs/009489 - Heaven - Bryan Adams.mid
+!public/songs/songs/009505 - Indak - Updarma Down.mid
+!public/songs/songs/009598 - Stuck on You - Lionel Richie.mid
+!public/songs/songs/009667 - Hero - Mariah Carey.mid
+!public/songs/songs/010025 - Deja Vu - Olivia Rodrigo.mid
+!public/songs/songs/010057 - Save Your Tears - The Weeknd.mid
+!public/songs/songs/010066 - Pagsamo - Arthur Nery.mid
+!public/songs/songs/010146 - Balang Araw - I Belong to the Zoo.mid
+!public/songs/songs/010209 - Binibini - Zack Tabudlo.mid
+!public/songs/songs/010248 - Malaya - Moira Dela Torre.mid
+!public/songs/songs/010299 - Dahan - December Avenue.mid
+!public/songs/songs/010417 - Traitor - Olivia Rodrigo.mid
+!public/songs/songs/010551 - Isa Lang - Arthur Nery.mid
+!public/songs/songs/010680 - Dating Tayo - TJ Monterde.mid
+!public/songs/songs/010854 - Kahit Ayaw Mo Na - This Band.mid
+!public/songs/songs/010929 - Ikaw at Ako - Moira and Jason.mid
+!public/songs/songs/010951 - Two Less Lonely People in the World - KZ Tandingan.mid
+!public/songs/songs/011058 - Kung Sakali - Michael Pangilinan.mid
+!public/songs/songs/011202 - Nadarang - Shanti Dope.mid
+!public/songs/songs/011259 - Leaves - Ben and Ben.mid
+!public/songs/songs/011357 - Titibo-Tibo - Moira Dela Torre.mid
+!public/songs/songs/011400 - Hey Barbara - IV OF SPADES.mid
+!public/songs/songs/011541 - Ghost - Justin Bieber.mid
+!public/songs/songs/011584 - Kathang Isip - Ben&Ben.mid
+!public/songs/songs/011601 - Sana - I Belong to the Zoo.mid
+!public/songs/songs/011629 - Kung 'Di Rin Lang Ikaw - December Avenue ft. Moira Dela Torre.mid
+!public/songs/songs/011670 - Peaches - Justin Bieber ft. Daniel Caesar, Giveon.mid
+!public/songs/songs/011736 - Araw-Araw - Ben&Ben.mid
+!public/songs/songs/011996 - Sa Ngalan Ng Pag-Ibig - December Avenue.mid
+!public/songs/songs/012017 - Pagtingin - Ben&Ben.mid
+!public/songs/songs/012021 - Shape of You - Ed Sheeran.mid
+!public/songs/songs/012281 - Unang Sayaw - Nobita.mid
+!public/songs/songs/012311 - Never Enough - Loren Allred.mid
+!public/songs/songs/012381 - Paubaya - Moira Dela Torre.mid
+!public/songs/songs/012450 - Pusong Bato - Jovit Baldovino.mid
+!public/songs/songs/012502 - Ulap - Rob Deniel.mid
+!public/songs/songs/012532 - Always Remember Us This Way - Lady Gaga.mid
+!public/songs/songs/012583 - Ilysb - Lany.mid
+!public/songs/songs/012725 - Hindi Na Nga - This Band.mid
+!public/songs/songs/013027 - Blinding Lights - The Weeknd.mid
+!public/songs/songs/013209 - Habang Buhay - Zack Tabudlo.mid
+!public/songs/songs/013317 - Someone You Loved - Lewis Capaldi.mid
+!public/songs/songs/013396 - Easy on Me - Adele.mid
+!public/songs/songs/013412 - Tahanan - Adie.mid
+!public/songs/songs/013438 - Angels Like You - Miley Cyrus.mid
+!public/songs/songs/013494 - Huling Sandali - December Avenue.mid
+!public/songs/songs/013648 - Tala - Sarah Geronimo.mid
+!public/songs/songs/013667 - Ikaw Pa Rin Ang Pipiliin Ko - Cup of Joe.mid
+!public/songs/songs/013759 - Sana'y Di Nalang - Bandang Lapis.mid
+!public/songs/songs/013906 - Pano - Zack Tabudlo.mid
+!public/songs/songs/013918 - Tagpuan - Moira Dela Torre.mid
+!public/songs/songs/013966 - Too Good at Goodbyes - Sam Smith.mid
+!public/songs/songs/014069 - Ikaw Lang - Nobita.mid
+!public/songs/songs/014127 - That's What I Like - Bruno Mars.mid
+!public/songs/songs/014191 - Perfect - Ed Sheeran.mid
+!public/songs/songs/014307 - Come Inside of My Heart - IV OF SPADES.mid
+!public/songs/songs/014326 - Laro - Autotelic.mid
+!public/songs/songs/014400 - Paraluman - Adie.mid
+!public/songs/songs/014422 - Higa - Arthur Nery.mid
+!public/songs/songs/014566 - Maybe the Night - Ben&Ben.mid
+!public/songs/songs/014641 - Mundo - IV OF SPADES.mid
+!public/songs/songs/014666 - Sa Kabilang Buhay - Bandang Lapis.mid
+!public/songs/songs/014751 - Binhi - Arthur Nery.mid
+!public/songs/songs/014876 - Bulong - December Avenue.mid
+!public/songs/songs/014980 - Driver's License - Olivia Rodrigo.mid
+!public/songs/songs/015181 - Muli - Ace Banzuelo.mid
+!public/songs/songs/015441 - Pasilyo - Sunkissed Lola.mid
+!public/songs/songs/015466 - Give Me Your Forever - Zack Tabudlo.mid
+!public/songs/songs/015638 - Fallen - Lola Amour.mid
+!public/songs/songs/015720 - Flowers - Miley Cyrus.mid
+!public/songs/songs/015799 - Tingin - Cup of Joe, Janine Tenoso.mid
+!public/songs/songs/015819 - Uhaw (Tayong Lahat) - Dilaw.mid
+!public/songs/songs/016029 - Kill Bill - Sza.mid
+!public/songs/songs/016118 - Ang Pagibig - Rob Deniel.mid
+!public/songs/songs/016229 - Cupid (Twinver.) - FIFTY FIFTY.mid
+!public/songs/songs/016330 - Smokin out the Window - Bruno Mars, Anderson .Paak, Silk Sonic.mid
+!public/songs/songs/016525 - Snooze - Sza.mid
+!public/songs/songs/016535 - Until I Found You - Stephen Sanchez.mid
+!public/songs/songs/016721 - Asan Ka Na Ba - Zack Tabudlo.mid
+!public/songs/songs/016816 - Golden Hour - Jvke.mid
+!public/songs/songs/016823 - Vampire - Olivia Rodrigo.mid
+!public/songs/songs/016924 - Raining in Manila - Lola Amour.mid
+!public/songs/songs/017145 - Anti-Hero - Taylor Swift.mid
+!public/songs/songs/017204 - Palagi - TJ Monterde.mid
+!public/songs/songs/017358 - As It Was - Harry Styles.mid
+!public/songs/songs/017642 - Miss Miss - Rob Deniel.mid
+!public/songs/songs/018244 - Estranghero - Cup of Joe.mid
+!public/songs/songs/018502 - Tataya - Cup of Joe.mid
+!public/songs/songs/020167 - Without You - Mariah Carey.mid
+!public/songs/songs/020211 - Everything I Do (I Do It for You) - Bryan Adams.mid
+!public/songs/songs/020259 - Through the Years - Kenny Rogers.mid
+!public/songs/songs/020396 - Migraine - Moonstar88.mid
+!public/songs/songs/020554 - Sleeping Child - Michael Learns to Rock.mid
+!public/songs/songs/020627 - The Actor - Micheal Learns to Rock.mid
+!public/songs/songs/020663 - One Moment in Time - Whitney Houston.mid
+!public/songs/songs/020849 - Summer of '69 - Bryan Adams.mid
+!public/songs/songs/020901 - Because You Loved Me - Celine Dion.mid
+!public/songs/songs/020909 - 25 Minutes - Michael Learns to Rock.mid
+!public/songs/songs/020917 - Yesterday Once More - The Carpenters.mid
+!public/songs/songs/020993 - My Heart Will Go On - Celine Dion.mid
+!public/songs/songs/021939 - Listen - Beyonce.mid
+!public/songs/songs/022574 - Fall for You - Secondhand Serenade.mid
+!public/songs/songs/022611 - Halo - Beyonce.mid
+!public/songs/songs/022756 - You Belong with Me - Taylor Swift.mid
+!public/songs/songs/024044 - If I Ain't Got You - Alicia Keys.mid
+!public/songs/songs/024461 - Close to You - The Carpenters.mid
+!public/songs/songs/024929 - A Whole New World - Peabo Bryson.mid
+!public/songs/songs/024936 - First of Summer - Urbandub.mid
+!public/songs/songs/025160 - To Love You More - Celine Dion.mid
+!public/songs/songs/025296 - You're the Inspiration - Chicago.mid
+!public/songs/songs/025434 - Total Eclipse of the Heart - Bonnie Tyler.mid
+!public/songs/songs/025692 - Bring Me to Life - Evanescence.mid
+!public/songs/songs/025730 - Yellow - Coldplay.mid
+!public/songs/songs/025774 - Unwell - Matchbox 20.mid
+!public/songs/songs/025849 - I Have Nothing - Whitney Houston.mid
+!public/songs/songs/025914 - My Immortal - Evanescence.mid
+!public/songs/songs/025985 - It's All Coming Back to Me - Celine Dion.mid
+!public/songs/songs/026004 - Kung Kailangan Mo Ako - Rey Valera.mid
+!public/songs/songs/026019 - Anak - Freddie Aguilar.mid
+!public/songs/songs/026031 - Pagsubok - Orient Pearl.mid
+!public/songs/songs/026033 - Pare Ko - Eraserheads.mid
+!public/songs/songs/026050 - Parting Time - Rockstar.mid
+!public/songs/songs/026084 - Kahit Maputi Na Ang Buhok Ko - Sharon Cuneta.mid
+!public/songs/songs/026085 - May Bukas Pa - Rico J.Puno.mid
+!public/songs/songs/026089 - Sana'y Wala Nang Wakas - Sharon Cuneta.mid
+!public/songs/songs/026098 - Ika'y Mahal Pa Rin - Rockstar.mid
+!public/songs/songs/026101 - Maging Sino Ka Man - Rey Valera.mid
+!public/songs/songs/026104 - Pangako - Rey Valera.mid
+!public/songs/songs/026123 - Elesi - RIVERMAYA.mid
+!public/songs/songs/026129 - Ang Huling El Bimbo - Eraserheads.mid
+!public/songs/songs/026135 - Laklak - Teeth.mid
+!public/songs/songs/026141 - Ngayon at Kailan Man - Basil Valdez.mid
+!public/songs/songs/026153 - Bakit Ba - Siakol.mid
+!public/songs/songs/026241 - Harana - PAROKYA NI EDGAR.mid
+!public/songs/songs/026242 - Silvertoes - PAROKYA NI EDGAR.mid
+!public/songs/songs/026253 - Forevermore - Side A.mid
+!public/songs/songs/026268 - Banal Na Aso Santong Kabayo - Yano.mid
+!public/songs/songs/026293 - Halik - AEGIS.mid
+!public/songs/songs/026312 - Luha - AEGIS.mid
+!public/songs/songs/026322 - Ligaya - Eraserheads.mid
+!public/songs/songs/026324 - Magasin - Eraserheads.mid
+!public/songs/songs/026326 - Malayo Pa Ang Umaga - Rey Valera.mid
+!public/songs/songs/026328 - Mr. DJ - Sharon Cuneta.mid
+!public/songs/songs/026352 - With a Smile - Eraserheads.mid
+!public/songs/songs/026372 - Hanggang Sa Dulo Ng Walang Hanggan - Basil Valdez.mid
+!public/songs/songs/026396 - Batang~Bata Ka Pa - APO HIKING SOCIETY.mid
+!public/songs/songs/026397 - Buloy - PAROKYA NI EDGAR.mid
+!public/songs/songs/026404 - Magdalena - Freddie Aguilar.mid
+!public/songs/songs/026412 - Panalangin - APO HIKING SOCIETY.mid
+!public/songs/songs/026434 - Bituing Walang Ningning - Sharon Cuneta.mid
+!public/songs/songs/026447 - Basang Basa Sa Ulan - AEGIS.mid
+!public/songs/songs/026476 - Sinta - AEGIS.mid
+!public/songs/songs/026499 - Halaga - PAROKYA NI EDGAR.mid
+!public/songs/songs/026536 - Inuman Na! - PAROKYA NI EDGAR.mid
+!public/songs/songs/026601 - Torete - Moonstar 88.mid
+!public/songs/songs/026669 - Ulan - RIVERMAYA.mid
+!public/songs/songs/026693 - 214 - River Maya.mid
+!public/songs/songs/026695 - Kisapmata - RIVERMAYA.mid
+!public/songs/songs/026719 - Lakas Tama - Siakol.mid
+!public/songs/songs/026775 - Macho Gwapito - Rico J. Puno.mid
+!public/songs/songs/026807 - Hinahanap~Hanap Kita - RIVERMAYA.mid
+!public/songs/songs/026881 - Sayang Na Sayang - AEGIS.mid
+!public/songs/songs/026922 - Bakit - AEGIS.mid
+!public/songs/songs/027028 - The Yes Yes Show - PAROKYA NI EDGAR.mid
+!public/songs/songs/027059 - Prinsesa - Teeth.mid
+!public/songs/songs/027077 - Noypi - Bamboo.mid
+!public/songs/songs/027145 - Awit Ng Kabataan - RIVERMAYA.mid
+!public/songs/songs/027219 - Wag Na Wag Mong Sasabihin - Kitchie Nadal.mid
+!public/songs/songs/027234 - Hari Ng Sablay - Sugar Free.mid
+!public/songs/songs/027247 - Sige - 6CYCLEMIND.mid
+!public/songs/songs/027312 - Klsp - Spongecola.mid
+!public/songs/songs/027345 - Burnout - Sugar Free.mid
+!public/songs/songs/027362 - Hallelujah - Bamboo.mid
+!public/songs/songs/027396 - Jeepney - Spongecola.mid
+!public/songs/songs/027397 - Jopay - Mayonnaise.mid
+!public/songs/songs/027404 - The Day You Say Goodnight - Hale.mid
+!public/songs/songs/027405 - Stay - Cueshe.mid
+!public/songs/songs/027428 - Pinoy Ako - Orange & Lemons.mid
+!public/songs/songs/027440 - Hanggang Kailan - Orange & Lemons.mid
+!public/songs/songs/027469 - Ulan - Cueshe.mid
+!public/songs/songs/027489 - Akap - IMAGO.mid
+!public/songs/songs/027539 - Kung Wala Ka - Hale.mid
+!public/songs/songs/027545 - Sandalan - 6CYCLEMIND.mid
+!public/songs/songs/027555 - Alipin - Shamrock.mid
+!public/songs/songs/027564 - Akin Ka Na Lang - Itchyworms.mid
+!public/songs/songs/027566 - Alapaap - Eraserheads.mid
+!public/songs/songs/027595 - Chiksilog - Kamikazee.mid
+!public/songs/songs/027598 - Heaven Knows - Orange & Lemons.mid
+!public/songs/songs/027613 - Nobela - Join the Club.mid
+!public/songs/songs/027638 - Gitara - PAROKYA NI EDGAR.mid
+!public/songs/songs/027717 - Back to Me - Cueshe.mid
+!public/songs/songs/027720 - Beer - Itchyworms.mid
+!public/songs/songs/027758 - Doo Bidoo - Kamikazee.mid
+!public/songs/songs/027787 - Overdrive - Eraserheads.mid
+!public/songs/songs/027867 - Bitiw - Spongecola.mid
+!public/songs/songs/027883 - Oo - Up Dharma Down.mid
+!public/songs/songs/027891 - Tatsulok - Bamboo.mid
+!public/songs/songs/027956 - Magbalik - Callalily.mid
+!public/songs/songs/027962 - Sundo - IMAGO.mid
+!public/songs/songs/028051 - You and Me - Lifehouse.mid
+!public/songs/songs/028385 - Hard to Say I'm Sorry - Chicago.mid
+!public/songs/songs/028391 - Saving All My Love for You - Whitney Houston.mid
+!public/songs/songs/028702 - Narda - Kamikazee.mid
+!public/songs/songs/029556 - Hayaan Mo Sila - Ex Battalion and Oc Dawgs.mid
+!public/songs/songs/029853 - Buwan - John Carlos Labajo.mid
+!public/songs/songs/030398 - You Are the Reason - Calum Scott.mid
+!public/songs/songs/031329 - Leave the Door Open - Bruno Mars, Anderson .Paak, Silk Sonic.mid
+!public/songs/songs/035365 - Having You Near Me - Air Supply.mid
+!public/songs/songs/035457 - Patuloy Ang Pangarap - Angeline Quinto.mid
+!public/songs/songs/035753 - Tadhana - Up Dharma Down.mid
+!public/songs/songs/035754 - A Thousand Years - Christina Perri.mid
+!public/songs/songs/035880 - Payphone - Maroon 5 ft. Wiz Khalifa.mid
+!public/songs/songs/036287 - Chinito - YENG Constantino.mid
+!public/songs/songs/036319 - Magkabilang Mundo - Jireh Lim.mid
+!public/songs/songs/036469 - Your Song - PAROKYA NI EDGAR.mid
+!public/songs/songs/036494 - Let It Go - Idina Menzel.mid
+!public/songs/songs/036676 - Chandelier - Sia.mid
+!public/songs/songs/036735 - Ikaw - YENG Constantino.mid
+!public/songs/songs/036737 - Mahal Ko O Mahal Ako - KZ Tandingan.mid
+!public/songs/songs/036768 - Pare Mahal Mo Raw Ako - Michael Pangilinan.mid
+!public/songs/songs/036776 - Thinking out Loud - Ed Sheeran.mid
+!public/songs/songs/036838 - Sugar - Maroon 5.mid
+!public/songs/songs/036949 - Photograph - Ed Sheeran.mid
+!public/songs/songs/037125 - Sa 'Yo - Silent Sanctuary.mid
+!public/songs/songs/037126 - Hello - Adele.mid
+!public/songs/songs/037158 - All I Ask - Adele.mid
+!public/songs/songs/037171 - When We Were Young - Adele.mid
+!public/songs/songs/037365 - Secret Love Song - Little Mix feat. Jason Derulo.mid
+!public/songs/songs/037516 - Versace on the Floor - Bruno Mars.mid
+!public/songs/songs/040080 - A Million Dreams - Ziv Zaifman.mid
+!public/songs/songs/040251 - Sino - Unique Salonga.mid
+!public/songs/songs/040409 - Shallow - Lady Gaga.mid
+!public/songs/songs/041745 - Mahika - Adie, Janine.mid
+!public/songs/songs/060255 - Hero - Enrique Iglesias.mid
+!public/songs/songs/060479 - All by Myself - Celine Dion.mid
+!public/songs/songs/060495 - That's Why (You Go Away) - Michael Learns to Rock.mid
+!public/songs/songs/060506 - The Scientist - Coldplay.mid
+!public/songs/songs/060537 - All out of Love - Air Supply.mid
+!public/songs/songs/060905 - Don't Stop Believin' - Journey.mid
+!public/songs/songs/060993 - I'm Yours - Jason Mraz.mid
+!public/songs/songs/061035 - My Love - WESTLIFE.mid
+!public/songs/songs/061088 - Wherever You Will Go - The Calling.mid
+!public/songs/songs/061090 - In the End - Linkin Park.mid
+!public/songs/songs/061101 - Complicated - Avril Lavigne.mid
+!public/songs/songs/061136 - A Thousand Miles - Vanessa Carlton.mid
+!public/songs/songs/061143 - I'm with You - Avril Lavigne.mid
+!public/songs/songs/061275 - Numb - Linkin Park.mid
+!public/songs/songs/061282 - Breathless - The Corrs.mid
+!public/songs/songs/061467 - The Reason - Hoobastank.mid
+!public/songs/songs/061472 - Since U Been Gone - Kelly Clarkson.mid
+!public/songs/songs/061598 - Always Be My Baby - Mariah Carey.mid
+!public/songs/songs/061612 - The Power of Love - Celine Dion.mid
+!public/songs/songs/061664 - She Will Be Loved - Maroon 5.mid
+!public/songs/songs/061827 - Paint My Love - Michael Learns to Rock.mid
+!public/songs/songs/061917 - Because of You - Kelly Clarkson.mid
+!public/songs/songs/061922 - You Raise Me Up - WESTLIFE.mid
+!public/songs/songs/061960 - So Sick - Ne-Yo.mid
+!public/songs/songs/062048 - Faithfully - Journey.mid
+!public/songs/songs/063058 - Love Story - Taylor Swift.mid
+!public/songs/songs/072642 - Jar of Hearts - Christina Perri.mid
+!public/songs/songs/072661 - When I Was Your Man - Bruno Mars.mid
+!public/songs/songs/073652 - The One That Got Away - Katy Perry.mid
+!public/songs/songs/074608 - Stay with Me - Sam Smith.mid
+!public/songs/songs/075537 - Say You Won't Let Go - James Arthur.mid
+!public/songs/songs/079017 - Rolling in the Deep - Adele.mid
+!public/songs/songs/079035 - Someone Like You - Adele.mid
+!public/songs/songs/079062 - Set Fire to the Rain - Adele.mid
+!public/songs/songs/079317 - All of Me - John Legend.mid
+!public/songs/songs/079384 - I'm Not the Only One - Sam Smith.mid
+!public/songs/songs/084854 - Just the Way You Are - Bruno Mars.mid
+!public/songs/songs/084877 - Even the Nights Are Better - Air Supply.mid
+!public/songs/songs/084884 - Grenade - Bruno Mars.mid
+!public/songs/songs/084928 - Sunday Morning - Maroon 5.mid
+!public/songs/songs/084959 - Bad Romance - Lady Gaga.mid
 *.zip
 

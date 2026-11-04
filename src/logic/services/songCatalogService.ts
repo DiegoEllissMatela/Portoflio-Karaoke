@@ -1,12 +1,13 @@
 import type { Song } from '../types/logicTypes';
+import { LOCAL_ALBUM_COVERS, DEFAULT_ALBUM_ART } from '../utils/albumArtUtils';
+import { isLocalEnvironment } from '../utils/environmentUtils';
 
 export type CatalogProgressCallback = (progress: number, status: string, log?: string) => void;
+export type FullCatalogReadyCallback = (songs: Song[]) => void;
 
 const DB_NAME = 'AutomateKaraokeDB_v5';
 const DB_VERSION = 1;
 const STORE_NAME = 'songs';
-
-import { LOCAL_ALBUM_COVERS, DEFAULT_ALBUM_ART } from '../utils/albumArtUtils';
 
 function encodeSongPath(filename: string): string {
   if (!filename) return '';
@@ -18,7 +19,6 @@ const albumArts = [
   DEFAULT_ALBUM_ART
 ];
 
-// In-memory cached song list & diagnostic logs
 let inMemorySongs: Song[] = [];
 let isCatalogLoaded = false;
 let catalogLoadingPromise: Promise<Song[]> | null = null;
@@ -82,7 +82,6 @@ async function getAllFromDB(db: IDBDatabase): Promise<Song[]> {
       const req = store.getAll();
       req.onsuccess = () => {
         const list: Song[] = req.result || [];
-        // Sanitize any stale external unsplash URLs to local vector covers
         for (let i = 0; i < list.length; i++) {
           if (!list[i].albumArt || list[i].albumArt?.includes('unsplash.com')) {
             list[i].albumArt = albumArts[i % albumArts.length];
@@ -127,9 +126,6 @@ function tuplesToSongs(tuples: any[][]): Song[] {
     const isHidden = Boolean(t[5]);
     const searchKey = `${title} ${artist}`.toLowerCase();
 
-    // Use MIDI file (index 6) from /songs/songs/ as the primary audio source.
-    // The .opus instrumental (index 3) and .lrc lyrics (index 4) files are not
-    // present in the local /songs/songs/ folder — only .mid files are available.
     const midiFile = t[6] as string;
     const midiUrl = midiFile
       ? `/songs/songs/${encodeSongPath(midiFile)}`
@@ -141,9 +137,9 @@ function tuplesToSongs(tuples: any[][]): Song[] {
       artist,
       albumArt: albumArts[i % albumArts.length],
       duration: 0,
-      audioUrl: midiUrl,   // Point audioUrl to the MIDI file as well
+      audioUrl: midiUrl,
       midiUrl,
-      lyricsUrl: '',        // No .lrc files available in /songs/songs/
+      lyricsUrl: '',
       lyrics: [],
       isHiddenByDefault: isHidden,
       searchKey,
@@ -155,56 +151,82 @@ function tuplesToSongs(tuples: any[][]): Song[] {
 /**
  * Fallback inline loader if Web Worker is unavailable or encounters an error
  */
-async function fallbackInlineLoad(onProgress?: CatalogProgressCallback): Promise<Song[]> {
+async function fallbackInlineLoad(
+  onProgress?: CatalogProgressCallback,
+  onFullCatalogReady?: FullCatalogReadyCallback
+): Promise<Song[]> {
+  const isLocal = isLocalEnvironment();
   const log1 = recordLog('Running inline fallback loader...');
-  onProgress?.(20, 'Checking song catalog...', log1);
+  onProgress?.(20, 'Loading curated songs...', log1);
 
-  let rawTuples: any[][] | null = null;
-  try {
-    const logFetch = recordLog('Fetching /songs/catalog.json via main thread...');
-    onProgress?.(30, 'Fetching catalog file...', logFetch);
-    const response = await fetch('/songs/catalog.json', { cache: 'no-cache' });
-    if (response.ok) {
-      rawTuples = await response.json();
-      const logDone = recordLog('Downloaded catalog.json successfully.');
-      onProgress?.(60, 'Catalog downloaded', logDone);
-    }
-  } catch (fetchErr: any) {
-    recordLog(`Network fetch error: ${fetchErr?.message}`);
-  }
-
-  // If fetched catalog successfully, hydrate memory immediately
-  if (rawTuples && Array.isArray(rawTuples)) {
-    const logParse = recordLog(`Parsing ${rawTuples.length.toLocaleString()} track tuples in memory...`);
-    onProgress?.(80, `Parsing ${rawTuples.length.toLocaleString()} tracks...`, logParse);
-    const songs = tuplesToSongs(rawTuples);
-    inMemorySongs = songs;
-    isCatalogLoaded = true;
-
-    // Save to IndexedDB in background
-    openDB().then(db => {
-      if (db) {
-        bulkInsert(db, songs).catch(err => console.warn('[SongCatalog] Bulk insert warning:', err));
-      }
-    });
-
-    const logReady = recordLog(`Library ready with ${songs.length.toLocaleString()} tracks.`);
-    onProgress?.(100, `Library ready (${songs.length.toLocaleString()} tracks)`, logReady);
-    return songs;
-  }
-
-  // Fallback to IndexedDB
+  // 1. Check offline cache
   const db = await openDB();
   if (db) {
-    const logDb = recordLog('Loading from IndexedDB offline storage...');
-    onProgress?.(85, 'Loading offline library...', logDb);
     const cachedSongs = await getAllFromDB(db);
     if (cachedSongs && cachedSongs.length > 0) {
-      inMemorySongs = cachedSongs;
+      if (isLocal || cachedSongs.length <= 500) {
+        inMemorySongs = cachedSongs;
+        isCatalogLoaded = true;
+        const logCached = recordLog(`Loaded ${cachedSongs.length.toLocaleString()} tracks from cache.`);
+        onProgress?.(100, `Library ready (${cachedSongs.length.toLocaleString()} tracks)`, logCached);
+        return cachedSongs;
+      }
+    }
+  }
+
+  // 2. Fetch curated web catalog
+  let stage1Songs: Song[] = [];
+  try {
+    const webRes = await fetch('/songs/web_catalog.json');
+    if (webRes.ok) {
+      const webTuples = await webRes.json();
+      stage1Songs = tuplesToSongs(webTuples);
+      inMemorySongs = stage1Songs;
       isCatalogLoaded = true;
-      const logCached = recordLog(`Loaded ${cachedSongs.length.toLocaleString()} tracks from local database.`);
-      onProgress?.(100, `Offline library ready (${cachedSongs.length.toLocaleString()} tracks)`, logCached);
-      return cachedSongs;
+      const logWeb = recordLog(`Curated collection ready (${stage1Songs.length} tracks).`);
+      onProgress?.(100, `Library ready (${stage1Songs.length} tracks)`, logWeb);
+    }
+  } catch (webErr: any) {
+    recordLog(`Web catalog fetch failed: ${webErr?.message}`);
+  }
+
+  // If on static web hosting or full catalog not needed, return stage 1
+  if (!isLocal || stage1Songs.length > 0) {
+    if (isLocal && stage1Songs.length > 0) {
+      // In background on local, attempt to fetch full catalog
+      fetch('/songs/catalog.json')
+        .then(res => res.ok ? res.json() : null)
+        .then(fullTuples => {
+          if (Array.isArray(fullTuples)) {
+            const fullSongs = tuplesToSongs(fullTuples);
+            inMemorySongs = fullSongs;
+            if (db) bulkInsert(db, fullSongs).catch(() => {});
+            onFullCatalogReady?.(fullSongs);
+          }
+        })
+        .catch(() => {});
+      return stage1Songs;
+    }
+    if (stage1Songs.length > 0) {
+      return stage1Songs;
+    }
+  }
+
+  // 3. Fallback: full catalog directly if local
+  if (isLocal) {
+    try {
+      const response = await fetch('/songs/catalog.json', { cache: 'no-cache' });
+      if (response.ok) {
+        const rawTuples = await response.json();
+        const songs = tuplesToSongs(rawTuples);
+        inMemorySongs = songs;
+        isCatalogLoaded = true;
+        if (db) bulkInsert(db, songs).catch(() => {});
+        onProgress?.(100, `Library ready (${songs.length.toLocaleString()} tracks)`);
+        return songs;
+      }
+    } catch (err: any) {
+      recordLog(`Full catalog fallback failed: ${err?.message}`);
     }
   }
 
@@ -212,10 +234,13 @@ async function fallbackInlineLoad(onProgress?: CatalogProgressCallback): Promise
 }
 
 /**
- * Main entry point: Loads catalog via background Web Worker with real-time progress & logging
+ * Main entry point: Loads catalog via background Web Worker with two-stage resolution.
+ * Stage 1 resolves fast (<150ms) with curated web songs to unblock UI.
+ * Stage 2 (when running locally) silently fetches and upgrades to the full 48k library.
  */
 export async function loadSongCatalog(
-  onProgress?: CatalogProgressCallback
+  onProgress?: CatalogProgressCallback,
+  onFullCatalogReady?: FullCatalogReadyCallback
 ): Promise<Song[]> {
   if (isCatalogLoaded && inMemorySongs.length > 0) {
     const log = recordLog(`Catalog already cached in memory (${inMemorySongs.length.toLocaleString()} tracks)`);
@@ -227,10 +252,14 @@ export async function loadSongCatalog(
     return catalogLoadingPromise;
   }
 
+  const isLocal = isLocalEnvironment();
+
   catalogLoadingPromise = new Promise<Song[]>((resolve, reject) => {
+    let resolved = false;
+
     try {
       if (typeof window !== 'undefined' && typeof Worker !== 'undefined') {
-        const initLog = recordLog('Starting background catalog Web Worker...');
+        const initLog = recordLog(`Starting catalog loader (${isLocal ? 'Local environment' : 'Web deployment'})...`);
         onProgress?.(10, 'Initializing catalog worker...', initLog);
 
         const worker = new Worker(
@@ -239,23 +268,38 @@ export async function loadSongCatalog(
         );
 
         worker.onmessage = (event: MessageEvent) => {
-          const { type, progress, status, songs, message, log } = event.data || {};
+          const { type, progress, status, songs, message, log, isFull } = event.data || {};
           const logged = log ? recordLog(log) : undefined;
 
           if (type === 'PROGRESS') {
             onProgress?.(progress, status, logged);
+          } else if (type === 'STAGE_1_SUCCESS') {
+            inMemorySongs = songs;
+            isCatalogLoaded = true;
+            if (!resolved) {
+              resolved = true;
+              onProgress?.(100, status || `Ready (${songs.length} tracks)`, logged);
+              resolve(songs);
+            }
           } else if (type === 'SUCCESS') {
             inMemorySongs = songs;
             isCatalogLoaded = true;
-            const successLog = recordLog(`Library active (${songs.length.toLocaleString()} tracks).`);
-            onProgress?.(100, `Library ready (${songs.length.toLocaleString()} tracks)`, successLog);
+            if (!resolved) {
+              resolved = true;
+              onProgress?.(100, `Library ready (${songs.length.toLocaleString()} tracks)`, logged);
+              resolve(songs);
+            } else if (isFull) {
+              // Stage 2 completed in background: notify listener to upgrade song library
+              onFullCatalogReady?.(songs);
+            }
             worker.terminate();
-            resolve(songs);
           } else if (type === 'ERROR') {
             console.error('[SongCatalog] Worker reported error:', message);
             recordLog(`Worker error: ${message}`);
             worker.terminate();
-            fallbackInlineLoad(onProgress).then(resolve).catch(reject);
+            if (!resolved) {
+              fallbackInlineLoad(onProgress, onFullCatalogReady).then(resolve).catch(reject);
+            }
           }
         };
 
@@ -263,10 +307,12 @@ export async function loadSongCatalog(
           console.warn('[SongCatalog] Web Worker onerror:', err);
           recordLog('Worker failed to execute, triggering inline fallback...');
           worker.terminate();
-          fallbackInlineLoad(onProgress).then(resolve).catch(reject);
+          if (!resolved) {
+            fallbackInlineLoad(onProgress, onFullCatalogReady).then(resolve).catch(reject);
+          }
         };
 
-        worker.postMessage({ action: 'LOAD_CATALOG' });
+        worker.postMessage({ action: 'LOAD_CATALOG', isLocal });
         return;
       }
     } catch (err: any) {
@@ -274,7 +320,7 @@ export async function loadSongCatalog(
       recordLog(`Worker creation exception: ${err?.message}`);
     }
 
-    fallbackInlineLoad(onProgress).then(resolve).catch(reject);
+    fallbackInlineLoad(onProgress, onFullCatalogReady).then(resolve).catch(reject);
   });
 
   return catalogLoadingPromise;

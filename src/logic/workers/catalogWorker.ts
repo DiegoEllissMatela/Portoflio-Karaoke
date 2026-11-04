@@ -61,7 +61,6 @@ async function getAllFromDB(db: IDBDatabase): Promise<Song[]> {
       const req = store.getAll();
       req.onsuccess = () => {
         const list: Song[] = req.result || [];
-        // Sanitize any stale external unsplash URLs to local vector covers
         for (let i = 0; i < list.length; i++) {
           if (!list[i].albumArt || list[i].albumArt?.includes('unsplash.com')) {
             list[i].albumArt = albumArts[i % albumArts.length];
@@ -106,9 +105,6 @@ function tuplesToSongs(tuples: any[][]): Song[] {
     const isHidden = Boolean(t[5]);
     const searchKey = `${title} ${artist}`.toLowerCase();
 
-    // Use MIDI file (index 6) from /songs/songs/ as the primary audio source.
-    // The .opus instrumental (index 3) and .lrc lyrics (index 4) files are not
-    // present in the local /songs/songs/ folder — only .mid files are available.
     const midiFile = t[6] as string;
     const midiUrl = midiFile
       ? `/songs/songs/${encodeSongPath(midiFile)}`
@@ -120,9 +116,9 @@ function tuplesToSongs(tuples: any[][]): Song[] {
       artist,
       albumArt: albumArts[i % albumArts.length],
       duration: 0,
-      audioUrl: midiUrl,   // Point audioUrl to the MIDI file as well
+      audioUrl: midiUrl,
       midiUrl,
-      lyricsUrl: '',        // No .lrc files available in /songs/songs/
+      lyricsUrl: '',
       lyrics: [],
       isHiddenByDefault: isHidden,
       searchKey,
@@ -131,32 +127,85 @@ function tuplesToSongs(tuples: any[][]): Song[] {
   return songs;
 }
 
-// Worker message listener
 self.onmessage = async (e: MessageEvent) => {
   if (e.data?.action === 'LOAD_CATALOG') {
+    const isLocal = Boolean(e.data?.isLocal);
+
     try {
-      // 1. Fast path: Check IndexedDB offline storage first for instant startup (<100ms)
       const db = await openDB();
+
+      // 1. Fast path: check offline cache
       if (db) {
         const cachedSongs = await getAllFromDB(db);
         if (cachedSongs && cachedSongs.length > 0) {
+          // If we are on static web hosting, avoid using a stale local 48k cache
+          if (!isLocal && cachedSongs.length > 500) {
+            // Skip 48k cache on web; fall through to web_catalog.json
+          } else {
+            self.postMessage({
+              type: 'STAGE_1_SUCCESS',
+              songs: cachedSongs,
+              status: `Library ready (${cachedSongs.length.toLocaleString()} tracks)`,
+              log: `Loaded ${cachedSongs.length.toLocaleString()} tracks instantly from cache.`
+            });
+            self.postMessage({
+              type: 'SUCCESS',
+              songs: cachedSongs,
+              isFull: cachedSongs.length > 500
+            });
+            return;
+          }
+        }
+      }
+
+      // 2. Stage 1: Load lightweight curated web catalog (<150ms)
+      self.postMessage({
+        type: 'PROGRESS',
+        progress: 20,
+        status: 'Loading curated song collection...',
+        log: 'Fetching /songs/web_catalog.json...'
+      });
+
+      let stage1Songs: Song[] = [];
+      try {
+        const webRes = await fetch('/songs/web_catalog.json');
+        if (webRes.ok) {
+          const webTuples = await webRes.json();
+          stage1Songs = tuplesToSongs(webTuples);
+          self.postMessage({
+            type: 'STAGE_1_SUCCESS',
+            songs: stage1Songs,
+            status: `Library ready (${stage1Songs.length.toLocaleString()} tracks)`,
+            log: `Loaded curated web catalog (${stage1Songs.length.toLocaleString()} tracks).`
+          });
+        }
+      } catch (webErr: any) {
+        console.warn('[Worker] Web catalog fetch warning:', webErr);
+      }
+
+      // If on static web hosting (Vercel), Stage 1 is the complete library
+      if (!isLocal) {
+        if (stage1Songs.length > 0) {
           self.postMessage({
             type: 'PROGRESS',
             progress: 100,
-            status: `Library ready (${cachedSongs.length.toLocaleString()} tracks)`,
-            log: `Loaded ${cachedSongs.length.toLocaleString()} tracks instantly from local cache.`
+            status: `Library ready (${stage1Songs.length.toLocaleString()} tracks)`,
+            log: `Web library initialized with ${stage1Songs.length.toLocaleString()} curated tracks.`
           });
-          self.postMessage({ type: 'SUCCESS', songs: cachedSongs });
+          self.postMessage({ type: 'SUCCESS', songs: stage1Songs, isFull: false });
+          if (db) {
+            bulkInsert(db, stage1Songs).catch(() => {});
+          }
           return;
         }
       }
 
-      // 2. Cold path: Fetch catalog JSON from server
+      // 3. Stage 2 (Local environment only): Background stream & parse full 48k catalog
       self.postMessage({
         type: 'PROGRESS',
-        progress: 15,
-        status: 'Fetching 48,000 song catalog...',
-        log: 'Downloading catalog.json stream...'
+        progress: 30,
+        status: 'Loading full 48,000 song library in background...',
+        log: 'Streaming catalog.json...'
       });
 
       let rawTuples: any[][] | null = null;
@@ -178,15 +227,14 @@ self.onmessage = async (e: MessageEvent) => {
                 chunks.push(value);
                 receivedBytes += value.length;
                 const now = Date.now();
-                // Throttle UI progress messages to max 10 times/sec to avoid flooding React main thread
-                if (now - lastUpdate > 100) {
+                if (now - lastUpdate > 150) {
                   lastUpdate = now;
-                  const percent = Math.min(80, Math.round((receivedBytes / contentLength) * 80));
+                  const percent = Math.min(85, Math.round(30 + (receivedBytes / contentLength) * 55));
                   const mbRec = (receivedBytes / (1024 * 1024)).toFixed(1);
                   self.postMessage({
                     type: 'PROGRESS',
                     progress: percent,
-                    status: `Downloading song definitions: ${mbRec} MB`,
+                    status: `Downloading song library: ${mbRec} MB`,
                     log: `Streamed ${mbRec} MB...`
                   });
                 }
@@ -195,7 +243,7 @@ self.onmessage = async (e: MessageEvent) => {
 
             self.postMessage({
               type: 'PROGRESS',
-              progress: 85,
+              progress: 90,
               status: 'Parsing song definitions...',
               log: 'Deserializing JSON catalog...'
             });
@@ -216,51 +264,46 @@ self.onmessage = async (e: MessageEvent) => {
         self.postMessage({
           type: 'PROGRESS',
           progress: 50,
-          status: 'Network fetch failed, retrying cache...',
-          log: `Fetch error: ${fetchErr?.message || 'network failed'}`
+          status: 'Local full catalog not available, keeping curated collection.',
+          log: `Full catalog fetch: ${fetchErr?.message || 'skipped'}`
         });
       }
 
-      // If fetched catalog successfully, hydrate, send to UI, and cache in background
       if (rawTuples && Array.isArray(rawTuples)) {
         self.postMessage({
           type: 'PROGRESS',
-          progress: 95,
+          progress: 98,
           status: `Hydrating ${rawTuples.length.toLocaleString()} songs...`,
           log: `Constructing song models...`
         });
-        const songs = tuplesToSongs(rawTuples);
+        const fullSongs = tuplesToSongs(rawTuples);
 
         self.postMessage({
           type: 'PROGRESS',
           progress: 100,
-          status: `Library ready (${songs.length.toLocaleString()} tracks)`,
-          log: `Catalog ready (${songs.length.toLocaleString()} tracks)`
+          status: `Full library ready (${fullSongs.length.toLocaleString()} tracks)`,
+          log: `Full catalog ready (${fullSongs.length.toLocaleString()} tracks).`
         });
-        self.postMessage({ type: 'SUCCESS', songs });
+        self.postMessage({ type: 'SUCCESS', songs: fullSongs, isFull: true });
 
-        // Update IndexedDB cache asynchronously in the background
         if (db) {
-          bulkInsert(db, songs).catch(saveErr => {
-            console.warn('[Worker] Background cache update warning:', saveErr);
+          bulkInsert(db, fullSongs).catch(err => {
+            console.warn('[Worker] Cache update warning:', err);
           });
         }
         return;
       }
 
-      // Fallback
-      if (db) {
-        const cachedSongs = await getAllFromDB(db);
-        if (cachedSongs && cachedSongs.length > 0) {
-          self.postMessage({
-            type: 'PROGRESS',
-            progress: 100,
-            status: `Offline library ready (${cachedSongs.length.toLocaleString()} tracks)`,
-            log: `Loaded ${cachedSongs.length.toLocaleString()} tracks from cache`
-          });
-          self.postMessage({ type: 'SUCCESS', songs: cachedSongs });
-          return;
-        }
+      // If full fetch failed but we have stage1 songs, succeed with stage 1
+      if (stage1Songs.length > 0) {
+        self.postMessage({
+          type: 'PROGRESS',
+          progress: 100,
+          status: `Library ready (${stage1Songs.length.toLocaleString()} tracks)`,
+          log: `Ready with ${stage1Songs.length.toLocaleString()} curated tracks.`
+        });
+        self.postMessage({ type: 'SUCCESS', songs: stage1Songs, isFull: false });
+        return;
       }
 
       throw new Error('Failed to load songs from network and no offline cache available');

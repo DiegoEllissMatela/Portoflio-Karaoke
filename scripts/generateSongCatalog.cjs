@@ -37,6 +37,7 @@ const force = process.argv.includes('--force') || process.env.FORCE_CATALOG === 
 if (!force && fs.existsSync(outputCatalogPath) && fs.statSync(outputCatalogPath).size > 100000) {
   const sizeMB = (fs.statSync(outputCatalogPath).size / (1024 * 1024)).toFixed(2);
   console.log(`[Catalog Generator] catalog.json exists (${sizeMB} MB). Use "npm run catalog -- --force" to regenerate. Skipping rebuild.`);
+  require("./buildWebCatalog.cjs");
   process.exit(0);
 }
 
@@ -216,3 +217,4 @@ fs.mkdirSync(path.dirname(outputCatalogPath), { recursive: true });
 fs.writeFileSync(outputCatalogPath, JSON.stringify(compactSongs));
 const fileSizeMB = (fs.statSync(outputCatalogPath).size / (1024 * 1024)).toFixed(2);
 console.log(`[Catalog Generator] Successfully generated ${outputCatalogPath} (${fileSizeMB} MB)`);
+require("./buildWebCatalog.cjs");

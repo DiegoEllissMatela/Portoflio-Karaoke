@@ -8,6 +8,7 @@ import { generateDrinkWheelPlan, type DrinkWheelPlan } from '../../../logic/util
 import { analyzeDare, buildDareWheelPlan, normalizeDareEntry } from '../../../logic/utils/dareEngine';
 import { DrinkWheel } from '../DrinkCarousel/DrinkWheel';
 import { fetchRemoteInfo, syncHostToRemote, releasePlayerName, mutatePlayerQueue } from '../../../logic/services/remoteQueueClient';
+import { isLocalEnvironment } from '../../../logic/utils/environmentUtils';
 import styles from './SongList.module.scss';
 
 interface SongListProps {
@@ -194,6 +195,10 @@ export const SongList: React.FC<SongListProps> = ({
   // Load QR code when QR tab is opened
   useEffect(() => {
     if (isModalOpen && activeTab === 'qr') {
+      if (!isLocalEnvironment()) {
+        setIsLoadingQr(false);
+        return;
+      }
       setIsLoadingQr(true);
       fetchRemoteInfo()
         .then((info) => {
@@ -596,6 +601,7 @@ export const SongList: React.FC<SongListProps> = ({
 
   // Periodic host state sync with remote server & remote skip / admin command triggers
   useEffect(() => {
+    if (!isLocalEnvironment()) return; // Skip remote backend polling on static web hosting
     let isMounted = true;
     const syncState = async () => {
       try {
@@ -1310,6 +1316,11 @@ export const SongList: React.FC<SongListProps> = ({
                           <div style={{ padding: '40px', color: '#64748b', fontSize: '0.85rem' }}>Generating QR...</div>
                         ) : qrDataUrl ? (
                           <img src={qrDataUrl} alt="Scan to Queue Songs" width={180} height={180} />
+                        ) : !isLocalEnvironment() ? (
+                          <div style={{ padding: '24px 16px', color: '#94a3b8', fontSize: '0.82rem', textAlign: 'center', lineHeight: '1.4' }}>
+                            <p style={{ margin: '0 0 8px 0', color: '#38bdf8', fontWeight: 600 }}>Local Network Feature</p>
+                            QR Mobile Remote runs when hosting locally on your Wi-Fi via <code>Setup_And_Run.bat</code> or Desktop app.
+                          </div>
                         ) : (
                           <div style={{ padding: '40px', color: '#64748b', fontSize: '0.85rem' }}>Unable to load QR</div>
                         )}

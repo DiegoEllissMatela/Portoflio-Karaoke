@@ -239,17 +239,36 @@ export function useKaraokeLogic(
   });
   const [currentSong, setCurrentSong] = useState<Song | null>(playlist.length > 0 ? playlist[0] : null);
 
-  // Background catalog loader
+  // Background catalog loader & soundfont pre-warming
   useEffect(() => {
     let isMounted = true;
-    loadSongCatalog((progress, status, log) => {
-      if (!isMounted) return;
-      setCatalogProgress(progress);
-      setCatalogStatus(status);
-      if (log) {
-        setCatalogLogs(prev => [...prev, log].slice(-30));
+
+    // Early background pre-warm of SoundFont while user navigates menu/modes
+    midiPlayer.ensureSoundfont().catch(err => {
+      console.warn('[KaraokeLogic] Early SoundFont pre-warm notice:', err);
+    });
+
+    loadSongCatalog(
+      (progress, status, log) => {
+        if (!isMounted) return;
+        setCatalogProgress(progress);
+        setCatalogStatus(status);
+        if (log) {
+          setCatalogLogs(prev => [...prev, log].slice(-30));
+        }
+      },
+      (fullSongs) => {
+        if (!isMounted) return;
+        USER_SONGS.length = 0;
+        USER_SONGS.push(...fullSongs);
+        USER_SONGS_MAP.clear();
+        for (const s of fullSongs) {
+          USER_SONGS_MAP.set(s.id, s);
+        }
+        setAllSongs(fullSongs);
+        setCatalogStatus(`Library ready (${fullSongs.length.toLocaleString()} tracks)`);
       }
-    })
+    )
       .then((loaded) => {
         if (!isMounted) return;
         USER_SONGS.length = 0;
