@@ -43,6 +43,7 @@ function copyDesktopPublicAssets(): Plugin {
         'icons',
         'Images',
         'sfx',
+        'soundfont',
         'Beer.gif',
         'favicon.svg',
         'icons.svg',
@@ -55,6 +56,32 @@ function copyDesktopPublicAssets(): Plugin {
         const dest = path.join(distDir, item);
         if (fs.existsSync(src)) {
           fs.cpSync(src, dest, { recursive: true });
+        }
+      }
+
+      // Ensure curated web songs and web catalog are bundled into dist/songs/ for production hosting (Vercel)
+      const webCatalogSrc = path.join(publicDir, 'songs', 'web_catalog.json');
+      const distSongsDir = path.join(distDir, 'songs');
+      const distSongsSubdir = path.join(distSongsDir, 'songs');
+
+      if (fs.existsSync(webCatalogSrc)) {
+        fs.mkdirSync(distSongsDir, { recursive: true });
+        fs.mkdirSync(distSongsSubdir, { recursive: true });
+        fs.copyFileSync(webCatalogSrc, path.join(distSongsDir, 'web_catalog.json'));
+        // Also provide catalog.json fallback in dist for web clients requesting /songs/catalog.json
+        fs.copyFileSync(webCatalogSrc, path.join(distSongsDir, 'catalog.json'));
+
+        const webCatalog = JSON.parse(fs.readFileSync(webCatalogSrc, 'utf8'));
+        const publicSongsDir = path.join(publicDir, 'songs', 'songs');
+        for (const song of webCatalog) {
+          const midiFileName = song[6];
+          if (midiFileName) {
+            const srcMidi = path.join(publicSongsDir, midiFileName);
+            const destMidi = path.join(distSongsSubdir, midiFileName);
+            if (fs.existsSync(srcMidi)) {
+              fs.copyFileSync(srcMidi, destMidi);
+            }
+          }
         }
       }
     }
